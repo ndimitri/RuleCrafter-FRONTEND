@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* Ensure the sidebar looks more defined */
+.p-sidebar {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f0f0f0;  // Light background color for the sidebar
+}
+
+/* Style the button */
+.p-button {
+  background-color: #007bff;  // Button color
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.p-button-outlined {
+  border: 2px solid #007bff;  // Outlined button
+}
+
+/* Style the list items inside the sidebar */
+.p-list-unstyled li a {
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.p-list-unstyled li a:hover {
+  background-color: #007bff;
+  color: white;
+}
