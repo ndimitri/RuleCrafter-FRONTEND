@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-  visibleSidebar: boolean = true;  // Set to true to always show the sidebar
+  visibleSidebar: boolean = true;  // Sidebar always visible
+  burgerMenuOpen: boolean = false; // Tracks burger menu state
+
+  // Toggles the burger menu
+  toggleBurgerMenu() {
+    this.burgerMenuOpen = !this.burgerMenuOpen;
+  }
 }

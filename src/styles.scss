@@ -1,19 +1,18 @@
 /* Ensure the sidebar looks more defined */
 .p-sidebar {
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #f0f0f0;  // Light background color for the sidebar
+  border-radius: 0; /* Remove rounded corners */
+  background-color: #770FFF; /* Light background color for the sidebar */
 }
 
 /* Style the button */
 .p-button {
-  background-color: #007bff;  // Button color
+  background-color: #007bff; /* Button color */
   border-radius: 4px;
   font-weight: bold;
 }
 
 .p-button-outlined {
-  border: 2px solid #007bff;  // Outlined button
+  border: 2px solid #007bff; /* Outlined button */
 }
 
 /* Style the list items inside the sidebar */
@@ -26,4 +25,51 @@
 .p-list-unstyled li a:hover {
   background-color: #007bff;
   color: white;
+}
+
+/* Sidebar Styles */
+.logo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0em; /* Adjust this value to move the logo higher or lower */
+  margin-bottom: 0; /* Optional: adjust the space below the logo */
+}
+
+.logo-img {
+  width: 4em; /* Size of the logo */
+  height: auto;
+}
+
+/* Burger Menu Styles */
+.burger-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0;
+  display: none; /* Initially hidden */
+}
+
+.burger-menu.open {
+  display: block; /* Show menu when open */
+}
+
+.burger-menu li {
+  margin: 0.5em 0;
+}
+
+.burger-menu li a {
+  text-decoration: none;
+  color: lavender; /* Change text color inside the burger menu */
+  font-size: 1em;
+  display: block;
+  padding: 0.5em;
+}
+
+.burger-menu li a:hover {
+  color: floralwhite;
 }
