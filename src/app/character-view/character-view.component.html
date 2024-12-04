@@ -1,0 +1,24 @@
+
+<div class="character-sheet">
+  <header>
+    <h1>{{character.name}}</h1>
+    <div class="info">
+      <div><strong>Classe : </strong>{{ character.classType.name}}</div>
+      <div><strong>Alignement : </strong>{{ character.alignment}}</div>
+    </div>
+  </header>
+
+  <section class="stats">
+    <div class="stat-block">
+      <h2>Stats</h2>
+      @for (ability of character.abilities; track ability.name){
+        <div class="stat">
+          <div><strong>{{ ability.name | uppercase }}</strong></div>
+          <div>{{ability.score}}</div>
+        </div>
+      }
+
+    </div>
+  </section>
+
+</div>
