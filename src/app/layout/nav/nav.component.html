@@ -1,14 +1,27 @@
-<!-- Sidebar -->
-<p-sidebar [(visible)]="visibleSidebar" position="left" [modal]="false" [style]="{width: '5em'}" [baseZIndex]="10000" [showCloseIcon]="false">
-  <!-- Logo Button -->
-  <button class="logo-btn" (click)="toggleBurgerMenu()">
-    <img src="logo.PNG" alt="RuleCrafter Logo" class="logo-img">
-  </button>
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/">MyApp</a>
+    <button class="burger-menu" (click)="toggleBurgerMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 
-  <!-- Burger Menu -->
-  <ul class="burger-menu" [class.open]="burgerMenuOpen">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-</p-sidebar>
+  <div class="navbar-links" [class.open]="burgerMenuOpen">
+    <ul>
+      <li *ngIf="authService.currentUser$ | async as user">
+        Welcome, {{ user.user.username }}
+      </li>
+      <li *ngIf="authService.currentUser$ | async">
+        <a (click)="logout()">Logout</a>
+      </li>
+      <li *ngIf="!(authService.currentUser$ | async)">
+        <a routerLink="/auth/login">Login</a>
+      </li>
+      <li *ngIf="!(authService.currentUser$ | async)">
+        <a routerLink="/auth/register">Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>

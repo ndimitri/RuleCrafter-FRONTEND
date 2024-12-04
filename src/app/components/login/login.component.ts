@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {LoginFormModel} from '../../features/auth/models/login.form.model';
 
 @Component({
   selector: 'app-login',
@@ -8,21 +9,14 @@ import {AuthService} from '../../services/auth.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  credentials: any = {};
+  credentials: LoginFormModel = { username: '', password: '' };
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService) {}
 
   login() {
-    this.authService.login(this.credentials).subscribe(() => {
-      this.router.navigate(['/home']);
-    }, error => {
-      console.error('Login error: ', error);
-    });
+    this.authService.login(this.credentials).subscribe(
+      () => console.log('Login successful'),
+      error => console.error('Login failed', error)
+    );
   }
-
 }
-
-/*
-login(): Calls the AuthService to log in a user.
-[(ngModel)]="credentials.username", [(ngModel)]="credentials.password": Two-way data binding for form fields.
- */
