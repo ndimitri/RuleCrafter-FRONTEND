@@ -1,0 +1,16 @@
+:host ::ng-deep .p-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.main-content {
+  margin-left: 5em; /* Adjust based on sidebar width */
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0; /* Reset margin for smaller screens */
+  }
+}

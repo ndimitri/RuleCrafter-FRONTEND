@@ -11,11 +11,13 @@ import {LoginFormModel} from '../../features/auth/models/login.form.model';
 export class LoginComponent {
   credentials: LoginFormModel = { username: '', password: '' };
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login() {
     this.authService.login(this.credentials).subscribe(
-      () => console.log('Login successful'),
+      () => {console.log('Login successful');
+        this.router.navigate(['/home']);}
+      ,
       error => console.error('Login failed', error)
     );
   }
