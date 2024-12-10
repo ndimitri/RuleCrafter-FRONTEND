@@ -27,13 +27,13 @@ export class AuthService {
   }
 
   register(form: RegisterFormModel): Observable<UserTokenDtoModel> {
-    return this._http.post<UserTokenDtoModel>(environment.apiUrl + "/register", form);
+    return this._http.post<UserTokenDtoModel>(environment.apiUrl + "/auth/register", form);
   }
 
   login(user: any): Observable<any> {
-    // Replace with actual API call
     return this._http.post(`${environment.apiUrl}/auth/login`, user).pipe(
       tap((response: any) => {
+        this._currentUser$.next(response);
         localStorage.setItem('token', response.token); // Store token
       })
     );

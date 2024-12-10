@@ -16,9 +16,22 @@ export class LoginComponent {
   login() {
     this.authService.login(this.credentials).subscribe(
       () => {console.log('Login successful');
+        console.log(this.credentials);
         this.router.navigate(['/home']);}
       ,
       error => console.error('Login failed', error)
     );
+  }
+
+  submit() {
+    this.authService.login(this.credentials).subscribe({
+      next: datas => {
+        console.log(datas);
+        this.router.navigate(['/home']);
+      },
+      error: err => {
+        console.error(err);
+      }
+    });
   }
 }

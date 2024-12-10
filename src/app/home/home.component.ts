@@ -11,8 +11,15 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    this.checkCurrentUser();
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/auth/login']); // Redirect to login if not authenticated
     }
+  }
+
+  checkCurrentUser() {
+    this.authService.currentUser$.subscribe((user) => {
+      console.log('Current User:', user);
+    });
   }
 }
