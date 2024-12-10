@@ -63,6 +63,13 @@ header {
   justify-content: center; /* Centrage vertical */
   font-size: 1.5em; /* Taille réduite du texte */
   font-family: 'BeaufortLoL-Medium', sans-serif;
+
+  .classes{
+    display: flex;
+    align-self: center;
+    gap: 10px;
+  }
+
 }
 
 strong{
@@ -84,6 +91,7 @@ strong{
   display: flex; /* Modèle Flexbox pour aligner les blocs de statistiques */
   justify-content: left; /* Espacement égal entre les blocs */
   margin-bottom: 20px; /* Espace sous la section */
+  border: 2px solid black;
 }
 
 

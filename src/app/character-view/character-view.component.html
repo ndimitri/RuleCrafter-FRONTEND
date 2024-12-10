@@ -3,9 +3,14 @@
   <header>
     <h1>{{character.name}}</h1>
     <div class="info">
-      <div><strong>Classe : </strong>{{ character.classType}}</div>
-      <div><strong>Race : </strong>{{ character.race}}</div>
-      <div><strong>Alignement : </strong>{{ character.alignement}}</div>
+      <div class="classes">
+        <strong>Classe(s) : </strong>
+        @for (classe of character.classes; track classe.name){
+          <div class="classe">{{classe.name | titlecase}} ({{classe.level}})</div>
+        }
+      </div>
+      <div><strong>Race : </strong>{{ character.race | titlecase}}</div>
+      <div><strong>Alignment : </strong>{{ character.alignment.replace("_", " ") | titlecase}}</div>
     </div>
     <div class="header-decoration">
       <img src="/assets/images/decorator-hr-lg.png" alt="">
@@ -18,39 +23,14 @@
         <h2>Stats</h2>
       </div>
       <div class="stats">
-        <div class="stat">
-          <div class="stat-name">STR</div>
-          <div class="stat-value">{{character.abilities.str}}</div>
-        </div>
-        <div class="stat">
-          <div class="stat-name">WIS</div>
-          <div class="stat-value">{{character.abilities.wis}}</div>
-        </div>
-        <div class="stat">
-          <div class="stat-name">DEX</div>
-          <div class="stat-value">{{character.abilities.dex}}</div>
-        </div>
-        <div class="stat">
-          <div class="stat-name">CON</div>
-          <div class="stat-value">{{character.abilities.con}}</div>
-        </div>
-        <div class="stat">
-          <div class="stat-name">CHA</div>
-          <div class="stat-value">{{character.abilities.cha}}</div>
-        </div>
-        <div class="stat">
-          <div class="stat-name">INT</div>
-          <div class="stat-value">{{character.abilities.intel}}</div>
-        </div>
-      </div>
+        @for (stat of character.stats; track stat.name){
+          <div class="stat">
+            <div class="stat-name">{{stat.shortName | uppercase}}</div>
+            <div class="stat-value">{{stat.value}}</div>
+          </div>
+        }
 
-<!--      @for (ability of character.abilities; track ability.name){-->
-<!--        <div class="stat">-->
-<!--          <div><strong>{{ ability.name | uppercase }}</strong></div>-->
-<!--          <div>:</div>-->
-<!--          <div>{{ability.score}}</div>-->
-<!--        </div>-->
-<!--      }-->
+      </div>
 
     </div>
   </section>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {CharacterResult} from '../shared/models/character.model';
-import {CharacterFullResult} from '../shared/models/characterFull.model';
+import {Character} from '../shared/models/character.model';
+import {environment} from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +11,10 @@ export class CharacterService {
 
   constructor(private http: HttpClient,) { }
 
-  // getCharacter(url : string) : Observable<CharacterResult>{
-  //   return this.http.get<CharacterResult>(url);
-  // }
-
-  getCharacter(url : string) : Observable<CharacterFullResult>{
-    return this.http.get<CharacterFullResult>(url);
+  getCharacter(id : number) : Observable<Character>{
+    return this.http.get<Character>(`${environment.API_URL}/character/${id}`);
   }
+
 
 
 }
