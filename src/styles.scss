@@ -1,10 +1,15 @@
-/* Ensure the sidebar looks more defined */
+/* Global PrimeNG Overrides */
+/* PrimeNG Sidebar Global Styles */
 .p-sidebar {
   border-radius: 0; /* Remove rounded corners */
-  background-color: #770FFF; /* Light background color for the sidebar */
+  background-color: #770FFF; /* Custom sidebar background */
+  position: fixed; /* Ensure it stays fixed */
+  height: 100vh; /* Full height for the sidebar */
+  top: 0;
+  left: 0;
 }
 
-/* Style the button */
+
 .p-button {
   background-color: #007bff; /* Button color */
   border-radius: 4px;
@@ -15,56 +20,10 @@
   border: 2px solid #007bff; /* Outlined button */
 }
 
-/* Style the list items inside the sidebar */
-.p-list-unstyled li a {
-  padding: 10px;
-  text-decoration: none;
-  color: #333;
-}
-
-.p-list-unstyled li a:hover {
-  background-color: #007bff;
-  color: white;
-}
-
-/* Sidebar Styles */
-.logo-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 0em; /* Adjust this value to move the logo higher or lower */
-  margin-bottom: 0; /* Optional: adjust the space below the logo */
-}
-
-.logo-img {
-  width: 4em; /* Size of the logo */
-  height: auto;
-}
-
-/* Burger Menu Styles */
-.burger-menu {
-  list-style-type: none;
-  padding: 0;
-  margin: 1em 0;
-  display: none; /* Initially hidden */
-}
-
-.burger-menu.open {
-  display: block; /* Show menu when open */
-}
-
-.burger-menu li {
-  margin: 0.5em 0;
-}
-
+/* Global Burger Menu Styles (if shared across multiple components) */
 .burger-menu li a {
   text-decoration: none;
-  color: lavender; /* Change text color inside the burger menu */
+  color: lavender;
   font-size: 1em;
   display: block;
   padding: 0.5em;
@@ -72,4 +31,20 @@
 
 .burger-menu li a:hover {
   color: floralwhite;
+}
+
+/* Shared Utility Classes */
+.card-footer {
+  background: none;
+  padding: 1rem;
+}
+
+.btn-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
 }

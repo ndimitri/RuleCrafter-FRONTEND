@@ -1,12 +1,15 @@
 :host ::ng-deep .p-sidebar {
-  position: fixed;
+  position: fixed; /* Sidebar fixed to the left */
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100%; /* Full viewport height */
+  width: 5em; /* Sidebar width */
+  background-color: #770FFF; /* Sidebar background */
+  border-radius: 0; /* No rounded corners */
 }
 
 .main-content {
-  margin-left: 5em; /* Adjust based on sidebar width */
+  margin-left: 5em; /* Space for the sidebar */
 }
 
 @media (max-width: 768px) {
@@ -14,3 +17,120 @@
     margin-left: 0; /* Reset margin for smaller screens */
   }
 }
+
+
+/* Sidebar User Info */
+.sidebar-user-info {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 0.9em;
+  color: lavender; /* User info text color */
+}
+
+.sidebar-user-info p {
+  margin: 0 0 0.5rem 0; /* Space below the welcome message */
+}
+
+/* Logo Button */
+.logo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0; /* Center the logo */
+}
+
+.logo-img {
+  width: 4em; /* Logo size */
+  height: auto;
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c9302c;
+}
+
+.burger-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 1em 0;
+  display: none; /* Ensure it’s visible */
+}
+
+.burger-menu.open {
+  display: block;
+}
+
+.burger-menu li {
+  margin: 0.5em 0;
+}
+
+.burger-menu li a {
+  text-decoration: none;
+  color: lavender; /* Text color */
+  font-size: 1em;
+  display: block;
+  padding: 0.5em;
+}
+
+.burger-menu li a:hover {
+  color: floralwhite;
+}
+
+/* Sidebar styles remain unchanged */
+.p-sidebar {
+  border-radius: 0;
+  background-color: #770FFF;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Burger Menu */
+.burger-menu {
+  position: absolute;
+  top: 0;
+  left: 5em; /* Position it to the right of the sidebar width */
+  width: 200px; /* Set the burger menu's width */
+  background-color: #333; /* Background color for the burger menu */
+  color: #fff;
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  display: none; /* Hidden by default */
+  z-index: 10001; /* Ensure it's above other elements */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Optional shadow */
+}
+
+.burger-menu.open {
+  display: block; /* Show the menu when the "open" class is applied */
+}
+
+.burger-menu li {
+  margin: 0.5em 0;
+}
+
+.burger-menu li a {
+  color: lavender;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.burger-menu li a:hover {
+  color: floralwhite;
+}
+

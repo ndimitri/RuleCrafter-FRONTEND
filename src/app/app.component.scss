@@ -1,0 +1,16 @@
+.layout {
+  display: grid;
+  grid-template-columns: 5em 1fr; /* Sidebar fixed at 5em, main content fills the rest */
+  height: 100vh; /* Full viewport height */
+}
+
+.sidebar {
+  background-color: transparent; /* Sidebar background is controlled by p-sidebar */
+}
+
+.main-content {
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #fff;
+}
+

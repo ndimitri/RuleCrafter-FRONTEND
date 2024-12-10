@@ -1,37 +1,27 @@
-<!-- Sidebar -->
-<p-sidebar *ngIf="!isLoginPage && (authService.currentUser$ | async)"
-           [(visible)]="visibleSidebar"
-           position="left"
-           [modal]="false"
-           [style]="{width: '5em'}"
-           [baseZIndex]="10000"
-           [showCloseIcon]="false">
+<p-sidebar
+  *ngIf="!isLoginPage && (authService.currentUser$ | async)"
+  [(visible)]="visibleSidebar"
+  position="left"
+  [modal]="false"
+  [style]="{width: '5em'}"
+  [baseZIndex]="10000"
+  [showCloseIcon]="false">
+
+  <!-- Logo -->
   <button class="logo-btn" (click)="toggleBurgerMenu()">
     <img src="logo.PNG" alt="RuleCrafter Logo" class="logo-img">
   </button>
-  <ul class="burger-menu">
-    <li><a routerLink="/home">Home</a></li>
-    <li><a routerLink="/profile">Profile</a></li>
-    <li><a routerLink="/settings">Settings</a></li>
-  </ul>
+
+  <!-- Welcome and Logout -->
+  <div class="sidebar-user-info" *ngIf="authService.currentUser$ | async as user">
+    <p>Welcome, {{ user.user.username }}</p>
+  </div>
+
 </p-sidebar>
 
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="navbar-links">
-    <ul>
-      <li *ngIf="authService.currentUser$ | async as user">
-        Welcome, {{ user.user.username }}
-      </li>
-      <li *ngIf="authService.currentUser$ | async">
-        <a (click)="logout()">Logout</a>
-      </li>
-      <li *ngIf="!(authService.currentUser$ | async)">
-        <a routerLink="/auth/login">Login</a>
-      </li>
-      <li *ngIf="!(authService.currentUser$ | async)">
-        <a routerLink="/auth/register">Register</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<ul class="burger-menu" [ngClass]="{'open': burgerMenuOpen}">
+  <li><button (click)="logout()" class="logout-btn">Logout</button></li>
+  <li><a routerLink="/home">Home</a></li>
+  <li><a routerLink="/profile">Profile</a></li>
+  <li><a routerLink="/settings">Settings</a></li>
+</ul>

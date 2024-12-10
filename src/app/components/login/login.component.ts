@@ -23,6 +23,10 @@ export class LoginComponent {
     );
   }
 
+  goToRegister() {
+    this.router.navigate(['/auth/register']);
+  }
+
   submit() {
     this.authService.login(this.credentials).subscribe({
       next: datas => {
