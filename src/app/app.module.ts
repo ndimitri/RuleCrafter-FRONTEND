@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CampaignHomeComponent } from './campaign/campaign-home/campaign-home.component';
+import { CampaignHomeComponent } from './campaign/pages/campaign-home/campaign-home.component';
 import {provideHttpClient} from '@angular/common/http';
 
 @NgModule({

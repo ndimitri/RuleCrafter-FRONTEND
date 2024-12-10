@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {CampaignHomeDTO} from '../../shared/models/campaign-home-model';
-import {CampaignHomeCardService} from './service/campaign-home-card.service';
+import {CampaignHomeDTO} from '../../models/campaign-home-model';
+import {CampaignService} from '../../service/campaign.service';
 
 @Component({
   selector: 'app-campaign-home',
@@ -12,13 +12,13 @@ export class CampaignHomeComponent {
   campaignHomeCard!: CampaignHomeDTO[];
 
   constructor(
-    private _campaignHomeCardService: CampaignHomeCardService
+    private _campaignHomeCardService: CampaignService
   ) {
-    this.getCards();
+    this.getCampaigns();
   }
 
-  getCards(): void {
-    this._campaignHomeCardService.getCards().subscribe({
+  getCampaigns(): void {
+    this._campaignHomeCardService.getCampaigns().subscribe({
       next: (result): void => {
         this.campaignHomeCard = result;
       },
