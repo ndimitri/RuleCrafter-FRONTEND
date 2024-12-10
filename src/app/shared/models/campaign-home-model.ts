@@ -1,4 +1,4 @@
-export interface CampaignHomeCard {
+export interface CampaignHomeDTO {
   id: number;
   campaignName: string;
   campaignSummary: string;

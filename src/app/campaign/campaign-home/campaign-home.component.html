@@ -1,4 +1,17 @@
-<h2>Campaign</h2>
-<section>
-  @for (card of CampaignHomeCard.data)
+<section id="campaignHomeHeader">
+  <div id="campaignHomeHeadBtn">
+    <button id="createCampaign">Create Campaign</button>
+    <button id="goBack">Back</button>
+  </div>
+  <h2>Campaign</h2>
+</section>
+<section class="campaignCards">
+  @for (card of campaignHomeCard; track card.id) {
+    <div class="campaignCard">
+      <h3>{{card.campaignName}}</h3>
+      <span id="summary">Summary</span>
+      <p>{{card.campaignSummary}}</p>
+      <span class="capacity">{{card.minCapacity}} - {{card.maxCapacity}}</span>
+    </div>
+  }
 </section>
