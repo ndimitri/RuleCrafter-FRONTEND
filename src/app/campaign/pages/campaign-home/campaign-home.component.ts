@@ -28,4 +28,8 @@ export class CampaignHomeComponent {
     });
   }
 
+  // goToCampaignOverview(): void {
+  //   if (this.campaignHomeCard.)
+  // }
+
 }

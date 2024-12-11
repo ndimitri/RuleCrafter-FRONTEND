@@ -7,7 +7,7 @@
 </section>
 <section class="campaignCards">
   @for (card of campaignHomeCard; track card.id) {
-    <div class="campaignCard">
+    <div class="campaignCard" (click)="goToCampaignOverview()">
       <h3>{{card.campaignName}}</h3>
       <span id="summary">Summary</span>
       <p>{{card.campaignSummary}}</p>

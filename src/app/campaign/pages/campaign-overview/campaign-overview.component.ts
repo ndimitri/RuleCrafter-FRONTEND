@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {CampaignOverviewDTO} from '../../models/campaign-overview';
 import {CampaignService} from '../../service/campaign.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-campaign-overview',
@@ -12,9 +13,12 @@ export class CampaignOverviewComponent {
   campaignOverview!: CampaignOverviewDTO;
 
   constructor(
-    private _campaignOverviewService: CampaignService
+    private _campaignOverviewService: CampaignService,
+    private _activatedRoute: ActivatedRoute
   ) {
-
+    let id = + this._activatedRoute.snapshot.params['id'];
+    this.getCampaign(id);
+    console.log(id)
   }
 
   getCampaign(id: number): void {
@@ -23,7 +27,7 @@ export class CampaignOverviewComponent {
         this.campaignOverview = result;
       },
       error: (error): void => {
-        console.log(error)
+        console.log(error);
       },
     });
   }

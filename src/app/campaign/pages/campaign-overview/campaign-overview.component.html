@@ -3,12 +3,21 @@
   <h2>{{campaignOverview.campaignName}}</h2>
 </section>
 <section class="campaignOverviewBody">
-  <div>
-    <p>{{campaignOverview.campaignSummary}}</p>
-    <span>{{campaignOverview.minCapacity}} - {{campaignOverview.maxCapacity}}</span>
-    <p>{{campaignOverview.partyRecommendation}}</p>
+  <div class="campaignOverviewDetails">
+    <p>Summary : {{campaignOverview.campaignSummary}}</p>
+    <span>Min - Max player : {{campaignOverview.minCapacity}} - {{campaignOverview.maxCapacity}}</span>
+    <p>Suggested party : {{campaignOverview.partyRecommendation}}</p>
   </div>
-  <span>World Overview</span>
-  <span>Quests Overview</span>
-  <span>Rules</span>
+  <div class="campaignOverviewCard">
+    <span>World Overview</span>
+    <img [src]="'assets/images/Rule_crafter_9.jpg'" [alt]="campaignOverview.campaignName">
+  </div>
+  <div class="campaignOverviewCard">
+    <span>Quests Overview</span>
+    <img [src]="'assets/images/Rule_crafter_6.jpg'" [alt]="campaignOverview.campaignName">
+  </div>
+  <div class="campaignOverviewCard">
+    <span>Rules</span>
+    <img [src]="'assets/images/Rule_crafter_4.jpg'" [alt]="campaignOverview.campaignName">
+  </div>
 </section>
