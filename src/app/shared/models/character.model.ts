@@ -9,12 +9,14 @@ export interface Character {
   stats: Stat[];
   feats: Feat[];
   classes: CharacterClass[];
-  savingThrows: Record<string, number>;
-  proficiencies: Record<string, Proficiency>;
+  savingThrows: SavingThrow[];
+  proficiencies: Proficiency[];
   spells: Spell[];
   items: Item[];
   background: string;
 }
+
+
 
 // Enums.ts
 export enum Alignment {
@@ -78,6 +80,13 @@ export enum SpellLevel{
   LEVEL_10 = "LEVEL_10",
 }
 
+// SavingThrow.ts
+export interface SavingThrow{
+  abilityName: string,
+  value: number,
+
+}
+
 // Description.ts
 export interface Description {
   age: string;
@@ -110,6 +119,7 @@ export interface CharacterClass {
 
 // Proficiency.ts
 export interface Proficiency {
+  skillName: string,
   proficiencyLevel: number;
   governingSkill: string;
 }

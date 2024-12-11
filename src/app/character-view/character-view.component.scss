@@ -7,7 +7,7 @@ body {
 /* Conteneur principal de la feuille de personnage */
 .character-sheet {
   position: relative; /* Nécessaire pour positionner les pseudo-éléments */
-  width: 50%; /* Largeur de 50% de la page */
+  width: 100vh; /* Largeur de 50% de la page */
   max-width: 800px; /* Largeur maximale de 800px */
   height: 80vh; /* Hauteur 80% écran visible */
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -92,6 +92,7 @@ strong{
   justify-content: left; /* Espacement égal entre les blocs */
   margin-bottom: 20px; /* Espace sous la section */
   border: 2px solid black;
+  padding: 10px;
 }
 
 

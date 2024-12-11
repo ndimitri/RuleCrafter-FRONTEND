@@ -35,4 +35,16 @@
     </div>
   </section>
 
+  <div class="up-blocks">
+    @for(proficiency of character.proficiencies; track proficiency.skillName){
+      <div class="proficiency">{{proficiency.skillName}} : lvl {{proficiency.proficiencyLevel}}</div>
+    }
+  </div>
+
+  <div class="up-blocks">
+    @for(savingThrow of character.savingThrows; track savingThrow.abilityName){
+      <div class="savingThrow">{{savingThrow.abilityName}} : {{savingThrow.value}}</div>
+    }
+  </div>
+
 </div>
