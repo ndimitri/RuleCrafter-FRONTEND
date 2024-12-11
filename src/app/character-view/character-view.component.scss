@@ -2,14 +2,20 @@
 
 // Character sheet - Apparence générale du corps de la page
 body {
-  background: #dfe6e9; /* Couleur de fond principale de la page */}
+  background: #dfe6e9; /* Couleur de fond principale de la page */
+}
+
+h2{
+  //margin-top: 0;
+  margin-bottom: 0;
+}
 
 /* Conteneur principal de la feuille de personnage */
 .character-sheet {
   position: relative; /* Nécessaire pour positionner les pseudo-éléments */
   width: 100vh; /* Largeur de 50% de la page */
   max-width: 800px; /* Largeur maximale de 800px */
-  height: 80vh; /* Hauteur 80% écran visible */
+  //height: 80vh; /* Hauteur 80% écran visible */
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
   margin: 20px auto; /* Centrage horizontal */
@@ -86,10 +92,17 @@ strong{
   display: block; /* Supprime l'espace blanc sous l'image */
 }
 
+.block-decoration {
+  padding-bottom: 10px;
+  img{
+    width: 100%;
+  }
+}
+
 /* Section des statistiques */
 .up-blocks {
   display: flex; /* Modèle Flexbox pour aligner les blocs de statistiques */
-  justify-content: left; /* Espacement égal entre les blocs */
+  justify-content: space-between; /* Espacement égal entre les blocs */
   margin-bottom: 20px; /* Espace sous la section */
   border: 2px solid black;
   padding: 10px;
@@ -102,35 +115,129 @@ strong{
   align-content: center;
   justify-content: center;
   width: 15%; /* Chaque bloc occupe 45% de la largeur disponible */
-  border: 1px solid black;
+  //border: 1px solid black;
   padding: 10px;
+  //background-color: blue;
+
+  .stat-block-name {
+    align-self: center;
+  }
+
+
+  .stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    //align-items: center;
+    gap: 5px;
+    width: 60%;
+    align-self: center;
+    border: 1px solid black;
+    padding: 10px;
+
+    .stat{
+      display: flex;
+      gap: 7px;
+      justify-content: space-between;
+
+      .stat-name{
+        font-family: 'BeaufortLoL-Bold', sans-serif;
+      }
+
+    }
+  }
+
 }
 
-.stat-block-name {
+.description-block{
+  display: flex;
+  flex-direction: column;
+  width: 70vh;
+  //background-color: red;
+  padding: 10px;
+  //border: 1px solid black;
+
+  .description-block-name{
+    align-self: center;
+  }
+
+  .description-infos{
+    display: flex;
+    justify-content: center;
+    font-size: 1.3em;
+
+    .description-infos-left{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      //border: 1px solid black;
+      width: 50%;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .description-infos-right{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      //border: 1px solid black;
+      width: 50%;
+      padding: 10px;
+      text-align: center;
+    }
+
+
+  }
+}
+
+.spell-block{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: center;
+  width: 20%;
+
+
+  align-content: center;
+  justify-content: center;
+
+
+  .spell-block-name{
+    align-self: center;
+  }
+
+  .spells-list{
+    font-size: 1.2em;
+    display: flex;
+    flex-direction:column;
+    padding: 10px;
+    border: 1px solid black;
+    width: 80%;
+
+    .spell{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 5px;
+    }
+
+  }
+
+
+}
+
+
+
+
+
+.block-name{
   font-size: 1.5em;
   font-family: 'BeaufortLoL-Bold', sans-serif;
   margin-top: -35px;
-  align-self: center;
 }
 
-.stat{
-display: flex;
-  gap: 7px;
-  justify-content: space-between;
-}
 
-.stats{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  //align-items: center;
-  margin-top: -25px;
-  gap: 5px;
-  width: 60%;
-  align-self: center;
-}
 
-.stat .stat-name{
-  font-family: 'BeaufortLoL-Bold', sans-serif;
 
-}
+

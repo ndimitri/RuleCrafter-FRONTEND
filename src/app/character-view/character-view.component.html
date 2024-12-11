@@ -6,7 +6,7 @@
       <div class="classes">
         <strong>Classe(s) : </strong>
         @for (classe of character.classes; track classe.name){
-          <div class="classe">{{classe.name | titlecase}} ({{classe.level}})</div>
+          <div class="classe">{{classe.name | titlecase}} (Lvl.{{classe.level}})</div>
         }
       </div>
       <div><strong>Race : </strong>{{ character.race | titlecase}}</div>
@@ -19,7 +19,7 @@
 
   <section class="up-blocks">
     <div class="stat-block">
-      <div class="stat-block-name">
+      <div class="stat-block-name block-name">
         <h2>Stats</h2>
       </div>
       <div class="stats">
@@ -29,16 +29,45 @@
             <div class="stat-value">{{stat.value}}</div>
           </div>
         }
+      </div>
+    </div>
+    <div class="description-block">
+      <div class="description-block-name block-name">
+        <h2>Description</h2>
+      </div>
+      <div class="block-decoration">
+        <img src="/assets/images/t1HeaderDivider.png" alt="">
+      </div>
+      <div class="description-infos">
+        <div class="description-infos-left">
+          <div class="description-info"><strong>Age :</strong> {{character.description.age}}y</div>
+          <div class="description-info"><strong>Height :</strong> {{character.description.height}}</div>
+          <div class="description-info"><strong>Weight : </strong>{{character.description.weight}}</div>
+        </div>
+        <div class="description-infos-right">
+          <div class="description-info"><strong> Eyes color:</strong> {{character.description.eyes | titlecase}}</div>
+          <div class="description-info"><strong>Skin color :</strong> {{character.description.skin | titlecase}}</div>
+          <div class="description-info"><strong>Hair color : </strong>{{character.description.hair | titlecase}}</div>
+        </div>
 
       </div>
-
     </div>
   </section>
 
   <div class="up-blocks">
-    @for(proficiency of character.proficiencies; track proficiency.skillName){
-      <div class="proficiency">{{proficiency.skillName}} : lvl {{proficiency.proficiencyLevel}}</div>
-    }
+    <div class="spell-block">
+      <div class="spell-block-name block-name">
+        <h2>Spells</h2>
+      </div>
+      <div class="spells-list">
+          @for(spell of character.spells; track spell.name){
+            <div class="spell">
+              <div class="spell-name">{{spell.name | titlecase}}</div>
+              <div class="spell-level">(Lvl.{{spell.level.at(-1)}})</div>
+            </div>
+          }
+      </div>
+    </div>
   </div>
 
   <div class="up-blocks">
