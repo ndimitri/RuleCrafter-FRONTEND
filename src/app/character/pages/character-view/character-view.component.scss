@@ -39,13 +39,13 @@ header {
   //border-bottom: 2px solid #000; /* Ligne noire en bas du header */
   margin-bottom: 20px; /* Espace sous le header */
   padding-bottom: 10px; /* Espace interne sous le texte */
-  //background-color: #5B5A56;
-  //background: linear-gradient(0deg, rgba(12, 26, 54, 0.91), #be912f);
-  background: linear-gradient(
-      0deg,
-      rgba(15,32,65,0.91) -10%,  /* La première couleur couvre 70% */
-      #a4832a 100%                /* La deuxième couleur commence après */
-  );
+
+  //background: linear-gradient(
+  //    0deg,
+  //    rgba(15,32,65,0.91) -10%,  /* La première couleur couvre 70% */
+  //    #a4832a 100%                /* La deuxième couleur commence après */
+  //);
+
 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
@@ -60,6 +60,51 @@ header {
     margin-top: 15px;
   }
 }
+
+/* Définition des différents gradients pour chaque alignement */
+/* Lawful Alignments */
+header.lawful-good {
+  background: linear-gradient(0deg, rgba(30,147,30,0.91) -10%, #a4832a 100%); /* Lawful Good - Vert */
+}
+
+header.lawful-evil {
+  background: linear-gradient(0deg, rgba(171,52,52,0.91) -10%, #a4832a 100%); /* Lawful Evil - Rouge */
+}
+
+header.lawful-neutral {
+  background: linear-gradient(0deg, rgba(49,49,180,0.91) -5%, #a4832a 100%); /* Lawful Neutral - Bleu */
+}
+
+/* Neutral Alignments */
+header.neutral-good {
+  background: linear-gradient(0deg, rgba(33,167,169,0.91) -10%, #a4832a 100%); /* Neutral Good - Cyan */
+}
+
+header.neutral-evil {
+  background: linear-gradient(0deg, rgba(128, 0, 128, 0.91) -10%, #a4832a 100%); /* Neutral Evil - Violet */
+}
+
+header.neutral-true {
+  background: linear-gradient(0deg, rgba(169, 169, 169, 0.91) -5%, #a4832a 100%); /* True Neutral - Gris */
+}
+
+/* Chaotic Alignments */
+header.chaotic-good {
+  background: linear-gradient(0deg, rgb(12,26,54) -10%, #a4832a 100%); /* Chaotic Good - Dark blue */
+}
+
+header.chaotic-evil {
+  background: linear-gradient(0deg, rgb(243,3,3) -5%, #a4832a 100%); /* Chaotic Evil - Rouge vif */
+}
+
+header.chaotic-neutral {
+  background: linear-gradient(0deg, rgba(37,25,6,0.91) -5%, #a4832a 100%); /* Chaotic Neutral - Dark brown */
+}
+
+
+
+
+
 
 /* Informations supplémentaires affichées sous le titre */
 .info {

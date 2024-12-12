@@ -35,4 +35,10 @@ export class CharacterViewComponent {
       }
     })
   }
+
+  // Fonction qui retourne la classe en minuscule avec les espaces remplacés par des tirets
+  get alignmentClass() {
+    return this.character.alignment.toLowerCase().replace('_', '-');  // 'LAWFUL_GOOD' devient 'lawful-good'
+  }
+
 }
