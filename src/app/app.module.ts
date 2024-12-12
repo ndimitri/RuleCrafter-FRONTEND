@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import {NavComponent} from './layout/nav/nav.component';
 import {RouterModule} from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {provideHttpClient} from '@angular/common/http';
@@ -32,6 +32,8 @@ import { ProfileComponent } from './profile/profile.component';
     SidebarModule,             // For the sidebar component
     ButtonModule,
     FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [
     provideHttpClient()

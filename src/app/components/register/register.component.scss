@@ -1,0 +1,51 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0), /* Dark overlay */
+      rgba(0, 0, 0, 0.5)
+  ),
+  url('/assets/images/registerback.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+/* Card styling remains the same */
+.register-card {
+  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+  padding: 30px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .register-footer {
+    margin-top: 20px;
+    text-align: center;
+
+    button {
+      background: none;
+      border: none;
+      color: #007bff;
+      cursor: pointer;
+      text-decoration: underline;
+      margin-top: 10px;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

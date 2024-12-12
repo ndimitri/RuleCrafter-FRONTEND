@@ -26,7 +26,7 @@ export class AuthService {
     }
   }
 
-  register(form: RegisterFormModel): Observable<UserTokenDtoModel> {
+  register(form: FormData): Observable<UserTokenDtoModel> {
     return this._http.post<UserTokenDtoModel>(environment.apiUrl + "/auth/register", form);
   }
 
