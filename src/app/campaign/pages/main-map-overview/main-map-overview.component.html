@@ -1,0 +1,9 @@
+<section class="mainMapHeader">
+  <h2>{{mainMapOverview.campaignName}}</h2>
+  <button [routerLink]="'/campaign/' + mainMapOverview.id + '/worldOverview/mainMapOverview'">Back</button>
+</section>
+<section class="mainMapBody">
+  @for (location of mainMapOverview.location; track mainMapOverview.id) {
+    <p>{{location.locationDescription}}</p>
+  }
+</section>

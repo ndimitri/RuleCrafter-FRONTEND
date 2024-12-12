@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {CampaignHomeDTO} from '../../models/campaign-home-model';
 import {CampaignService} from '../../service/campaign.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-campaign-home',
@@ -12,7 +13,8 @@ export class CampaignHomeComponent {
   campaignHomeCard!: CampaignHomeDTO[];
 
   constructor(
-    private _campaignHomeCardService: CampaignService
+    private _campaignHomeCardService: CampaignService,
+    private _router: Router,
   ) {
     this.getCampaigns();
   }
@@ -27,9 +29,5 @@ export class CampaignHomeComponent {
       },
     });
   }
-
-  // goToCampaignOverview(): void {
-  //   if (this.campaignHomeCard.)
-  // }
 
 }

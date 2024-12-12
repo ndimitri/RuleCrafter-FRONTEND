@@ -5,6 +5,7 @@ import {CampaignHomeDTO} from '../models/campaign-home-model';
 import {environment} from '../../../environments/environment';
 import {CampaignOverviewDTO} from '../models/campaign-overview';
 import {WorldOverviewDTO} from '../models/world-overview';
+import {MainMapOverviewDTO} from '../models/main-map-overview';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class CampaignService {
 
   getWorldOverview(id: number): Observable<WorldOverviewDTO> {
     return this._http.get<WorldOverviewDTO>(environment.API_URL + "/campaign/" + id + "/worldOverview");
+  }
+
+  getMainMapOverview(id: number): Observable<MainMapOverviewDTO> {
+    return this._http.get<MainMapOverviewDTO>(environment.API_URL + "/campaign/" + id + "/worldOverview/mainMapOverview");
   }
 
 }

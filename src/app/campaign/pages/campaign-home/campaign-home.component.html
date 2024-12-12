@@ -1,13 +1,13 @@
 <section id="campaignHomeHeader">
   <div id="campaignHomeHeadBtn">
-    <button id="createCampaign">Create Campaign</button>
-    <button id="goBack">Back</button>
+    <button id="createCampaign" [routerLink]="'/campaign/createCampaign'">Create Campaign</button>
+    <button id="goBack" [routerLink]="'/home'">Back</button>
   </div>
   <h2>Campaign</h2>
 </section>
 <section class="campaignCards">
   @for (card of campaignHomeCard; track card.id) {
-    <div class="campaignCard" (click)="goToCampaignOverview()">
+    <div class="campaignCard" [routerLink]="'/campaign/' + card.id">
       <h3>{{card.campaignName}}</h3>
       <span id="summary">Summary</span>
       <p>{{card.campaignSummary}}</p>

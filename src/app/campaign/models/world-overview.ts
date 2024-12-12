@@ -1,4 +1,5 @@
 export interface WorldOverviewDTO {
+  id: number;
   campaignName: string;
   mainMapPicture: string;
   primaryRacePicture: string;

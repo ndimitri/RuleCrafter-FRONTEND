@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {CampaignOverviewDTO} from '../../models/campaign-overview';
 import {CampaignService} from '../../service/campaign.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-campaign-overview',
@@ -14,7 +14,8 @@ export class CampaignOverviewComponent {
 
   constructor(
     private _campaignOverviewService: CampaignService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _router: Router,
   ) {
     let id = + this._activatedRoute.snapshot.params['id'];
     this.getCampaign(id);

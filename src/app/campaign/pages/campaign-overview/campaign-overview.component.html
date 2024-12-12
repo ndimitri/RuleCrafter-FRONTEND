@@ -8,15 +8,15 @@
     <span>Min - Max player : {{campaignOverview.minCapacity}} - {{campaignOverview.maxCapacity}}</span>
     <p>Suggested party : {{campaignOverview.partyRecommendation}}</p>
   </div>
-  <div class="campaignOverviewCard">
+  <div class="campaignOverviewCard" [routerLink]="'/campaign/' + campaignOverview.id + '/worldOverview'">
     <span>World Overview</span>
     <img [src]="'assets/images/Rule_crafter_9.jpg'" [alt]="campaignOverview.campaignName">
   </div>
-  <div class="campaignOverviewCard">
+  <div class="campaignOverviewCard" [routerLink]="'/campaign/' + campaignOverview.id + '/questOverview'">
     <span>Quests Overview</span>
     <img [src]="'assets/images/Rule_crafter_6.jpg'" [alt]="campaignOverview.campaignName">
   </div>
-  <div class="campaignOverviewCard">
+  <div class="campaignOverviewCard" [routerLink]="'/campaign/' + campaignOverview.id + '/rules'">
     <span>Rules</span>
     <img [src]="'assets/images/Rule_crafter_4.jpg'" [alt]="campaignOverview.campaignName">
   </div>

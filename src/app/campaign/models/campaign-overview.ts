@@ -1,4 +1,5 @@
 export interface CampaignOverviewDTO {
+  id: number;
   campaignName: string;
   campaignSummary: string;
   minCapacity: number;
