@@ -1,61 +1,58 @@
-/* Parent container for cards */
-.cards-container {
-  display: flex;
-  flex-wrap: wrap; /* Wrap cards if there isn’t enough horizontal space */
-  gap: 1rem; /* Space between cards */
-  padding: 1rem;
-  height: 100%; /* Take the full height of the container */
-  box-sizing: border-box;
-  overflow: auto; /* Enable scrolling if content overflows */
-}
-
-/* Individual card */
 .card {
-  flex: 1 1 calc(33.333% - 1rem); /* Dynamically take 1/3 of the width minus gap */
-  height: auto; /* Adjust height dynamically */
+  width: 100%;
+  height: 100vh;
   border-radius: 4px;
-  background: #212121;
+  background: #240046;
   display: flex;
-  flex-direction: column; /* Adjust for vertical alignment */
   gap: 5px;
   padding: 0.4em;
-  transition: flex 0.3s ease; /* Smooth resizing */
-  box-sizing: border-box; /* Include padding and borders in size */
+  box-sizing: border-box;
 }
 
-.card:hover {
-  flex: 1 1 calc(50% - 1rem); /* Expand the card when hovered */
-}
-
-/* Content inside the card */
-.card p {
+.card-block {
   flex: 1;
   overflow: hidden;
   cursor: pointer;
   border-radius: 2px;
-  transition: all 0.5s ease;
-  background: #212121;
-  border: 1px solid #ff5a91;
+  transition: all 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
+  background-position: center;
+  border: black;
+  position: relative;
 }
 
-.card p:hover {
-  flex: 4;
+.card-block:hover {
+  flex: 3;
 }
 
-.card p span {
-  min-width: 14em;
+.card-block span {
   padding: 0.5em;
   text-align: center;
-  transform: rotate(-90deg);
-  transition: all 0.5s ease;
+  transform: rotate(-15deg);
+  transition: all 0.5s;
   text-transform: uppercase;
-  color: #ff568e;
+  color: lavender;
   letter-spacing: 0.1em;
+  font-size: 2em;
+  z-index: 1;
+  position: relative;
+  top: 300px;
 }
 
-.card p:hover span {
+.card-block:hover span {
   transform: rotate(0);
+}
+
+.card-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
 }

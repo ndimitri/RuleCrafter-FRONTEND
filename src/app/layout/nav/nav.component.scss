@@ -4,20 +4,13 @@
   left: 0;
   height: 100%; /* Full viewport height */
   width: 5em; /* Sidebar width */
-  background-color: #770FFF; /* Sidebar background */
+  background-color: #240046; /* Sidebar background */
   border-radius: 0; /* No rounded corners */
 }
 
 .main-content {
   margin-left: 5em; /* Space for the sidebar */
 }
-
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 0; /* Reset margin for smaller screens */
-  }
-}
-
 
 /* Sidebar User Info */
 .sidebar-user-info {
@@ -93,7 +86,7 @@
 /* Sidebar styles remain unchanged */
 .p-sidebar {
   border-radius: 0;
-  background-color: #770FFF;
+  background-color: #240046;
   height: 100%;
   position: fixed;
   top: 0;

@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {provideHttpClient} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     NavComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     RouterModule,

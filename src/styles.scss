@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 /* Global PrimeNG Overrides */
 /* PrimeNG Sidebar Global Styles */
 .p-sidebar {
@@ -48,3 +54,4 @@
 .btn-link:hover {
   text-decoration: underline;
 }
+
