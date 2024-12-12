@@ -3,13 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CharacterViewComponent } from './character-view/character-view.component';
+import { CharacterViewComponent } from './character/pages/character-view/character-view.component';
 import {provideHttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CharacterViewComponent
   ],
   imports: [
     BrowserModule,

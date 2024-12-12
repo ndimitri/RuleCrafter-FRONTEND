@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CharacterViewComponent} from './character-view/character-view.component';
+import {CharacterViewComponent} from './character/pages/character-view/character-view.component';
 
 
 const routes: Routes = [
-  {path: 'character', component: CharacterViewComponent},
+  // {path: 'character', component: CharacterViewComponent},
+  {path: "character", loadChildren: () => import('./character/character.module').then(m => m.CharacterModule)},
 ];
 
 @NgModule({

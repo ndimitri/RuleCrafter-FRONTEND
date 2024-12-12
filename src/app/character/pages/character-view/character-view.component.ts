@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {CharacterService} from '../services/character.service';
-import {Character} from '../shared/models/character.model';
+import {CharacterService} from '../../services/character.service';
+import {Character} from '../../models/character.model';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-character-view',
@@ -9,18 +10,18 @@ import {Character} from '../shared/models/character.model';
 })
 export class CharacterViewComponent {
 
-  @Input({required:true})
-  characterId!: number;
+  // @Input({required:true})
+  // characterId!: number;
 
   character! : Character;
 
 
-
-  constructor(private _characterService: CharacterService) {
+  constructor(private _characterService: CharacterService, private _activatedRoute: ActivatedRoute,) {
   }
 
   ngOnInit(): void {
-    this.getCharacter(this.characterId);
+    let id = + this._activatedRoute.snapshot.params['id'];
+    this.getCharacter(id);
   }
 
   getCharacter(id: number) : void {
