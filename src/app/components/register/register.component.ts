@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
-import {RegisterFormModel} from '../../features/auth/models/register.form.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {RegisterForm} from '../../features/auth/forms/register.form';
 
@@ -49,5 +48,9 @@ export class RegisterComponent {
         error: (error) => console.error('Registration failed', error)
       }
     );
+  }
+
+  redirectToLogin() {
+    this.router.navigate(['auth/login']);
   }
 }

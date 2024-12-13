@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RuleCrafter-FRONTEND';
+  isSidebarVisible: boolean | undefined;
+
+  constructor(private authService: AuthService) {
+    this.authService.currentUser$.subscribe(user => {
+      this.isSidebarVisible = !!user; // Sidebar is visible if a user is logged in
+    });
+  }
 }

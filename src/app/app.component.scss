@@ -1,7 +1,13 @@
-.layout {
+.layout-with-sidebar {
   display: grid;
   grid-template-columns: 5em 1fr; /* Sidebar fixed at 5em, main content fills the rest */
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
+}
+
+.layout-full {
+  display: grid;
+  grid-template-columns: 1fr; /* Full width for main content */
+  height: 100vh;
 }
 
 .sidebar {

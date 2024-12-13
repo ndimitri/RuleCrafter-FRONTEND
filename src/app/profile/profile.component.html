@@ -1,1 +1,22 @@
-<h1>Profile Works?</h1>
+<div class="profile-container">
+  <div class="profile-card">
+    <h2>Edit Profile</h2>
+
+    <form [formGroup]="profileForm" (ngSubmit)="updateProfile()" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username"  formControlName="username" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" />
+      </div>
+      <div class="form-group">
+        <label for="image">Profile Picture</label>
+        <input type="file" id="image"  />
+      </div>
+      <button type="submit">Save Changes</button>
+    </form>
+    <img src="http://localhost:8080/images/c9fea3ca-670f-47dd-add3-25540980c510_ui.jpg" alt="">
+  </div>
+</div>

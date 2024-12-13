@@ -1,5 +1,5 @@
-<div class="layout">
-  <div class="sidebar">
+<div [class.layout-with-sidebar]="isSidebarVisible" [class.layout-full]="!isSidebarVisible">
+  <div *ngIf="isSidebarVisible" class="sidebar">
     <app-nav></app-nav>
   </div>
   <main class="main-content">

@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, Observable, tap} from 'rxjs';
 import {UserTokenDtoModel} from '../features/auth/models/user.token.dto.model';
 import {Router} from '@angular/router';
-import {RegisterFormModel} from '../features/auth/models/register.form.model';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -32,9 +31,9 @@ export class AuthService {
 
   login(user: any): Observable<any> {
     return this._http.post(`${environment.apiUrl}/auth/login`, user).pipe(
-      tap((response: any) => {
-        this._currentUser$.next(response);
-        localStorage.setItem('token', response.token); // Store token
+      tap((user: any) => {
+        this._currentUser$.next(user);
+        localStorage.setItem("currentUser", JSON.stringify(user));
       })
     );
   }
@@ -45,8 +44,13 @@ export class AuthService {
     this._router.navigate(["/auth/login"]);
   }
 
+  updateProfile(form: FormData): Observable<UserTokenDtoModel> {
+    return this._http.put<UserTokenDtoModel>(environment.apiUrl + "/auth/profile", form);
+  }
+
+
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('token'); // Check if token exists
+    return !!localStorage.getItem('currentUser'); // Check if token exists
   }
 
   get currentUser(): UserTokenDtoModel | undefined {

@@ -5,18 +5,37 @@
   height: 100vh;
   margin: 0;
   background: linear-gradient(
-      rgba(0, 0, 0, 0.5), /* Dark overlay */
+      rgba(0, 0, 0, 0), /* Dark overlay */
       rgba(0, 0, 0, 0.5)
   ),
-  url('/assets/images/registerback.jpg') no-repeat center center;
+  url('/assets/images/dnd.jpg') no-repeat center center;
   background-size: cover;
 }
 
-/* Card styling remains the same */
+.welcome-arch {
+  position: absolute;
+  text-align: center;
+  font-family: 'Cursive', sans-serif;
+  font-size: 2rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); /* Subtle glow */
+  pointer-events: none;
+}
+
+.welcome-arch.top {
+  top: 20%; /* Position the top arch */
+  transform: rotate(0deg); /* Keep flat or adjust for slight styling */
+}
+
+.welcome-arch.bottom {
+  bottom: 15%; /* Position the bottom arch */
+  transform: rotate(0deg); /* Adjust rotation if desired */
+}
+
 .login-card {
-  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
   padding: 30px;
-  border: 2px solid #007bff;
+  border: 2px black;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 350px;
