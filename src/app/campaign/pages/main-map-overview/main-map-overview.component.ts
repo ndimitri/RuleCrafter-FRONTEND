@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MainMapOverviewDTO} from '../../models/main-map-overview';
+import {MainMapOverviewDTO} from '../../models/dtos/main-map-overview';
 import {CampaignService} from '../../service/campaign.service';
 import {ActivatedRoute, Router} from '@angular/router';
 

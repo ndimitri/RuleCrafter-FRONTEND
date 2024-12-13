@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {CampaignHomeDTO} from '../models/campaign-home-model';
+import {CampaignHomeDTO} from '../models/dtos/campaign-home-model';
 import {environment} from '../../../environments/environment';
-import {CampaignOverviewDTO} from '../models/campaign-overview';
-import {WorldOverviewDTO} from '../models/world-overview';
-import {MainMapOverviewDTO} from '../models/main-map-overview';
+import {CampaignOverviewDTO} from '../models/dtos/campaign-overview';
+import {WorldOverviewDTO} from '../models/dtos/world-overview';
+import {MainMapOverviewDTO} from '../models/dtos/main-map-overview';
 
 @Injectable({
   providedIn: 'root'

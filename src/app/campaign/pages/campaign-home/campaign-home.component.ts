@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {CampaignHomeDTO} from '../../models/campaign-home-model';
+import {CampaignHomeDTO} from '../../models/dtos/campaign-home-model';
 import {CampaignService} from '../../service/campaign.service';
 import {Router} from '@angular/router';
 
