@@ -31,10 +31,17 @@ export class LoginComponent {
     this.authService.login(this.credentials).subscribe({
       next: datas => {
         console.log(datas);
+        localStorage.setItem('token', datas.token)
         this.router.navigate(['/home']);
       },
       error: err => {
         console.error(err);
+        if (err.status === 401) {
+          alert('Session expired. Please log in again.');
+          this.router.navigate(['/auth/login']);
+
+        }
+
       }
     });
   }
