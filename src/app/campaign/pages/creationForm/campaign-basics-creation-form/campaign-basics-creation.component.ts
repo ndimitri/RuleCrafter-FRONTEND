@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BasicsForm} from '../../models/form/basics-form';
+import {BasicsForm} from '../../../models/form/basics-form';
 
 @Component({
   selector: 'app-campaign-basics-creation',
@@ -17,9 +17,9 @@ export class CampaignBasicsCreationComponent {
     this.basicsForm = this._formBuilder.group({
       campaignName: [null, [Validators.required, Validators.maxLength(100)]],
       campaignSummary: [null, [Validators.required, Validators.maxLength(1000)]],
-      minCapacity: [null, Validators.required, Validators.min(0)],
-      maxCapacity: [null, Validators.required, Validators.min(1)],
-      partyRecommandation: [null, [Validators.required, Validators.maxLength(500)]],
+      minCapacity: [null, [Validators.required, Validators.min(0)]],
+      maxCapacity: [null, [Validators.required, Validators.min(1)]],
+      partyRecommendation: [null, [Validators.required, Validators.maxLength(500)]],
     })
   }
 

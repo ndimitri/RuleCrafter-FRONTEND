@@ -1,0 +1,66 @@
+<section>
+  <button [routerLink]="'/campaign'">Back</button>
+  <div>
+    <button [routerLink]="'/campaign/campaignCreation/basicsInfo'">Basics</button>
+    <button [routerLink]="'/campaign/campaignCreation/region'">World Building</button>
+    <button [routerLink]="'/campaign/campaignCreation/mainQuest'">Quests</button>
+    <button [routerLink]="'/campaign/campaignCreation/scenario'">Scenario</button>
+  </div>
+  <div>
+    <button [routerLink]="'/campaign/campaignCreation/region'">Region/Country</button>
+    <button [routerLink]="'/campaign/campaignCreation/location'">Cities/Points of interest</button>
+    <button [routerLink]="'/campaign/campaignCreation/faction'">Factions</button>
+    <button [routerLink]="'campaign/campaignCreation/npc'">NPCs</button>
+  </div>
+</section>
+<section>
+  <form [formGroup]="mainQuestForm" (ngSubmit)="submit()">
+    <div>
+      <label for="mainQuestName">Name</label>
+      <input id="mainQuestName" type="text" placeholder="Write the name of the main quest" formControlName="mainQuestName">
+      <app-form-error [control]="mainQuestForm"></app-form-error>
+    </div>
+    <div>
+      <label for="mainQuestDescription">Description</label>
+      <input id="mainQuestDescription" type="text" placeholder="Write the description of your main quest" formControlName="mainQuestDescription">
+      <app-form-error [control]="mainQuestForm"></app-form-error>
+    </div>
+    <div>
+      <label for="mainQuestType">Type</label>
+      <input id="mainQuestType" type="text" placeholder="Write the type of your main quest" formControlName="mainQuestType">
+      <app-form-error [control]="mainQuestForm"></app-form-error>
+    </div>
+    <div>
+      <label for="mainQuestGiver">Quest giver</label>
+      <select id="mainQuestGiver">
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </div>
+    <div>
+      <label for="objectiveName">Objective name</label>
+      <input id="objectiveName" type="text" placeholder="Write the name of your objective" formControlName="objectiveName">
+      <app-form-error [control]="mainQuestForm"></app-form-error>
+    </div>
+    <div>
+      <label for="objectiveDescription">Objective description</label>
+      <input id="objectiveDescription" type="text" placeholder="Write your objective description" formControlName="objectiveDescription">
+      <app-form-error [control]="mainQuestForm"></app-form-error>
+    </div>
+    <div>
+      <label for="mainQuestNpc">Link Npc</label>
+      <select id="mainQuestNpc">
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </div>
+    <div>
+      <label for="mainQuestLocation">Link location</label>
+      <select id="mainQuestLocation">
+        <option>1</option>
+        <option>2</option>
+      </select>
+    </div>
+    <button type="submit">Save</button>
+  </form>
+</section>

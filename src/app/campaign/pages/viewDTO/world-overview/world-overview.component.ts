@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {WorldOverviewDTO} from '../../models/dtos/world-overview';
-import {CampaignService} from '../../service/campaign.service'
+import {WorldOverviewDTO} from '../../../models/dtos/world-overview';
+import {CampaignService} from '../../../service/campaign.service'
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
