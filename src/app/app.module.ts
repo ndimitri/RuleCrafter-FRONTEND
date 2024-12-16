@@ -10,9 +10,10 @@ import { RegisterComponent } from './components/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
-import {provideHttpClient} from '@angular/common/http';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import {jwtInterceptor} from './core/interceptors/jwt.interceptor';
 
 
 @NgModule({
@@ -36,7 +37,9 @@ import { ProfileComponent } from './profile/profile.component';
 
   ],
   providers: [
-    provideHttpClient()
+    provideHttpClient(
+      withInterceptors([jwtInterceptor])
+    )
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {RegisterForm} from '../features/auth/forms/register.form';
+import {UserDtoModel} from '../features/auth/models/user.dto.model';
+import {UserService} from '../services/user.service';
+import {environment} from '../../environments/environment';
+import {UserForm} from '../features/auth/forms/user.form';
 
 @Component({
   selector: 'app-profile',
@@ -11,30 +15,60 @@ import {RegisterForm} from '../features/auth/forms/register.form';
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   selectedFile: File | null = null;
-
+  imagePreview: string | null = null;
+  profilePicture?: string;
 
   constructor(
+    private _userService: UserService,
     private _authService: AuthService,
     private readonly _fb: FormBuilder
   ) {
-    this.profileForm = this._fb.group({...RegisterForm});
+    this.profileForm = this._fb.group({...UserForm});
   }
 
-
   ngOnInit(): void {
-    const storedUser = this._authService.currentUser;
-    this.profileForm.get('username')?.setValue(storedUser?.user.username);
+    this._userService.getUserProfile().subscribe({
+      next: (user) => {
+        this.profileForm.patchValue({
+          id: user.id,
+          username: user.username,
+          email: user.email,
+        });
+
+        this.profilePicture = user.picture;
+        console.log(this.profileForm);
+      },
+      error: (err) => console.error('Failed to fetch user profile:', err),
+    });
+  }
+
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      // Create a preview of the selected image
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
   updateProfile(): void {
+    console.log('updateProfile() called');
     if (this.profileForm.valid) {
+      console.log('Valid')
       const formData = new FormData();
-      formData.append('form', this.profileForm.value);
+      const formJson = new Blob([JSON.stringify(this.profileForm.value)], {type: 'application/json'});
+      formData.append('form', formJson);
+
       if (this.selectedFile) {
+        console.log('jarrive au selected file')
         formData.append('image', this.selectedFile);
       }
-
-      this._authService.updateProfile(formData).subscribe({
+      console.log('Jarrive avant le service')
+      this._userService.updateProfile(formData).subscribe({
         next: (response) => {
           console.log('Profile updated successfully:', response);
         },
@@ -44,5 +78,6 @@ export class ProfileComponent implements OnInit {
       });
     }
   }
-}
 
+  protected readonly environment = environment;
+}

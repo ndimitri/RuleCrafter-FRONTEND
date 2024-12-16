@@ -1,9 +1,23 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {UserDtoModel} from '../features/auth/models/user.dto.model';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  constructor(
+    private readonly _http: HttpClient
+  ) { }
+
+  getUserProfile(): Observable<UserDtoModel> {
+    return this._http.get<UserDtoModel>(`${environment.apiUrl}/auth/profile`);
+  }
+
+  updateProfile(form: FormData): Observable<UserDtoModel> {
+    return this._http.put<UserDtoModel>(`${environment.apiUrl}/auth/profile`, form);
+  }
 }

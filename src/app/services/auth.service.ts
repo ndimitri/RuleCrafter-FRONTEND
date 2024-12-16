@@ -4,6 +4,7 @@ import {BehaviorSubject, Observable, tap} from 'rxjs';
 import {UserTokenDtoModel} from '../features/auth/models/user.token.dto.model';
 import {Router} from '@angular/router';
 import {environment} from '../../environments/environment';
+import {LoginFormModel} from '../features/auth/models/login.form.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,9 +30,9 @@ export class AuthService {
     return this._http.post<UserTokenDtoModel>(environment.apiUrl + "/auth/register", form);
   }
 
-  login(user: any): Observable<any> {
-    return this._http.post(`${environment.apiUrl}/auth/login`, user).pipe(
-      tap((user: any) => {
+  login(user: LoginFormModel) {
+    return this._http.post<UserTokenDtoModel>(`${environment.apiUrl}/auth/login`, user).pipe(
+      tap((user) => {
         this._currentUser$.next(user);
         localStorage.setItem("currentUser", JSON.stringify(user));
       })

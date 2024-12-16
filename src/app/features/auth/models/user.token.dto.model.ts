@@ -1,11 +1,6 @@
-export interface UserTokenDtoModel {
-  accessToken: string;
-  user: User
-}
+import {UserDtoModel} from './user.dto.model';
 
-export interface User{
-  id: number;
+export interface UserTokenDtoModel {
   token: string;
-  username: string;
-  email?: string;
+  user: UserDtoModel
 }

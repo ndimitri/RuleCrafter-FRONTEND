@@ -1,11 +1,17 @@
 <div class="profile-container">
   <div class="profile-card">
+    <div class="profile-picture-container">
+      <img
+        class="profile-picture"
+        [src]="profilePicture ? environment.apiUrl + '/images/' + profilePicture : environment.apiUrl + '/images/default-profile.jpg'"
+        alt="Profile Picture"
+      />
+    </div>
     <h2>Edit Profile</h2>
-
     <form [formGroup]="profileForm" (ngSubmit)="updateProfile()" enctype="multipart/form-data">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username"  formControlName="username" />
+        <input type="text" id="username" formControlName="username" />
       </div>
       <div class="form-group">
         <label for="email">Email</label>
@@ -13,10 +19,9 @@
       </div>
       <div class="form-group">
         <label for="image">Profile Picture</label>
-        <input type="file" id="image"  />
+        <input type="file" id="image" (change)="onFileSelected($event)" accept=".jpg,.jpeg,.png"/>
       </div>
       <button type="submit">Save Changes</button>
     </form>
-    <img src="http://localhost:8080/images/c9fea3ca-670f-47dd-add3-25540980c510_ui.jpg" alt="">
   </div>
 </div>
