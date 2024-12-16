@@ -49,7 +49,7 @@
 
 
         <div formArrayName="classes">
-          <h3>Classes : </h3>
+          <h2>Classes : </h2>
           @for(classe of classes.controls; track i; let i = $index){
             <div>
               <label for="class-{{i}}">Classe {{i+1}} : </label>
@@ -98,6 +98,7 @@
 
     <div [formGroup]="statsForm">
       <div class="statsForm">
+        <h2>Stats</h2>
           @for(stat of stats?.results; track stat.index){
             <div class="statsForm-stat-name">
               <label [for]="stat.index">{{stat.name}}</label>
