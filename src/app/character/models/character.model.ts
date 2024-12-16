@@ -108,7 +108,7 @@ export interface Stat {
 export interface Feat {
   name: string;
   notes: string;
-  rollableProps: RollableProp[];
+  rollableProps?: RollableProp[];
 }
 
 // CharacterClass.ts

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {
-  Alignment,
+  Alignment, CharacterClass, Feat,
   ItemRarity,
   ItemType,
   MagicSchool,
@@ -12,7 +12,8 @@ import {APIClassesResult} from '../../models/APIClassesResult';
 import {ApiService} from '../../services/api.service';
 import {APIRacesResult} from '../../models/APIRacesResult';
 import {APIStatsResult} from '../../models/APIStatsResult';
-import {toArray} from 'rxjs';
+import {Observable, toArray} from 'rxjs';
+import {CharacterForm} from '../../models/form/CharacterForm';
 
 @Component({
   selector: 'app-character-form',
@@ -24,11 +25,9 @@ export class CharacterFormComponent {
   characterForm : FormGroup;
   descriptionForm: FormGroup;
   statsForm : FormGroup;
+  featsForm : FormGroup;
 
   fullForm : FormGroup;
-
-  selectedClasses: string[] = [];
-
 
   //Enums
   protected readonly Alignment = Alignment;
@@ -42,6 +41,9 @@ export class CharacterFormComponent {
   races?: APIRacesResult;
   stats?: APIStatsResult;
 
+  //Tests
+  featsList : Feat[] = [];
+
 
   constructor(private formBuilder: FormBuilder, private _apiService: ApiService) {
     this.characterForm = this.formBuilder.group({
@@ -54,10 +56,12 @@ export class CharacterFormComponent {
       classes: this.formBuilder.array([
         new FormControl(null)
       ]),
-      feats: this.formBuilder.array([]),
     });
 
-    this.addFeat();
+    this.featsForm = this.formBuilder.group({
+      name: [null, [Validators.required]],
+      notes: [null, [Validators.required]],
+    })
 
     this.descriptionForm = this.formBuilder.group({
       age : [null, [Validators.required, nonNullPositiveNumber()]],
@@ -82,7 +86,9 @@ export class CharacterFormComponent {
       characterForm : this.characterForm,
       descriptionForm : this.descriptionForm,
       statsForm : this.statsForm,
-    })
+    });
+
+
   }
 
 
@@ -90,7 +96,9 @@ export class CharacterFormComponent {
     this.getClasses();
     this.getRaces();
     this.getStats();
+
   }
+
 
   getClasses() : void {
     this._apiService.getClasses().subscribe({
@@ -109,7 +117,6 @@ export class CharacterFormComponent {
     this._apiService.getRaces().subscribe({
       next : (res : APIRacesResult) => {
         this.races = res;
-        // console.log(this.races);
       },
       error: err =>{
         console.log(err);
@@ -121,17 +128,11 @@ export class CharacterFormComponent {
     this._apiService.getStats().subscribe({
       next : (res : APIStatsResult) => {
         this.stats = res;
-        // console.log(this.stats);
       },
       error: err =>{
         console.log(err);
       }
     })
-  }
-
-  // Getter pour récupérer le FormArray
-  get feats(): FormArray {
-    return this.characterForm.get('feats') as FormArray;
   }
 
 
@@ -150,70 +151,89 @@ export class CharacterFormComponent {
       return;
     }
 
-    if(this.descriptionForm.invalid) {
-      console.log("Invalid Description Form");
+
+    if(this.statsForm.invalid){
+      console.log("Invalid Stats Form");
       return;
     }
+
+    // if(this.descriptionForm.invalid) {
+    //   console.log("Invalid Description Form");
+    //   return;
+    // }
 
     console.log("Valid form");
 
 
+    //Build Classes
+    let classesList : CharacterClass[] = [];
+
+    for (let classe of this.classes.value) {
+      let newClasse : CharacterClass = {
+        name: classe,
+        level: 1
+      }
+      classesList.push(newClasse);
+    }
+
     // let character : CharacterForm = this.characterForm;
-    // console.log(character);
+    let character : CharacterForm = {
+      name: this.characterForm.get('name')?.value,
+      hp: this.characterForm.get('hp')?.value,
+      race: this.characterForm.get('race')?.value,
+      backstory: this.characterForm.get('backstory')?.value,
+      feats: this.featsList,
+      classes: classesList,
+      stats: this.statsForm.value,
+
+    };
+    console.log(character);
 
   }
 
-  // Fonction pour ajouter un feat au FormArray
   addFeat() {
-    const featForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      notes: ['', Validators.required],
-      rollableProps: this.formBuilder.array([]),
-    });
+    this.featsForm.markAllAsTouched();
 
-    this.feats.push(featForm);
-    console.log(this.feats)
+    let name = this.featsForm.get('name')?.value;
+    let notes = this.featsForm.get('notes')?.value
+
+    let feat : Feat = {
+      name: name,
+      notes: notes,
+      rollableProps: undefined,
+    }
+
+
+    this.featsList.push(feat);
+    this.featsForm.reset();
+
+
   }
 
   // Suppression d'une feat
-  removeFeat(index: number) {
-    this.feats.removeAt(index);
-  }
-
-  // Getter pour le FormArray des rollableProps d'une feat donnée
-  getRollableProps(featIndex: number): FormArray {
-    return this.feats.at(featIndex).get('rollableProps') as FormArray;
-  }
-
-  // Ajout d'une RollableProp dans une feat
-  addRollableProp(featIndex: number) {
-    const rollablePropForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      magnitude: ['', Validators.required],
-      magnitudeType: ['', Validators.required],
-    });
-
-    this.getRollableProps(featIndex).push(rollablePropForm);
-  }
-
-  // Suppression d'une RollableProp d'une feat donnée
-  removeRollableProp(featIndex: number, propIndex: number) {
-    this.getRollableProps(featIndex).removeAt(propIndex);
-  }
-
-
-  // addClass() {
-  //   if(this.classes.length >=2 ){
-  //     return;
-  //   }
-  //   this.classes.push(new FormControl(null));
-  //   console.log(this.classes.controls[0].value)
-  //   // this.selectedClasses.push(this.classes.)
+  // removeFeat(index: number) {
+  //   this.feats.removeAt(index);
   // }
+
+
+
+  addClass() {
+    if(this.classes.length >=2 ){
+      return;
+    }
+
+    this.classes.push(new FormControl());
+    console.log(this.classes.controls[0].value)
+  }
 
   get classesB (){
     return this.APIclasses?.results.filter(c => c.name !== 'Barbarian')
   }
+
+  isClassSelected(classIndex: string): boolean {
+    return this.classes.value.includes(classIndex);
+  }
+
 
   protected readonly toArray = toArray;
 }

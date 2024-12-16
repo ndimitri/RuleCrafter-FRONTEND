@@ -46,6 +46,8 @@
         </div>
 
 
+
+
         <div formArrayName="classes">
           <h3>Classes : </h3>
           @for(classe of classes.controls; track i; let i = $index){
@@ -53,7 +55,8 @@
               <label for="class-{{i}}">Classe {{i+1}} : </label>
               <select id="class-{{i}}" [formControlName]="i">
                 @for(apiClasse of classesB; track apiClasse.index){
-                  <option [value]="apiClasse.index">
+                  <option [value]="apiClasse.index"
+                          [hidden]="isClassSelected(apiClasse.index)">
                     {{apiClasse.name}}
                   </option>
                 }
@@ -62,92 +65,36 @@
           }
 
         </div>
-<!--        <div>-->
-<!--          @if (classes.length < 2){-->
-<!--            <button type="button" (click)="addClass()">-->
-<!--              Add class-->
-<!--            </button>-->
-<!--          }-->
-<!--        </div>-->
-
-        <div formArrayName="feats">
-          <div *ngFor="let feat of feats.controls; let i = index" [formGroupName]="i">
-            <!-- Champs de la Feat -->
-            <label>
-              Feat Name:
-              <input formControlName="name" placeholder="Name" />
-            </label>
-            <label>
-              Notes:
-              <textarea formControlName="notes" placeholder="Description"></textarea>
-            </label>
-
-
-            <!-- Rollable Properties -->
-            <h4>Rollable Properties</h4>
-            <div formArrayName="rollableProps">
-              <div *ngFor="let prop of getRollableProps(i).controls; let j = index" [formGroupName]="j">
-                <label>
-                  Name:
-                  <input formControlName="name" placeholder="Property Name" />
-                </label>
-                <label>
-                  Magnitude:
-                  <input formControlName="magnitude" placeholder="Magnitude" />
-                </label>
-                <label>
-                  Type:
-                  <input formControlName="magnitudeType" placeholder="Type" />
-                </label>
-                <button type="button" (click)="removeRollableProp(i, j)">Remove Rollable Property</button>
-              </div>
-
-            </div>
-            <button type="button" (click)="addRollableProp(i)">Add Rollable Property</button>
-            <button type="button" (click)="removeFeat(i)">Remove Feat</button>
-
-          </div>
-
+        <div>
+          @if (classes.length < 2){
+            <button type="button" (click)="addClass()">
+              Add class
+            </button>
+          }
         </div>
-        <button type="button" (click)="addFeat()">Add Feat</button>
-
-
-<!--        <div>-->
-<!--          <div formArrayName="feats">-->
-<!--            <div class="feat-card">-->
-<!--              &lt;!&ndash; Card Header &ndash;&gt;-->
-<!--              <div class="feat-card-header">-->
-<!--                <strong>Feat </strong>-->
-<!--&lt;!&ndash;                <button type="button" class="remove-btn">Remove</button>&ndash;&gt;-->
-<!--              </div>-->
-
-<!--              &lt;!&ndash; Card Body &ndash;&gt;-->
-<!--              <div class="feat-card-body">-->
-<!--                &lt;!&ndash; Feat Name &ndash;&gt;-->
-<!--                <div class="form-group">-->
-<!--                  <label for="name">Name</label>-->
-<!--                  <input formControlName="name" class="input-field" placeholder="Enter feat name" />-->
-<!--                </div>-->
-
-<!--                &lt;!&ndash; Feat Notes &ndash;&gt;-->
-<!--                <div class="form-group">-->
-<!--                  <label for="notes">Notes</label>-->
-<!--                  <textarea id="notes" formControlName="notes" class="input-field" placeholder="Enter feat description"></textarea>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          &lt;!&ndash; Add Feat Button &ndash;&gt;-->
-<!--          <button type="button" class="add-btn" (click)="addFeat()">Add Feat</button>-->
-<!--        </div>-->
-
-
-
 
       </div>
 
     </div>
+
+
+    <div [formGroup]="featsForm">
+      <div class="testFeats">
+        <h2>Feats</h2>
+        <label for="feat-name">Name : </label>
+        <input id="feat-name" type="text" placeholder="Feat" formControlName="name">
+        <label for="feat-notes">Notes : </label>
+        <textarea id="feat-notes" formControlName="notes" placeholder="Description"></textarea>
+        <button (click)="addFeat()">Add feat</button>
+      </div>
+
+      <div class="testFeatsList">
+        <p *ngFor="let feat of featsList">
+          {{ feat.name}}
+        </p>
+      </div>
+    </div>
+
 
     <div [formGroup]="statsForm">
       <div class="statsForm">
@@ -165,6 +112,6 @@
     </div>
 
 
-
+<button type="submit"> Submit</button>
   </form>
 </section>
