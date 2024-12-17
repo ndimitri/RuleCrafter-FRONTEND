@@ -9,7 +9,7 @@ import {provideHttpClient} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    CampaignHomeComponent
+    CampaignHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,6 +17,8 @@ import {provideHttpClient} from '@angular/common/http';
   ],
   providers: [
     provideHttpClient()
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })

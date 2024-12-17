@@ -1,0 +1,68 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .backBtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 3rem;
+  }
+  .basicsForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    .basicsFormInputs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .minMaxInput {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .basicsFormInput {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem;
+
+        input {
+          border: black solid 2px;
+        }
+
+        #campaignName {
+          width: 25rem;
+        }
+
+        #campaignSummary {
+          width: 50rem;
+          height: 15rem;
+        }
+
+        #minCapacity {
+          width: 5rem;
+        }
+
+        #maxCapacity {
+          width: 5rem;
+        }
+
+        #partyRecommendation {
+          width: 30rem;
+          height: 15rem;
+        }
+      }
+    }
+
+    .saveBtn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 3rem;
+    }
+  }
+}

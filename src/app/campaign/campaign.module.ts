@@ -15,6 +15,8 @@ import { CampaignNpcCreationFormComponent } from './pages/creationForm/campaign-
 import { CampaignMainQuestCreationFormComponent } from './pages/creationForm/campaign-main-quest-creation-form/campaign-main-quest-creation-form.component';
 import { CampaignSideQuestCreationFormComponent } from './pages/creationForm/campaign-side-quest-creation-form/campaign-side-quest-creation-form.component';
 import { CampaignScenarioCreationFormComponent } from './pages/creationForm/campaign-scenario-creation-form/campaign-scenario-creation-form.component';
+import {AppModule} from '../app.module';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { CampaignScenarioCreationFormComponent } from './pages/creationForm/camp
     CommonModule,
     CampaignRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    RouterModule,
   ]
 })
 export class CampaignModule { }

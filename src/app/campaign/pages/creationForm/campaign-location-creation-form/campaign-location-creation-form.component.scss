@@ -1,0 +1,43 @@
+:host {
+
+  .locationForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .locationFormInputs {
+      display: flex;
+      flex-direction: column;
+      margin: 3rem;
+
+      .locationFormInput {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 3rem;
+
+        input {
+          border: black solid 2px;
+        }
+
+        #locationName{
+          margin: 1rem;
+          width: 25rem;
+        }
+
+        #locationDescription {
+          margin: 1rem;
+          width: 50rem;
+          height: 15rem;
+        }
+      }
+    }
+    .saveBtn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 3rem;
+    }
+  }
+}
