@@ -15,7 +15,6 @@ export class MainMapOverviewComponent {
   constructor(
     private _mainMapOverview: CampaignService,
     private _activatedRoute: ActivatedRoute,
-    private _router: Router
   ) {
     const id: number = this._activatedRoute.snapshot.params['id'];
     this.getLocations(id);

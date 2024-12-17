@@ -15,7 +15,6 @@ export class CampaignOverviewComponent {
   constructor(
     private _campaignOverviewService: CampaignService,
     private _activatedRoute: ActivatedRoute,
-    private _router: Router,
   ) {
     let id = + this._activatedRoute.snapshot.params['id'];
     this.getCampaign(id);

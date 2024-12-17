@@ -17,6 +17,7 @@ import { CampaignSideQuestCreationFormComponent } from './pages/creationForm/cam
 import { CampaignScenarioCreationFormComponent } from './pages/creationForm/campaign-scenario-creation-form/campaign-scenario-creation-form.component';
 import {AppModule} from '../app.module';
 import {RouterModule} from '@angular/router';
+import { RacesOverviewComponent } from './pages/viewDTO/races-overview/races-overview.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {RouterModule} from '@angular/router';
     CampaignNpcCreationFormComponent,
     CampaignMainQuestCreationFormComponent,
     CampaignSideQuestCreationFormComponent,
-    CampaignScenarioCreationFormComponent
+    CampaignScenarioCreationFormComponent,
+    RacesOverviewComponent
   ],
   imports: [
     CommonModule,
