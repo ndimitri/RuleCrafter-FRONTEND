@@ -3,6 +3,12 @@
   flex-direction: column;
   position: relative;
 
+  .navBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .backBtn {
     position: absolute;
     top: 0;

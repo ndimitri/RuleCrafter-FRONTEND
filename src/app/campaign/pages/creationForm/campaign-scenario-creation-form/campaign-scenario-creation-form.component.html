@@ -1,19 +1,13 @@
 <section>
-  <button [routerLink]="'/campaign'">Back</button>
-  <div>
-    <button [routerLink]="'/campaign/campaignCreation/basicsInfo'">Basics</button>
-    <button [routerLink]="'/campaign/campaignCreation/region'">World Building</button>
-    <button [routerLink]="'/campaign/campaignCreation/mainQuest'">Quests</button>
-    <button [routerLink]="'/campaign/campaignCreation/scenario'">Scenario</button>
-  </div>
+  <app-campaign-creation-nav-bar></app-campaign-creation-nav-bar>
 </section>
-<section>
-  <form [formGroup]="scenarioForm" (ngSubmit)="submit()">
-    <div>
+<section class="scenarioForm">
+  <form class="scenarioFormInputs" [formGroup]="scenarioForm" (ngSubmit)="submit()">
+    <div class="scenarioFormInput">
       <label for="story">Story</label>
       <input id="story" type="text" placeholder="Write your scenario" formControlName="story">
       <app-form-error [control]="scenarioForm"></app-form-error>
     </div>
-    <button type="submit">Save</button>
   </form>
+  <button class="saveBtn" type="submit">Save</button>
 </section>

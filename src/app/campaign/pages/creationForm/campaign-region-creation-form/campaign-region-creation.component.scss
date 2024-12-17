@@ -1,0 +1,55 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .navBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .regionForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5rem;
+    position: relative;
+
+    .regionFormInputs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      border: black solid 2px;
+      width: 60rem;
+      height: 40rem;
+
+      .regionFormInput {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem;
+
+        input {
+          border: black solid 2px;
+          margin: 2rem;
+        }
+
+        #regionName {
+          width: 25rem;
+        }
+
+        #regionDescription {
+          width: 50rem;
+          height: 15rem;
+        }
+      }
+    }
+    .saveBtn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 3rem;
+    }
+  }
+}

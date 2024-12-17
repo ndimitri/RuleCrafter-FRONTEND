@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-direction: row;
+
+  .navBar {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .backBtnContainer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 3rem;
+    }
+
+    .navBarBtnContainer {
+      width: 100%;
+
+      .navBarBtn {
+        width: 25rem;
+      }
+    }
+  }
+}

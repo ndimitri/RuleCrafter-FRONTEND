@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
 
+  .navBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .factionForm {
     display: flex;
     flex-direction: column;

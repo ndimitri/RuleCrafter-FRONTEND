@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .navBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scenarioForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5rem;
+    position: relative;
+
+    .scenarioFormInputs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      border: black solid 2px;
+      width: 60rem;
+      height: 40rem;
+
+      .scenarioFormInput {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2rem;
+
+        input {
+          border: black solid 2px;
+          margin: 2rem;
+        }
+
+        #story {
+          width: 50rem;
+          height: 30rem;
+        }
+      }
+    }
+    .saveBtn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 3rem;
+    }
+  }
+}

@@ -1,26 +1,15 @@
 <section>
-  <button [routerLink]="'/campaign'">Back</button>
-  <div>
-    <button [routerLink]="'/campaign/campaignCreation/basicsInfo'">Basics</button>
-    <button [routerLink]="'/campaign/campaignCreation/region'">World Building</button>
-    <button [routerLink]="'/campaign/campaignCreation/mainQuest'">Quests</button>
-    <button [routerLink]="'/campaign/campaignCreation/scenario'">Scenario</button>
-  </div>
-  <div>
-    <button [routerLink]="'/campaign/campaignCreation/region'">Region/Country</button>
-    <button [routerLink]="'/campaign/campaignCreation/location'">Cities/Points of interest</button>
-    <button [routerLink]="'/campaign/campaignCreation/faction'">Factions</button>
-    <button [routerLink]="'campaign/campaignCreation/npc'">NPCs</button>
-  </div>
+  <app-campaign-creation-nav-bar></app-campaign-creation-nav-bar>
+  <app-world-building-creation-nav-bar></app-world-building-creation-nav-bar>
 </section>
-<section>
-  <form [formGroup]="regionForm" (ngSubmit)="submit()">
-    <div>
+<section class="regionForm">
+  <form class="regionFormInputs" [formGroup]="regionForm" (ngSubmit)="submit()">
+    <div class="regionFormInput">
       <label for="regionName">Region/country name</label>
       <input id="regionName" type="text" placeholder="Write the name of the region/country" formControlName="regionName">
       <app-form-error [control]="regionForm.get('regionName')"></app-form-error>
     </div>
-    <div>
+    <div class="regionFormInput">
       <label for="regionDescription">Region Description</label>
       <input id="regionDescription" type="text" placeholder="Write your region/country description" formControlName="regionDescription">
       <app-form-error [control]="regionForm.get('regionDescription')"></app-form-error>
@@ -30,6 +19,6 @@
 <!--      <input id="regionPicture" type="file" placeholder="+" accept="jpg">-->
 <!--      <app-form-error [control]="regionForm.get('regionPicture')"></app-form-error>-->
 <!--    </div>-->
-    <button type="submit">Save</button>
   </form>
+  <button class="saveBtn" type="submit">Save</button>
 </section>
