@@ -1,8 +1,13 @@
-<section>
+<section class="navBar">
   <app-campaign-creation-nav-bar></app-campaign-creation-nav-bar>
 </section>
 <section class="scenarioForm">
   <form class="scenarioFormInputs" [formGroup]="scenarioForm" (ngSubmit)="submit()">
+    <div class="scenarioFormInput">
+      <label for="storyName">Story name</label>
+      <input id="storyName" type="text" placeholder="Write your scenario" formControlName="storyName">
+      <app-form-error [control]="scenarioForm"></app-form-error>
+    </div>
     <div class="scenarioFormInput">
       <label for="story">Story</label>
       <input id="story" type="text" placeholder="Write your scenario" formControlName="story">

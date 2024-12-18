@@ -1,8 +1,6 @@
-<section>
-  <div>
-    <app-campaign-creation-nav-bar></app-campaign-creation-nav-bar>
-    <app-world-building-creation-nav-bar></app-world-building-creation-nav-bar>
-  </div>
+<section class="navBar">
+  <app-campaign-creation-nav-bar></app-campaign-creation-nav-bar>
+  <app-world-building-creation-nav-bar></app-world-building-creation-nav-bar>
 </section>
 <section class="factionForm">
   <form class="factionFormInputs" [formGroup]="factionForm" (ngSubmit)="submit()">
