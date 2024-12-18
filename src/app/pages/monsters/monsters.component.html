@@ -1,0 +1,29 @@
+<div class="monsters-container">
+  <div class="monster-grid">
+    <div *ngFor="let monster of displayedMonsters" class="monster-card">
+      <h2>{{ monster.name }}</h2>
+      <img
+        [src]="monster.imageUrl || monster.defaultImageUrl"
+        alt="{{ monster.name }} image"
+      >
+    </div>
+  </div>
+
+  <div class="pagination-controls">
+    <button
+      (click)="previousPage()"
+      [disabled]="currentPage === 1"
+      class="pagination-button"
+    >
+      Previous
+    </button>
+    <span class="page-info">Page {{ currentPage }} of {{ totalPages }}</span>
+    <button
+      (click)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      class="pagination-button"
+    >
+      Next
+    </button>
+  </div>
+</div>

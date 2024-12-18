@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  // Necessary for animations
-import { SidebarModule } from 'primeng/sidebar';      // Sidebar module for the p-sidebar component
-import { ButtonModule } from 'primeng/button';        // Button module for the pButton component
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidebarModule } from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
 import { AppComponent } from './app.component';
 import {NavComponent} from './layout/nav/nav.component';
 import {RouterModule} from '@angular/router';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './pages/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {provideHttpClient, withInterceptors} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 import {jwtInterceptor} from './core/interceptors/jwt.interceptor';
+import { MonstersComponent } from './pages/monsters/monsters.component';
+import { AboutComponent } from './pages/about/about.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import {jwtInterceptor} from './core/interceptors/jwt.interceptor';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    MonstersComponent,
+    AboutComponent
   ],
   imports: [
     RouterModule,

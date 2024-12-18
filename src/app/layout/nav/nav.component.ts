@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {AuthService} from '../../services/auth.service';
+import {AuthService} from '../../features/auth/service/auth.service';
+
+interface Channel {
+  id: number;
+  name: string;
+  active: boolean;
+}
 
 @Component({
   selector: 'app-nav',
@@ -8,9 +14,11 @@ import {AuthService} from '../../services/auth.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-  visibleSidebar: boolean = true; // Sidebar always visible
-  burgerMenuOpen: boolean = false; // Tracks burger menu state
+  visibleSidebar: boolean = true;
+  burgerMenuOpen: boolean = false;
   isLoginPage: boolean = false;
+  channels: Channel[] = [];
+  nextChannelId: number = 1;
 
   constructor(
     public authService: AuthService, // Inject AuthService
@@ -33,5 +41,14 @@ export class NavComponent {
       const currentUrl = this.router.url;
       this.isLoginPage = currentUrl.includes('auth/login') || currentUrl.includes('auth/register');
     });
+  }
+
+  addChannel() {
+    const newChannel: Channel = {
+      id: this.nextChannelId++,
+      name: `channel-${this.nextChannelId}`,
+      active: false
+    };
+    this.channels.push(newChannel);
   }
 }

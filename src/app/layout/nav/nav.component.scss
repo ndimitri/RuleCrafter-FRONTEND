@@ -1,15 +1,15 @@
 :host ::ng-deep .p-sidebar {
-  position: fixed; /* Sidebar fixed to the left */
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100%; /* Full viewport height */
-  width: 5em; /* Sidebar width */
-  background-color: #240046; /* Sidebar background */
-  border-radius: 0; /* No rounded corners */
+  height: 100%;
+  width: 5em;
+  background-color: #292C4C;
+  border-radius: 0;
 }
 
 .main-content {
-  margin-left: 5em; /* Space for the sidebar */
+  margin-left: 5em;
 }
 
 /* Sidebar User Info */
@@ -17,11 +17,11 @@
   margin: 1rem 0;
   text-align: center;
   font-size: 0.9em;
-  color: lavender; /* User info text color */
+  color: lavender;
 }
 
 .sidebar-user-info p {
-  margin: 0 0 0.5rem 0; /* Space below the welcome message */
+  margin: 0 0 0.5rem 0;
 }
 
 /* Logo Button */
@@ -30,15 +30,15 @@
   border: none;
   cursor: pointer;
   width: 100%;
-  padding: 0;
+  padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0; /* Center the logo */
+  margin: 0;
 }
 
 .logo-img {
-  width: 4em; /* Logo size */
+  width: 4em;
   height: auto;
 }
 
@@ -56,11 +56,20 @@
   background-color: #c9302c;
 }
 
+/* Burger Menu */
 .burger-menu {
-  list-style-type: none;
-  padding: 0;
-  margin: 1em 0;
-  display: none; /* Ensure it’s visible */
+  position: absolute;
+  top: 0;
+  left: 5em;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  display: none;
+  z-index: 10001;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .burger-menu.open {
@@ -73,7 +82,7 @@
 
 .burger-menu li a {
   text-decoration: none;
-  color: lavender; /* Text color */
+  color: lavender;
   font-size: 1em;
   display: block;
   padding: 0.5em;
@@ -83,47 +92,70 @@
   color: floralwhite;
 }
 
-/* Sidebar styles remain unchanged */
-.p-sidebar {
-  border-radius: 0;
-  background-color: #240046;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Nav Sections */
+.nav-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0;
 }
 
-/* Burger Menu */
-.burger-menu {
-  position: absolute;
-  top: 0;
-  left: 5em; /* Position it to the right of the sidebar width */
-  width: 200px; /* Set the burger menu's width */
-  background-color: #333; /* Background color for the burger menu */
-  color: #fff;
-  list-style: none;
-  padding: 1rem;
-  margin: 0;
-  display: none; /* Hidden by default */
-  z-index: 10001; /* Ensure it's above other elements */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Optional shadow */
+.divider {
+  width: 80%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0.5rem 0;
 }
 
-.burger-menu.open {
-  display: block; /* Show the menu when the "open" class is applied */
+/* Channels Section */
+.channels-section {
+  padding: 0.5rem;
 }
 
-.burger-menu li {
-  margin: 0.5em 0;
-}
-
-.burger-menu li a {
+.add-channel-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
   color: lavender;
-  text-decoration: none;
-  font-size: 1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .pi-plus {
+    font-size: 1.2rem;
+  }
 }
 
-.burger-menu li a:hover {
-  color: floralwhite;
+.channel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
+.channel-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: lavender;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &.active {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}

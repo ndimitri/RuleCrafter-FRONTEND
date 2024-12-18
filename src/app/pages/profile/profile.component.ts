@@ -1,11 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../services/auth.service';
+import {AuthService} from '../../features/auth/service/auth.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {RegisterForm} from '../features/auth/forms/register.form';
-import {UserDtoModel} from '../features/auth/models/user.dto.model';
-import {UserService} from '../services/user.service';
-import {environment} from '../../environments/environment';
-import {UserForm} from '../features/auth/forms/user.form';
+import {UserService} from '../../services/user.service';
+import {environment} from '../../../environments/environment';
+import {UserForm} from '../../features/auth/forms/user.form';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +18,6 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private _userService: UserService,
-    private _authService: AuthService,
     private readonly _fb: FormBuilder
   ) {
     this.profileForm = this._fb.group({...UserForm});
@@ -46,7 +43,6 @@ export class ProfileComponent implements OnInit {
     const file = event.target.files[0];
     if (file) {
       this.selectedFile = file;
-      // Create a preview of the selected image
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result as string;

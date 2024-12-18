@@ -1,3 +1,26 @@
+<!--<p-sidebar-->
+<!--  *ngIf="!isLoginPage && (authService.currentUser$ | async)"-->
+<!--  [(visible)]="visibleSidebar"-->
+<!--  position="left"-->
+<!--  [modal]="false"-->
+<!--  [style]="{width: '5em'}"-->
+<!--  [baseZIndex]="10000"-->
+<!--  [showCloseIcon]="false">-->
+
+<!--  &lt;!&ndash; Logo &ndash;&gt;-->
+<!--  <button class="logo-btn" (click)="toggleBurgerMenu()">-->
+<!--    <img src="logo.PNG" alt="RuleCrafter Logo" class="logo-img">-->
+<!--  </button>-->
+
+<!--</p-sidebar>-->
+
+<!--<ul class="burger-menu" [ngClass]="{'open': burgerMenuOpen}">-->
+<!--  <li><button (click)="logout()" class="logout-btn">Logout</button></li>-->
+<!--  <li><a routerLink="/home">Home</a></li>-->
+<!--  <li><a routerLink="/profile">Profile</a></li>-->
+<!--  <li><a routerLink="/about">About</a></li>-->
+<!--</ul>-->
+
 <p-sidebar
   *ngIf="!isLoginPage && (authService.currentUser$ | async)"
   [(visible)]="visibleSidebar"
@@ -7,14 +30,28 @@
   [baseZIndex]="10000"
   [showCloseIcon]="false">
 
-  <!-- Logo -->
-  <button class="logo-btn" (click)="toggleBurgerMenu()">
-    <img src="logo.PNG" alt="RuleCrafter Logo" class="logo-img">
-  </button>
+  <!-- Logo Section -->
+  <div class="nav-section">
+    <button class="logo-btn" (click)="toggleBurgerMenu()">
+      <img src="logo.PNG" alt="RuleCrafter Logo" class="logo-img">
+    </button>
+    <div class="divider"></div>
+  </div>
 
-  <!-- Welcome and Logout -->
-  <div class="sidebar-user-info" *ngIf="authService.currentUser$ | async as user">
-    <p>Welcome, {{ user.user.username }}</p>
+  <!-- Channels Section -->
+  <div class="channels-section">
+    <button class="add-channel-btn" (click)="addChannel()">
+      <i class="pi pi-plus"></i>
+    </button>
+
+    <!-- Channel List -->
+    <div class="channel-list">
+      <button *ngFor="let channel of channels"
+              class="channel-btn"
+              [class.active]="channel.active">
+        # {{ channel.name }}
+      </button>
+    </div>
   </div>
 
 </p-sidebar>
@@ -23,5 +60,5 @@
   <li><button (click)="logout()" class="logout-btn">Logout</button></li>
   <li><a routerLink="/home">Home</a></li>
   <li><a routerLink="/profile">Profile</a></li>
-  <li><a routerLink="/settings">Settings</a></li>
+  <li><a routerLink="/about">About</a></li>
 </ul>
