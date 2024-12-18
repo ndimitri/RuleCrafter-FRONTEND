@@ -1,118 +1,334 @@
-<header>
-  <h1>Character Creation</h1>
-</header>
+<!--<div class="page">-->
+<!--  <header>-->
+<!--    <h1>Character Creation</h1>-->
+<!--  </header>-->
 
-<section>
-  <form [formGroup]="fullForm" (ngSubmit)="submit()">
+<!--  <section>-->
+<!--    <form [formGroup]="fullForm" (ngSubmit)="submit()">-->
 
-    <div formGroupName="characterForm">
-      <div class="characterForm">
-        <div class="characterForm-name">
-          <label for="name">Name : </label>
-          <input id="name" type="text" placeholder="Name" formControlName="name">
-        </div>
+<!--      <mat-stepper [linear]="false" #stepper>-->
+<!--        <mat-step [stepControl]="characterForm" formGroupName="characterForm">-->
+<!--          <ng-template matStepLabel>Basic Infos</ng-template>-->
 
-        <div class="characterForm-hp">
-          <label for="hp">HP : </label>
-          <input id="hp" type="number" placeholder="Hp" formControlName="hp">
-        </div>
+<!--          <div class="characterForm form">-->
+<!--            <h2>Basics</h2>-->
 
-        <div class="characterForm-races">
-          <label for="race">Race : </label>
-          <select id="race" formControlName="race">
-            <option *ngFor="let race of this.races?.results" [value]="race.index">
-              {{race.name}}
-            </option>
-          </select>
-        </div>
+<!--            <mat-form-field class="characterForm-name">-->
+<!--              <mat-label>Name :</mat-label>-->
+<!--              <input matInput type="text" placeholder="Name" formControlName="name">-->
+<!--            </mat-form-field>-->
 
-        <div class="characterForm-alignment">
-          <label for="alignment">Alignment : </label>
-          <select id="alignment" formControlName="alignment">
-            <option *ngFor="let alignment of Alignment | keyvalue" [value]="alignment.key">
-              {{alignment.value | titlecase}}
-            </option>
-          </select>
-        </div>
+<!--            <mat-form-field class="characterForm-hp">-->
+<!--              <mat-label>HP : </mat-label>-->
+<!--              <input matInput type="number" placeholder="Hp" formControlName="hp">-->
+<!--            </mat-form-field>-->
 
-        <div class="characterForm-backstory">
-          <label for="backstory">Backstory : </label>
-          <textarea id="backstory" rows="5" cols="15" formControlName="backstory"></textarea>
-        </div>
+<!--            <mat-form-field class="characterForm-races">-->
+<!--              <mat-label>Race : </mat-label>-->
+<!--              <mat-select id="race" formControlName="race">-->
+<!--                <mat-option *ngFor="let race of this.races?.results" [value]="race.index">-->
+<!--                  {{race.name}}-->
+<!--                </mat-option>-->
+<!--              </mat-select>-->
+<!--            </mat-form-field>-->
 
-        <div class="characterForm-background">
-          <label for="background">Background : </label>
-          <input id="background" type="text" placeholder="Sage" formControlName="background">
-        </div>
+<!--            <mat-form-field class="characterForm-alignment">-->
+<!--              <mat-label>Alignment : </mat-label>-->
+<!--              <mat-select id="alignment" formControlName="alignment">-->
+<!--                <mat-option *ngFor="let alignment of Alignment | keyvalue" [value]="alignment.key">-->
+<!--                  {{alignment.value | titlecase}}-->
+<!--                </mat-option>-->
+<!--              </mat-select>-->
+<!--            </mat-form-field>-->
+
+<!--            <mat-form-field class="characterForm-backstory">-->
+<!--              <mat-label>Backstory : </mat-label>-->
+<!--              <textarea matInput id="backstory" rows="5" cols="15" formControlName="backstory"></textarea>-->
+<!--            </mat-form-field>-->
+
+<!--            <mat-form-field class="characterForm-background">-->
+<!--              <mat-label>Background : </mat-label>-->
+<!--              <input matInput id="background" type="text" placeholder="Sage" formControlName="background">-->
+<!--            </mat-form-field>-->
+
+
+<!--            <div formArrayName="classes">-->
+<!--              <h2>Classes : </h2>-->
+<!--              @for(classe of classes.controls; track i; let i = $index){-->
+<!--                <mat-form-field>-->
+<!--                  <mat-label>Classe {{i+1}} : </mat-label>-->
+<!--                  <mat-select id="class-{{i}}" [formControlName]="i">-->
+<!--                    @for(apiClasse of classesB; track apiClasse.index){-->
+<!--                      <mat-option [value]="apiClasse.index"-->
+<!--                                  [hidden]="isClassSelected(apiClasse.index)">-->
+<!--                        {{apiClasse.name}}-->
+<!--                      </mat-option>-->
+<!--                    }-->
+<!--                  </mat-select>-->
+<!--                </mat-form-field>-->
+<!--              }-->
+
+<!--            </div>-->
+<!--            <div>-->
+<!--              @if (classes.length < 2){-->
+<!--                <button mat-flat-button type="button" (click)="addClass()">-->
+<!--                  Add class-->
+<!--                </button>-->
+
+<!--              }-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <button matStepperNext mat-flat-button type="button">Next</button>-->
+<!--          </div>-->
+<!--        </mat-step>-->
+
+<!--        <mat-step [stepControl]="featsForm" formGroupName="featsForm">-->
+<!--          <ng-template matStepLabel>Feats</ng-template>-->
+<!--          <div class="form">-->
+<!--            <div class="featsForm form">-->
+<!--             <h2>Feats</h2>-->
+<!--              <mat-form-field class="characterForm-backstory">-->
+<!--                <mat-label>Name : </mat-label>-->
+<!--                <input matInput id="feat-nam" type="text" placeholder="Feat" formControlName="name">-->
+<!--              </mat-form-field>-->
+
+<!--              <mat-form-field class="feats-notes">-->
+<!--                <mat-label >Notes : </mat-label>-->
+<!--                <textarea matInput id="feat-note" formControlName="notes" placeholder="Description"  rows="5" cols="30" style="resize: none" class="h-full"></textarea>-->
+<!--              </mat-form-field>-->
+<!--              <button mat-flat-button (click)="addFeat()">Add feat</button>-->
+<!--            </div>-->
+
+<!--            <div class="featsList">-->
+<!--              <h2>Feats</h2>-->
+<!--              <div class="featsList-feats">-->
+<!--                <mat-card *ngFor="let feat of featsList">-->
+<!--                  <mat-card-header>-->
+<!--                    <mat-card-title> {{ feat.name}}</mat-card-title>-->
+<!--                  </mat-card-header>-->
+<!--                  <mat-card-content>-->
+<!--                    <p>{{feat.notes}}</p>-->
+<!--                  </mat-card-content>-->
+<!--                </mat-card>-->
+<!--              </div>-->
+
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div>-->
+<!--            <button mat-flat-button matStepperPrevious type="button">Previous</button>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <button mat-flat-button matStepperNext type="button">Next</button>-->
+<!--          </div>-->
+<!--        </mat-step>-->
+
+<!--        <mat-step [stepControl]="statsForm" formGroupName="statsForm">-->
+<!--          <ng-template matStepLabel>Stats</ng-template>-->
+<!--          <div class="statsForm">-->
+<!--            <h2>Stats</h2>-->
+<!--            @for(stat of stats?.results; track stat.index){-->
+<!--              <div class="statsForm-stat-name">-->
+<!--                <label [for]="stat.index">{{stat.name}}</label>-->
+<!--              </div>-->
+<!--              <div class="statsForm-stat-value">-->
+<!--                <input [id]="stat.index" type="number" placeholder="0" [formControlName]="stat.index">-->
+<!--              </div>-->
+<!--            }-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <button matStepperPrevious type="button">Previous</button>-->
+<!--          </div>-->
+<!--          <button type="submit"> Submit</button>-->
+
+
+<!--        </mat-step>-->
+
+<!--      </mat-stepper>-->
+
+<!--    </form>-->
+<!--  </section>-->
+
+<!--</div>-->
 
 
 
 
-        <div formArrayName="classes">
-          <h2>Classes : </h2>
-          @for(classe of classes.controls; track i; let i = $index){
-            <div>
-              <label for="class-{{i}}">Classe {{i+1}} : </label>
-              <select id="class-{{i}}" [formControlName]="i">
-                @for(apiClasse of classesB; track apiClasse.index){
-                  <option [value]="apiClasse.index"
-                          [hidden]="isClassSelected(apiClasse.index)">
-                    {{apiClasse.name}}
-                  </option>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- character-creation.component.html -->
+<div class="character-creation-container">
+  <h2>Character Creation</h2>
+  <div class="character-creation-card">
+    <form [formGroup]="fullForm" (ngSubmit)="submit()">
+      <mat-stepper [linear]="false" #stepper>
+        <!-- Première étape : Informations de base -->
+        <mat-step [stepControl]="characterForm" formGroupName="characterForm">
+          <ng-template matStepLabel>Basic Infos</ng-template>
+
+          <div class="form-content">
+            <h2>Basics infos</h2>
+
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput type="text" placeholder="Character Name" formControlName="name">
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>HP</mat-label>
+                <input matInput type="number" placeholder="Hit Points" formControlName="hp">
+              </mat-form-field>
+            </div>
+
+            <!-- Autres champs similaires... -->
+
+            <div class="form-group">
+              <mat-form-field class="characterForm-races">
+                <mat-label>Race : </mat-label>
+                <mat-select id="race" formControlName="race">
+                  <mat-option *ngFor="let race of this.races?.results" [value]="race.index">
+                    {{race.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field class="characterForm-alignment">
+                <mat-label>Alignment : </mat-label>
+                <mat-select id="alignment" formControlName="alignment">
+                  <mat-option *ngFor="let alignment of Alignment | keyvalue" [value]="alignment.key">
+                    {{alignment.value | titlecase}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field class="characterForm-backstory">
+                <mat-label>Backstory : </mat-label>
+                <textarea matInput id="backstory" rows="5" cols="15" formControlName="backstory"></textarea>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field class="characterForm-background">
+                <mat-label>Background : </mat-label>
+                <input matInput id="background" type="text" placeholder="Sage" formControlName="background">
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <div formArrayName="classes">
+                <h2>Classes : </h2>
+                @for(classe of classes.controls; track i; let i = $index){
+                  <mat-form-field>
+                    <mat-label>Classe {{i+1}} : </mat-label>
+                    <mat-select id="class-{{i}}" [formControlName]="i">
+                      @for(apiClasse of classesB; track apiClasse.index){
+                        <mat-option [value]="apiClasse.index"
+                                    [hidden]="isClassSelected(apiClasse.index)">
+                          {{apiClasse.name}}
+                        </mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
                 }
-              </select>
+              </div>
+              <div>
+                @if (classes.length < 2){
+                  <button mat-flat-button type="button" (click)="addClass()">
+                    Add class
+                  </button>
+
+                }
+              </div>
             </div>
-          }
-
-        </div>
-        <div>
-          @if (classes.length < 2){
-            <button type="button" (click)="addClass()">
-              Add class
-            </button>
-          }
-        </div>
-
-      </div>
-
-    </div>
 
 
-    <div [formGroup]="featsForm">
-      <div class="testFeats">
-        <h2>Feats</h2>
-        <label for="feat-name">Name : </label>
-        <input id="feat-name" type="text" placeholder="Feat" formControlName="name">
-        <label for="feat-notes">Notes : </label>
-        <textarea id="feat-notes" formControlName="notes" placeholder="Description"></textarea>
-        <button (click)="addFeat()">Add feat</button>
-      </div>
-
-      <div class="testFeatsList">
-        <p *ngFor="let feat of featsList">
-          {{ feat.name}}
-        </p>
-      </div>
-    </div>
-
-
-    <div [formGroup]="statsForm">
-      <div class="statsForm">
-        <h2>Stats</h2>
-          @for(stat of stats?.results; track stat.index){
-            <div class="statsForm-stat-name">
-              <label [for]="stat.index">{{stat.name}}</label>
+            <div class="navigation-buttons">
+              <button mat-flat-button matStepperPrevious type="button" disabled>Previous</button>
+              <button mat-flat-button matStepperNext type="button">Next</button>
             </div>
-            <div class="statsForm-stat-value">
-              <input [id]="stat.index" type="number" placeholder="0" [formControlName]="stat.index">
+          </div>
+        </mat-step>
+
+        <!-- Étape des Feats -->
+        <mat-step [stepControl]="featsForm" formGroupName="featsForm">
+          <ng-template matStepLabel>Feats</ng-template>
+
+          <div class="form-content">
+            <h2>Character Feats</h2>
+
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Feat Name</mat-label>
+                <input matInput type="text" placeholder="Feat" formControlName="name">
+              </mat-form-field>
+
+              <mat-form-field class="feats-notes">
+                <mat-label >Notes : </mat-label>
+                <textarea matInput id="feat-note" formControlName="notes" placeholder="Description"  rows="5" cols="30" style="resize: none" class="h-full"></textarea>
+              </mat-form-field>
+              <button mat-flat-button (click)="addFeat()">Add feat</button>
             </div>
-          }
 
-      </div>
+            <div class="feat-list">
+              <mat-card *ngFor="let feat of featsList" class="feat-card">
+                <mat-card-header>
+                  <mat-card-title>{{ feat.name }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>{{ feat.notes }}</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
 
-    </div>
+            <div class="navigation-buttons">
+              <button mat-flat-button matStepperPrevious type="button">Previous</button>
+              <button mat-flat-button matStepperNext type="button">Next</button>
+            </div>
+          </div>
+        </mat-step>
 
+        <!-- Étape des Stats -->
+        <mat-step [stepControl]="statsForm" formGroupName="statsForm">
+          <ng-template matStepLabel>Stats</ng-template>
 
-<button type="submit"> Submit</button>
-  </form>
-</section>
+          <div class="form-content">
+            <h2>Character Stats</h2>
+
+            <div class="stats-grid">
+              @for(stat of stats?.results; track stat.index){
+                <div class="form-group">
+                  <label [for]="stat.index">{{stat.name}}</label>
+                  <input [id]="stat.index" type="number" placeholder="0" [formControlName]="stat.index">
+                </div>
+              }
+            </div>
+
+            <div class="navigation-buttons">
+              <button mat-flat-button matStepperPrevious type="button">Previous</button>
+              <button mat-flat-button type="submit">Create Character</button>
+            </div>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </form>
+  </div>
+</div>

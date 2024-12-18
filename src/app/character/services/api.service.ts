@@ -5,6 +5,7 @@ import {environment} from '../../../environments/environment.development';
 import {APIClassesResult} from '../models/APIClassesResult';
 import {APIRacesResult} from '../models/APIRacesResult';
 import {APIStatsResult} from '../models/APIStatsResult';
+import {APIMagicSchoolsResult} from '../models/APIMagicSchoolResult';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,12 @@ export class ApiService {
   getStats() : Observable<APIStatsResult>{
     return this.http.get<APIStatsResult>(`${environment.API_DND_URL}/ability-scores/`);
   }
+
+  getMagicSchools() : Observable<APIMagicSchoolsResult>{
+    return this.http.get<APIMagicSchoolsResult>(`${environment.API_DND_URL}/magic-schools/`);
+  }
+
+
 
 
 

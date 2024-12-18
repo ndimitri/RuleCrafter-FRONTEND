@@ -14,6 +14,8 @@ import {APIRacesResult} from '../../models/APIRacesResult';
 import {APIStatsResult} from '../../models/APIStatsResult';
 import {Observable, toArray} from 'rxjs';
 import {CharacterForm} from '../../models/form/CharacterForm';
+import {APIMagicSchoolsResult} from '../../models/APIMagicSchoolResult';
+
 
 @Component({
   selector: 'app-character-form',
@@ -26,9 +28,9 @@ export class CharacterFormComponent {
   descriptionForm: FormGroup;
   statsForm : FormGroup;
   featsForm : FormGroup;
+  spellsForm: FormGroup;
 
   fullForm : FormGroup;
-
   //Enums
   protected readonly Alignment = Alignment;
   protected readonly ItemRarity = ItemRarity;
@@ -40,6 +42,7 @@ export class CharacterFormComponent {
   APIclasses?: APIClassesResult;
   races?: APIRacesResult;
   stats?: APIStatsResult;
+  magicSchools?: APIMagicSchoolsResult;
 
   //Tests
   featsList : Feat[] = [];
@@ -79,13 +82,27 @@ export class CharacterFormComponent {
       cha: [null, [Validators.required, nonNullPositiveNumber()]],
       str: [null, [Validators.required, nonNullPositiveNumber()]],
       con: [null, [Validators.required, nonNullPositiveNumber()]],
-    })
+    });
+
+    this.spellsForm=this.formBuilder.group({
+      name: [null, [Validators.required, Validators.minLength(3)]],
+      level: [null, [Validators.required]],
+      school: [null, [Validators.required]],
+      castingTime: [null, [Validators.required]],
+      range: [null, [Validators.required]],
+      component: [null, [Validators.required]],
+      duration: [null, [Validators.required]],
+      description: [null, [Validators.required]],
+      rollableProps: [null, [Validators.required]]
+    });
 
 
     this.fullForm = this.formBuilder.group({
       characterForm : this.characterForm,
       descriptionForm : this.descriptionForm,
       statsForm : this.statsForm,
+      featsForm: this.featsForm,
+      spellsForm: this.spellsForm,
     });
 
 
@@ -96,7 +113,7 @@ export class CharacterFormComponent {
     this.getClasses();
     this.getRaces();
     this.getStats();
-
+    this.getMagicSchools();
   }
 
 
@@ -133,7 +150,20 @@ export class CharacterFormComponent {
         console.log(err);
       }
     })
+  };
+
+  getMagicSchools() : void {
+    this._apiService.getMagicSchools().subscribe({
+      next : (res : APIMagicSchoolsResult) => {
+        this.magicSchools = res;
+      },
+      error: err =>{
+        console.log(err);
+      }
+    })
   }
+
+
 
 
   get classes() : FormArray{
@@ -193,6 +223,10 @@ export class CharacterFormComponent {
 
   addFeat() {
     this.featsForm.markAllAsTouched();
+    if(this.featsForm.invalid){
+      console.log("Feat Form invalid");
+      return;
+    }
 
     let name = this.featsForm.get('name')?.value;
     let notes = this.featsForm.get('notes')?.value
@@ -206,6 +240,8 @@ export class CharacterFormComponent {
 
     this.featsList.push(feat);
     this.featsForm.reset();
+
+
 
 
   }
@@ -236,4 +272,5 @@ export class CharacterFormComponent {
 
 
   protected readonly toArray = toArray;
+
 }
