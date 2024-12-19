@@ -5,9 +5,6 @@ import {CharacterRoutingModule} from './character-routing.module';
 import { CharacterHomeComponent } from './pages/character-home/character-home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CharacterFormComponent } from './pages/character-form/character-form.component';
-import {Textarea} from "primeng/textarea";
-import {FloatLabel} from 'primeng/floatlabel';
-import {Button} from 'primeng/button';
 import { MatButtonModule} from '@angular/material/button';
 import {
 
@@ -32,9 +29,6 @@ import { MatCardModule} from '@angular/material/card';
     CharacterRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    Textarea,
-    FloatLabel,
-    Button,
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
