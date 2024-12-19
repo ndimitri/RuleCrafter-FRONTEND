@@ -1,291 +1,744 @@
-:host{
-  .page{
-    background-color:#1a1b2e;
+//:host{
+//  .page{
+//    background-color:#1a1b2e;
+//    padding: 20px;
+//    height: 100vh;
+//
+//  }
+//
+//  // Character sheet - Apparence générale du corps de la page
+//
+//  h2{
+//    margin-bottom: 0;
+//  }
+//
+//  /* Conteneur principal de la feuille de personnage */
+//  .character-sheet {
+//    position: relative; /* Nécessaire pour positionner les pseudo-éléments */
+//    width: 100vh; /* Largeur de 50% de la page */
+//    max-width: 800px; /* Largeur maximale de 800px */
+//    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+//
+//    margin: 20px auto; /* Centrage horizontal */
+//    padding: 20px; /* Espace interne autour du contenu */
+//    border: 2px solid black; /* Bordure grise légère */
+//    border-radius: 10px; /* Bords arrondis */
+//    font-family: 'BeaufortLoL-Medium', sans-serif;
+//
+//
+//    /* Image de fond */
+//    //background: linear-gradient(0deg, #8f7031, #C89B3C); /* Gradient vertical */
+//    background: linear-gradient(0deg, #4b4b4b, #6d6d6d);
+//    //background-color: #4b382a;
+//
+//  }
+//
+//  /* Header - Titre principal */
+//  header {
+//    text-align: center; /* Centrage du texte */
+//    //border-bottom: 2px solid #000; /* Ligne noire en bas du header */
+//    margin-bottom: 20px; /* Espace sous le header */
+//    padding-bottom: 10px; /* Espace interne sous le texte */
+//
+//
+//    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+//
+//    border: 1.5px solid black;
+//    border-radius: 3px;
+//
+//    font-size: 1em; /* Taille du texte du titre principal */
+//    font-family: 'BeaufortLoL-Bold', sans-serif;
+//
+//    h1{
+//      font-size: 3em;
+//      margin-bottom: 10px;
+//      margin-top: 15px;
+//    }
+//  }
+//
+//  /* Définition des différents gradients pour chaque alignement */
+//  /* Lawful Alignments */
+//  header.lawful-good {
+//    //background: linear-gradient(0deg, rgba(30,147,30,0.91) -10%, #a4832a 100%); /* Lawful Good - Vert */
+//    background: linear-gradient(0deg, rgba(30,147,30,0.91) -10%, #6b6a6a 100%); /* Lawful Good - Vert */
+//  }
+//
+//  header.lawful-evil {
+//    background: linear-gradient(0deg, rgba(171,52,52,0.91) -10%, #6b6a6a 100%); /* Lawful Evil - Rouge */
+//  }
+//
+//  header.lawful-neutral {
+//    background: linear-gradient(0deg, rgba(49,49,180,0.91) -5%, #6b6a6a 100%); /* Lawful Neutral - Bleu */
+//  }
+//
+//  /* Neutral Alignments */
+//  header.neutral-good {
+//    background: linear-gradient(0deg, rgba(33,167,169,0.91) -10%, #6b6a6a 100%); /* Neutral Good - Cyan */
+//  }
+//
+//  header.neutral-evil {
+//    background: linear-gradient(0deg, rgba(128, 0, 128, 0.91) -10%, #6b6a6a 100%); /* Neutral Evil - Violet */
+//  }
+//
+//  header.neutral-true {
+//    background: linear-gradient(0deg, rgba(169, 169, 169, 0.91) -5%, #6b6a6a 100%); /* True Neutral - Gris */
+//  }
+//
+//  /* Chaotic Alignments */
+//  header.chaotic-good {
+//    background: linear-gradient(0deg, rgb(12,26,54) -10%, #6b6a6a 100%); /* Chaotic Good - Dark blue */
+//  }
+//
+//  header.chaotic-evil {
+//    background: linear-gradient(0deg, rgb(243,3,3) -5%, #6b6a6a 100%); /* Chaotic Evil - Rouge vif */
+//  }
+//
+//  header.chaotic-neutral {
+//    background: linear-gradient(0deg, rgba(37,25,6,0.91) -5%, #6b6a6a 100%); /* Chaotic Neutral - Dark brown */
+//  }
+//
+//
+//
+//
+//
+//  /* Informations supplémentaires affichées sous le titre */
+//  .info {
+//    display: flex; /* Utilisation du modèle Flexbox */
+//    flex-direction: column; /* Empilement vertical */
+//    justify-content: center; /* Centrage vertical */
+//    font-size: 1.5em; /* Taille réduite du texte */
+//    font-family: 'BeaufortLoL-Medium', sans-serif;
+//
+//    .classes{
+//      display: flex;
+//      align-self: center;
+//      gap: 10px;
+//    }
+//
+//  }
+//
+//  strong{
+//    font-family: 'BeaufortLoL-Bold', sans-serif;
+//  }
+//
+//  /* Style de l'image décorative dans le header */
+//  .header-decoration img {
+//    margin-top: 10px;
+//    width: 100%; /* L'image prendra toute la largeur disponible */
+//    height: auto; /* Conserve le ratio de l'image */
+//    max-height: 100%; /* Ne dépasse pas la hauteur de la section */
+//    object-fit: contain; /* S'assure que l'image reste entièrement visible */
+//    display: block; /* Supprime l'espace blanc sous l'image */
+//  }
+//
+//  .block-decoration {
+//    padding-bottom: 10px;
+//    img{
+//      width: 100%;
+//    }
+//  }
+//
+//  /* Section des statistiques */
+//  .up-blocks {
+//    display: flex; /* Modèle Flexbox pour aligner les blocs de statistiques */
+//    justify-content: space-between; /* Espacement égal entre les blocs */
+//    margin-bottom: 20px; /* Espace sous la section */
+//    border: 2px solid black;
+//    padding: 10px;
+//    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+//
+//    //background-color: #af9384;
+//    //background-color: #637695;
+//    background: linear-gradient(0deg, #6b6a6a, #6d6d6d);
+//
+//
+//  }
+//
+//
+//  .stat-block {
+//    display: flex;
+//    flex-direction: column;
+//    align-content: center;
+//    justify-content: center;
+//    width: 15%; /* Chaque bloc occupe 45% de la largeur disponible */
+//    //border: 1px solid black;
+//    padding: 10px;
+//    //background-color: blue;
+//
+//    .stat-block-name {
+//      align-self: center;
+//    }
+//
+//
+//    .stats{
+//      display: flex;
+//      flex-direction: column;
+//      justify-content: space-evenly;
+//      //align-items: center;
+//      gap: 5px;
+//      width: 60%;
+//      align-self: center;
+//      border: 1px solid black;
+//      padding: 10px;
+//
+//      .stat{
+//        display: flex;
+//        gap: 7px;
+//        justify-content: space-between;
+//
+//        .stat-name{
+//          font-family: 'BeaufortLoL-Bold', sans-serif;
+//        }
+//
+//      }
+//    }
+//
+//  }
+//
+//  .description-block{
+//    display: flex;
+//    flex-direction: column;
+//    width: 70vh;
+//    //background-color: red;
+//    padding: 10px;
+//    //border: 1px solid black;
+//
+//    .description-block-name{
+//      align-self: center;
+//    }
+//
+//    .description-infos{
+//      display: flex;
+//      justify-content: center;
+//      font-size: 1.3em;
+//
+//      .description-infos-left{
+//        display: flex;
+//        flex-direction: column;
+//        gap: 10px;
+//        //border: 1px solid black;
+//        width: 50%;
+//        padding: 10px;
+//        text-align: center;
+//      }
+//
+//      .description-infos-right{
+//        display: flex;
+//        flex-direction: column;
+//        gap: 10px;
+//        //border: 1px solid black;
+//        width: 50%;
+//        padding: 10px;
+//        text-align: center;
+//      }
+//
+//
+//    }
+//  }
+//
+//  .spell-block{
+//    padding: 10px;
+//    display: flex;
+//    flex-direction: column;
+//    align-self: flex-start;
+//    align-items: center;
+//    width: 20%;
+//
+//
+//    align-content: center;
+//    justify-content: center;
+//
+//
+//    .spell-block-name{
+//      align-self: center;
+//    }
+//
+//    .spells-list{
+//      font-size: 1.2em;
+//      display: flex;
+//      flex-direction:column;
+//      padding: 10px;
+//      border: 1px solid black;
+//      width: 80%;
+//
+//      .spell{
+//        display: flex;
+//        flex-direction: row;
+//        justify-content: space-evenly;
+//        gap: 5px;
+//      }
+//
+//    }
+//
+//
+//  }
+//
+//
+//  .block-name{
+//    font-size: 1.5em;
+//    font-family: 'BeaufortLoL-Bold', sans-serif;
+//    margin-top: -35px;
+//  }
+//
+//
+//
+//
+//
+//
+//}
+//
+//
+//
+//
+
+
+:host {
+  .page {
+    background-color: #1a1b2e;
     padding: 20px;
-    height: 100vh;
-
+    min-height: 100vh;
+    color: #0B1215;
   }
 
-  // Character sheet - Apparence générale du corps de la page
-
-  h2{
-    margin-bottom: 0;
-  }
-
-  /* Conteneur principal de la feuille de personnage */
   .character-sheet {
-    position: relative; /* Nécessaire pour positionner les pseudo-éléments */
-    width: 100vh; /* Largeur de 50% de la page */
-    max-width: 800px; /* Largeur maximale de 800px */
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
-    margin: 20px auto; /* Centrage horizontal */
-    padding: 20px; /* Espace interne autour du contenu */
-    border: 2px solid black; /* Bordure grise légère */
-    border-radius: 10px; /* Bords arrondis */
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
     font-family: 'BeaufortLoL-Medium', sans-serif;
-
-
-    /* Image de fond */
-    //background: linear-gradient(0deg, #8f7031, #C89B3C); /* Gradient vertical */
     background: linear-gradient(0deg, #4b4b4b, #6d6d6d);
-    //background-color: #4b382a;
-
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
-  /* Header - Titre principal */
+  // Header Styles
   header {
-    text-align: center; /* Centrage du texte */
-    //border-bottom: 2px solid #000; /* Ligne noire en bas du header */
-    margin-bottom: 20px; /* Espace sous le header */
-    padding-bottom: 10px; /* Espace interne sous le texte */
-
-
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
     border: 1.5px solid black;
     border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
-    font-size: 1em; /* Taille du texte du titre principal */
-    font-family: 'BeaufortLoL-Bold', sans-serif;
-
-    h1{
+    h1 {
       font-size: 3em;
-      margin-bottom: 10px;
+      margin: 15px 0 10px;
+      font-family: 'BeaufortLoL-Bold', sans-serif;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5em;
+
+      .classes {
+        display: flex;
+        gap: 10px;
+      }
+    }
+
+    .header-decoration img {
+      width: 100%;
       margin-top: 15px;
     }
   }
 
-  /* Définition des différents gradients pour chaque alignement */
-  /* Lawful Alignments */
-  header.lawful-good {
-    //background: linear-gradient(0deg, rgba(30,147,30,0.91) -10%, #a4832a 100%); /* Lawful Good - Vert */
-    background: linear-gradient(0deg, rgba(30,147,30,0.91) -10%, #6b6a6a 100%); /* Lawful Good - Vert */
+  // Alignment-based header backgrounds
+  .lawful-good {
+    background: linear-gradient(0deg, rgba(30,147,30,0.91) -10%, #6b6a6a 100%);
   }
 
-  header.lawful-evil {
-    background: linear-gradient(0deg, rgba(171,52,52,0.91) -10%, #6b6a6a 100%); /* Lawful Evil - Rouge */
+  .lawful-evil {
+    background: linear-gradient(0deg, rgba(171,52,52,0.91) -10%, #6b6a6a 100%);
   }
 
-  header.lawful-neutral {
-    background: linear-gradient(0deg, rgba(49,49,180,0.91) -5%, #6b6a6a 100%); /* Lawful Neutral - Bleu */
+  .lawful-neutral {
+    background: linear-gradient(0deg, rgba(49,49,180,0.91) -5%, #6b6a6a 100%);
   }
 
-  /* Neutral Alignments */
-  header.neutral-good {
-    background: linear-gradient(0deg, rgba(33,167,169,0.91) -10%, #6b6a6a 100%); /* Neutral Good - Cyan */
+  .neutral-good {
+    background: linear-gradient(0deg, rgba(33,167,169,0.91) -10%, #6b6a6a 100%);
   }
 
-  header.neutral-evil {
-    background: linear-gradient(0deg, rgba(128, 0, 128, 0.91) -10%, #6b6a6a 100%); /* Neutral Evil - Violet */
+  .neutral-evil {
+    background: linear-gradient(0deg, rgba(128,0,128,0.91) -10%, #6b6a6a 100%);
   }
 
-  header.neutral-true {
-    background: linear-gradient(0deg, rgba(169, 169, 169, 0.91) -5%, #6b6a6a 100%); /* True Neutral - Gris */
+  .neutral-true {
+    background: linear-gradient(0deg, rgba(169,169,169,0.91) -5%, #6b6a6a 100%);
   }
 
-  /* Chaotic Alignments */
-  header.chaotic-good {
-    background: linear-gradient(0deg, rgb(12,26,54) -10%, #6b6a6a 100%); /* Chaotic Good - Dark blue */
+  .chaotic-good {
+    background: linear-gradient(0deg, rgb(12,26,54) -10%, #6b6a6a 100%);
   }
 
-  header.chaotic-evil {
-    background: linear-gradient(0deg, rgb(243,3,3) -5%, #6b6a6a 100%); /* Chaotic Evil - Rouge vif */
+  .chaotic-evil {
+    background: linear-gradient(0deg, rgb(243,3,3) -5%, #6b6a6a 100%);
   }
 
-  header.chaotic-neutral {
-    background: linear-gradient(0deg, rgba(37,25,6,0.91) -5%, #6b6a6a 100%); /* Chaotic Neutral - Dark brown */
+  .chaotic-neutral {
+    background: linear-gradient(0deg, rgba(37,25,6,0.91) -5%, #6b6a6a 100%);
   }
 
-
-
-
-
-  /* Informations supplémentaires affichées sous le titre */
-  .info {
-    display: flex; /* Utilisation du modèle Flexbox */
-    flex-direction: column; /* Empilement vertical */
-    justify-content: center; /* Centrage vertical */
-    font-size: 1.5em; /* Taille réduite du texte */
-    font-family: 'BeaufortLoL-Medium', sans-serif;
-
-    .classes{
-      display: flex;
-      align-self: center;
-      gap: 10px;
-    }
-
-  }
-
-  strong{
-    font-family: 'BeaufortLoL-Bold', sans-serif;
-  }
-
-  /* Style de l'image décorative dans le header */
-  .header-decoration img {
-    margin-top: 10px;
-    width: 100%; /* L'image prendra toute la largeur disponible */
-    height: auto; /* Conserve le ratio de l'image */
-    max-height: 100%; /* Ne dépasse pas la hauteur de la section */
-    object-fit: contain; /* S'assure que l'image reste entièrement visible */
-    display: block; /* Supprime l'espace blanc sous l'image */
-  }
-
-  .block-decoration {
-    padding-bottom: 10px;
-    img{
-      width: 100%;
-    }
-  }
-
-  /* Section des statistiques */
-  .up-blocks {
-    display: flex; /* Modèle Flexbox pour aligner les blocs de statistiques */
-    justify-content: space-between; /* Espacement égal entre les blocs */
-    margin-bottom: 20px; /* Espace sous la section */
-    border: 2px solid black;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
-    //background-color: #af9384;
-    //background-color: #637695;
+  // Content Blocks
+  .content-block {
     background: linear-gradient(0deg, #6b6a6a, #6d6d6d);
+    border: 2px solid black;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
 
+  // Block Titles
+  .block-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 2em;
+      font-family: 'BeaufortLoL-Bold', sans-serif;
+      margin: 0;
+      background: linear-gradient(0deg, #6b6a6a, #6d6d6d);
+      display: inline-block;
+      padding: 0 10px;
+      position: relative;
+      top: -10px;
+    }
 
   }
 
-
+  // Stats Block
   .stat-block {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    width: 15%; /* Chaque bloc occupe 45% de la largeur disponible */
-    //border: 1px solid black;
-    padding: 10px;
-    //background-color: blue;
-
-    .stat-block-name {
-      align-self: center;
-    }
-
-
-    .stats{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      //align-items: center;
-      gap: 5px;
-      width: 60%;
-      align-self: center;
+    .stats {
+      display: grid;
+      gap: 10px;
+      padding: 15px;
       border: 1px solid black;
-      padding: 10px;
+      border-radius: 4px;
 
-      .stat{
+      .stat {
         display: flex;
-        gap: 7px;
         justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
 
-        .stat-name{
+        .stat-name {
           font-family: 'BeaufortLoL-Bold', sans-serif;
         }
-
       }
     }
-
   }
+
 
   .description-block{
     display: flex;
     flex-direction: column;
-    width: 70vh;
-    //background-color: red;
-    padding: 10px;
-    //border: 1px solid black;
+    gap: 15px;
+  }
 
-    .description-block-name{
-      align-self: center;
-    }
+  // Description Block
+  .description-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 
-    .description-infos{
+    .description-column {
       display: flex;
-      justify-content: center;
-      font-size: 1.3em;
+      flex-direction: column;
+      gap: 30px;
 
-      .description-infos-left{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        //border: 1px solid black;
-        width: 50%;
-        padding: 10px;
+      .description-item {
+        padding: 8px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
         text-align: center;
       }
-
-      .description-infos-right{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        //border: 1px solid black;
-        width: 50%;
-        padding: 10px;
-        text-align: center;
-      }
-
-
     }
   }
 
-  .spell-block{
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    align-items: center;
-    width: 20%;
+  // Spells Block
+  .spells-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 4px;
 
-
-    align-content: center;
-    justify-content: center;
-
-
-    .spell-block-name{
-      align-self: center;
-    }
-
-    .spells-list{
-      font-size: 1.2em;
+    .spell-item {
       display: flex;
-      flex-direction:column;
+      justify-content: space-between;
+      padding: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+
+      .spell-level {
+        color: #C89B3C;
+      }
+    }
+  }
+
+
+  // Items Block
+  .items-list {
+    .item-card {
+      position: relative;
       padding: 10px;
-      border: 1px solid black;
-      width: 80%;
+      margin-bottom: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
 
-      .spell{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        gap: 5px;
+      &:hover {
+        background: rgba(0, 0, 0, 0.3);
       }
 
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .item-rarity {
+          color: #C89B3C;
+          font-size: 0.9em;
+        }
+
+        .item-type{
+          font-weight: bold;
+        }
+      }
+
+      .item-details {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 10px;
+        border-radius: 0 0 4px 4px;
+        z-index: 10;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+
+        .item-weight,
+        .item-price,
+        .item-description {
+          margin-bottom: 5px;
+          font-size: 0.9em;
+        }
+      }
     }
 
+    .item-card:hover .item-details {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
 
   }
 
+  // Saving Throws Block
+  .saves-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 4px;
 
-  .block-name{
-    font-size: 1.5em;
-    font-family: 'BeaufortLoL-Bold', sans-serif;
-    margin-top: -35px;
+    .save-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+
+      .save-name {
+        font-weight: bold;
+      }
+
+      .save-value {
+        color: #C89B3C;
+      }
+    }
   }
 
+  // Proficiencies Block
+  .proficiencies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 4px;
 
+    .proficiency-item {
+      padding: 8px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
+      .prof-name {
+        font-weight: bold;
+      }
 
+      .prof-skill {
+        color: #666;
+        font-size: 0.9em;
+      }
+    }
+  }
 
+  // Background and Backstory Section
+  .background-section {
 
+    .block-title {
+      h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px; // Espace entre le titre principal et le sous-titre
+      }
+    }
+
+    .background-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      .background {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h3 {
+          margin-right: 15px;
+          white-space: nowrap;
+          font-family: 'BeaufortLoL-Bold', sans-serif;
+          color: #C89B3C;
+          font-size: 1.5em;
+        }
+
+        p {
+          flex-grow: 1;
+          background: rgba(0, 0, 0, 0.3);
+          padding: 15px;
+          border-radius: 8px;
+          line-height: 1.6;
+          color: #e0e0e0;
+        }
+      }
+
+      .backstory {
+        h3 {
+          font-family: 'BeaufortLoL-Bold', sans-serif;
+          color: #C89B3C;
+          font-size: 1.8em;
+          margin-bottom: 20px;
+          padding-bottom: 10px;
+          border-bottom: 2px solid rgba(200, 155, 60, 0.3);
+        }
+
+        p {
+          background: rgba(0, 0, 0, 0.3);
+          padding: 20px;
+          border-radius: 8px;
+          line-height: 1.7;
+          font-size: 1em;
+          color: #e0e0e0;
+          max-height: 500px;
+          overflow-y: auto;
+
+          // Scrollbar styling
+          scrollbar-width: thin;
+          scrollbar-color: #C89B3C rgba(0, 0, 0, 0.1);
+
+          &::-webkit-scrollbar {
+            width: 10px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #C89B3C;
+            border-radius: 10px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+          }
+
+          &::-webkit-scrollbar-thumb:hover {
+            background: #a67c2d;
+          }
+
+          word-wrap: break-word;
+          hyphens: auto;
+          text-align: justify;
+        }
+      }
+    }
+  }
+  // Feats Block
+  .feats-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 4px;
+
+    .feat-item {
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+
+      .feat-name {
+        font-weight: bold;
+      }
+
+      .feat-notes {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 5px;
+      }
+    }
+  }
 }
+
 
 
 

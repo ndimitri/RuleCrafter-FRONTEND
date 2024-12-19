@@ -36,7 +36,7 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     padding: 40px;
     width: 100%;
-    max-width: 600px;
+    max-width: 1000px;
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
@@ -161,5 +161,249 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+  }
+}
+
+
+.item-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.price-group {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.items-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 20px;
+
+  .item-card {
+    width: 250px;
+    background-color: #1e1f36;
+    color: #ffffff;
+
+    .mat-mdc-card-header {
+      background-color: #242642;
+    }
+
+    .item-details {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #b9bbd3;
+    }
+  }
+}
+
+
+
+.saving-throws-list,
+.proficiencies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 20px;
+
+  .saving-throw-card,
+  .proficiency-card {
+    width: 250px;
+    background-color: #1e1f36;
+    color: #ffffff;
+    min-height: 150px;
+
+    .mat-mdc-card-header {
+      background-color: #242642;
+      display: flex;
+      justify-content: center;
+      border-radius: 5px;
+    }
+
+    .mat-mdc-card-title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mat-mdc-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 15px;
+      text-align: center;
+
+      p {
+        margin: 5px 0;
+        color: #b9bbd3;
+      }
+    }
+  }
+}
+
+// Styles spécifiques pour les proficiencies
+.proficiencies-list {
+  .proficiency-card {
+    .mat-mdc-card-content {
+      p {
+        &:first-child {
+          font-weight: bold;
+          color: #C89B3C; // Couleur dorée pour le niveau
+        }
+      }
+    }
+  }
+}
+
+// Styles pour les formulaires de ces étapes
+.saving-throws-form,
+.proficiencies-form {
+  .form-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+
+    .mat-mdc-form-field {
+      width: 100%;
+
+      ::ng-deep {
+        .mat-mdc-text-field-wrapper {
+          background-color: #1e1f36;
+          border-radius: 8px;
+        }
+
+        .mat-mdc-input-element {
+          color: #ffffff;
+        }
+
+        .mat-mdc-form-field-label {
+          color: #b9bbd3;
+        }
+      }
+    }
+  }
+}
+
+// Style pour les niveaux de proficiency
+.proficiency-level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.level-1 { color: #ff0000; } // Untrained
+  &.level-2 { color: #ff7f00; } // Half Proficient
+  &.level-3 { color: #ffff00; } // Proficient
+  &.level-4 { color: #00ff00; } // Expert
+  &.level-5 { color: #0000ff; } // Master
+}
+
+// Animations et effets de survol
+.saving-throw-card,
+.proficiency-card {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+}
+
+// Styles pour les boutons d'ajout
+.add-item-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  button {
+    background-color: #4f5275;
+    color: #ffffff;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #6f72a4;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  .saving-throws-list,
+  .proficiencies-list {
+    .saving-throw-card,
+    .proficiency-card {
+      width: 100%;
+      max-width: 350px;
+    }
+  }
+
+  .saving-throws-form,
+  .proficiencies-form {
+    .form-group {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+
+
+::ng-deep {
+  // Sélecteurs généraux pour les mat-select
+  .mat-mdc-select {
+    color: #ffffff !important;
+
+    // Le texte de l'option sélectionnée
+    .mat-mdc-select-value {
+      color: #ffffff !important;
+    }
+
+    // L'icône du dropdown
+    .mat-mdc-select-arrow {
+      color: #ffffff !important;
+    }
+  }
+
+  // Style des options dans le dropdown
+  .mat-mdc-option {
+    color: #000000 !important; // Noir pour la lisibilité dans le dropdown
+
+    // Option sélectionnée
+    &.mdc-list-item--selected {
+      background-color: #4f5275 !important;
+      color: #ffffff !important;
+    }
+
+    // Hover sur les options
+    &:hover {
+      background-color: #6f72a4 !important;
+      color: #ffffff !important;
+    }
+  }
+
+  // Pour les menus déroulants
+  .mat-mdc-select-panel {
+    background-color: #292C4C !important;
+
+    // Scrollbar dans le dropdown
+    .mat-mdc-option-text {
+      color: #ffffff !important;
+    }
+  }
+
+  // Bordure et background du select
+  .mat-mdc-form-field-infix {
+    .mat-mdc-select {
+      background-color: #1e1f36 !important;
+    }
   }
 }

@@ -3,10 +3,10 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
 import {
   Alignment,
   CharacterClass,
-  Feat,
+  Feat, Item,
   ItemRarity,
   ItemType,
-  MagicSchool,
+  MagicSchool, Proficiency, ProficiencyLevel, SavingThrow,
   Spell,
   SpellLevel
 } from '../../models/character.model';
@@ -32,9 +32,9 @@ export class CharacterFormComponent {
   statsForm : FormGroup;
   featsForm : FormGroup;
   spellsForm: FormGroup;
-  // savingThrowsForm: FormGroup;
-  // proficiencyForm: FormGroup;
-  // itemsForm: FormGroup;
+  savingThrowsForm: FormGroup;
+  proficiencyForm: FormGroup;
+  itemsForm: FormGroup;
 
 
   fullForm : FormGroup;
@@ -44,6 +44,7 @@ export class CharacterFormComponent {
   protected readonly  ItemType= ItemType;
   protected readonly  MagicSchool= MagicSchool;
   protected readonly  SpellLevel= SpellLevel;
+  protected readonly  ProficiencyLevel = ProficiencyLevel;
 
   //Enums from API :
   APIclasses?: APIClassesResult;
@@ -51,9 +52,13 @@ export class CharacterFormComponent {
   stats?: APIStatsResult;
   magicSchools?: APIMagicSchoolsResult;
 
-  //Tests
+  // Tableaux pour stocker les différents éléments
   featsList : Feat[] = [];
   spellsList: Spell[] = [];
+  savingThrowsList: SavingThrow[] = [];
+  proficienciesList: Proficiency[] = [];
+  itemsList: Item[] = [];
+
 
 
   constructor(private formBuilder: FormBuilder, private _apiService: ApiService) {
@@ -105,6 +110,30 @@ export class CharacterFormComponent {
     });
 
 
+    this.savingThrowsForm = this.formBuilder.group({
+      abilityName: ['', Validators.required],
+      value: [0, [Validators.required, Validators.minLength(0)]]
+    });
+
+    this.proficiencyForm = this.formBuilder.group({
+      skillName: ['', Validators.required],
+      proficiencyLevel: [null, Validators.required],
+      governingSkill: ['', Validators.required],
+    });
+
+    this.itemsForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      description: [''],
+      weight: [0, Validators.min(0)],
+      rarity: [null, Validators.required],
+      type: [null, Validators.required],
+      price: this.formBuilder.group({
+        value: [0, Validators.min(0)],
+        currency: ['GP', Validators.required]
+      })
+    })
+
+
 
     this.fullForm = this.formBuilder.group({
       characterForm : this.characterForm,
@@ -112,6 +141,9 @@ export class CharacterFormComponent {
       statsForm : this.statsForm,
       featsForm: this.featsForm,
       spellsForm: this.spellsForm,
+      savingThrowsForm: this.savingThrowsForm,
+      proficiencyForm: this.proficiencyForm,
+      itemsForm: this.itemsForm,
     });
 
 
@@ -173,8 +205,6 @@ export class CharacterFormComponent {
   }
 
 
-
-
   get classes() : FormArray{
     return this.characterForm.get('classes') as FormArray;
   }
@@ -221,9 +251,15 @@ export class CharacterFormComponent {
       hp: this.characterForm.get('hp')?.value,
       race: this.characterForm.get('race')?.value,
       backstory: this.characterForm.get('backstory')?.value,
+      alignment: this.characterForm.get('alignment')?.value,
       feats: this.featsList,
       classes: classesList,
       stats: this.statsForm.value,
+      description: this.descriptionForm.value,
+      savingThrows: this.savingThrowsList,
+      proficiencies: this.proficienciesList,
+      items: this.itemsList,
+
 
     };
     console.log(character);
@@ -255,10 +291,10 @@ export class CharacterFormComponent {
   addSpell() {
     this.spellsForm.markAllAsTouched();
 
-    if(this.spellsForm.invalid){
-      console.log("Spell Form invalid");
-      return;
-    }
+    // if(this.spellsForm.invalid){
+    //   console.log("Spell Form invalid");
+    //   return;
+    // }
 
     let name = this.spellsForm.get('name')?.value;
     let level = this.spellsForm.get('level')?.value;
@@ -305,6 +341,34 @@ export class CharacterFormComponent {
   isClassSelected(classIndex: string): boolean {
     return this.classes.value.includes(classIndex);
   }
+
+  // Méthodes pour ajouter des éléments
+  addSavingThrow() {
+    const savingThrowForm = this.fullForm.get('savingThrowsForm');
+    if (this.savingThrowsForm.valid) {
+      this.savingThrowsList.push(this.savingThrowsForm.value);
+      this.savingThrowsForm.reset();
+    }
+  }
+
+  addProficiency() {
+    const proficiencyForm = this.fullForm.get('proficiencyForm');
+    if (this.proficiencyForm.valid) {
+      this.proficienciesList.push(this.proficiencyForm.value);
+      this.proficiencyForm.reset();
+    }
+  }
+
+  addItem() {
+    const itemForms = this.fullForm.get('itemsForm');
+    if (this.itemsForm.valid) {
+      this.itemsList.push(this.itemsForm.value);
+      this.itemsForm.reset();
+    }
+  }
+
+
+
 
 
   protected readonly toArray = toArray;
