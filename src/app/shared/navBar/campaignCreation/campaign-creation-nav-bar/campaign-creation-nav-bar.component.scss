@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-direction: row;
+
+  .navBar {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .backBtnContainer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 3rem;
+
+    }
+
+    .navBarBtnContainer {
+      width: 100%;
+
+      .navBarBtn {
+        width: 15rem;
+        padding: 12px 24px;
+        background-color: #4f5275;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        min-width: 120px;
+
+        &:hover:not([disabled]) {
+          background-color: #6f72a4;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active:not([disabled]) {
+          transform: translateY(0);
+        }
+
+        &[disabled] {
+          background-color: #363851; // Muted version of brand color
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

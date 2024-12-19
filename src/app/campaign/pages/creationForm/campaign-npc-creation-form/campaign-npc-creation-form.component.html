@@ -1,0 +1,18 @@
+<section class="navBar">
+  <app-campaign-creation-nav-bar></app-campaign-creation-nav-bar>
+  <app-world-building-creation-nav-bar></app-world-building-creation-nav-bar>
+</section>
+<section class="npcForm">
+  <form class="npcFormInputs" [formGroup]="npcForm" (ngSubmit)="submit()">
+    <div class="npcFormInput">
+      <label for="npcName">Npc Name</label>
+      <input id="npcName" type="text" placeholder="Write the name of the npc" formControlName="npcName">
+      <app-form-error [control]="npcForm"></app-form-error>
+    </div>
+    <div class="npcFormInput">
+      <label for="npcDescription">Npc Description</label>
+      <input id="npcDescription" type="text" placeholder="Write the description of the npc" formControlName="npcDescription">
+    </div>
+  </form>
+  <button class="saveBtn" type="submit">Save</button>
+</section>

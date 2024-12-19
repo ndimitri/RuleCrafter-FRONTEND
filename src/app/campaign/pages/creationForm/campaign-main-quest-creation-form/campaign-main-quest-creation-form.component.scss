@@ -1,0 +1,94 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .navBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mainQuestForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    margin-top: 10rem;
+
+    .mainQuestLeftForm {
+      display: flex;
+      flex-direction: column;
+      border: black solid 3px;
+      padding: 2rem;
+      width: 40rem;
+      height: 50rem;
+
+      .mainQuestLeftFormInputs {
+        display: flex;
+        flex-direction: column;
+
+        .mainQuestLeftFormInput {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          input {
+            border: black solid 2px;
+            margin: 2rem;
+          }
+
+          #mainQuestName {
+            width: 25rem;
+          }
+
+          #mainQuestDescription {
+            width: 25rem;
+            height: 15rem;
+          }
+        }
+      }
+    }
+
+    .mainQuestRightForm {
+      display: flex;
+      flex-direction: column;
+      border: black solid 3px;
+      padding: 2rem;
+      width: 40rem;
+      height: 50rem;
+
+      .mainQuestRightFormInputs {
+        display: flex;
+        flex-direction: column;
+
+        .mainQuestRightFormInput {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 1rem;
+
+          input {
+            border: black solid 2px;
+            margin: 2rem;
+          }
+
+          #objectiveName {
+            width: 25rem;
+          }
+
+          #objectiveDescription {
+            width: 25rem;
+            height: 15rem;
+          }
+        }
+      }
+    }
+    .saveBtn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 3rem;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<section class="campaignOverviewHeader">
+  <button id="mainMenu" [routerLink]="'/home'">Main menu</button>
+  <button id="back" [routerLink]="'/campaign'">Back</button>
+  <h2>{{campaignOverview.campaignName}}</h2>
+</section>
+<section class="campaignOverviewBody">
+  <div class="campaignOverviewDetails">
+    <p>Summary : {{campaignOverview.campaignSummary}}</p>
+    <span>Min - Max player : {{campaignOverview.minCapacity}} - {{campaignOverview.maxCapacity}}</span>
+    <p>Suggested party : {{campaignOverview.partyRecommendation}}</p>
+  </div>
+  <div class="campaignOverviewCard" [routerLink]="'/campaign/' + campaignOverview.id + '/worldOverview'">
+    <span>World Overview</span>
+    <img [src]="'assets/images/Rule_crafter_9.jpg'" [alt]="campaignOverview.campaignName">
+  </div>
+  <div class="campaignOverviewCard" [routerLink]="'/campaign/' + campaignOverview.id + '/questOverview'">
+    <span>Quests Overview</span>
+    <img [src]="'assets/images/Rule_crafter_6.jpg'" [alt]="campaignOverview.campaignName">
+  </div>
+  <div class="campaignOverviewCard" [routerLink]="'/campaign/' + campaignOverview.id + '/rules'">
+    <span>Rules</span>
+    <img [src]="'assets/images/Rule_crafter_4.jpg'" [alt]="campaignOverview.campaignName">
+  </div>
+</section>

@@ -1,0 +1,19 @@
+<section class="navBar">
+  <app-campaign-creation-nav-bar></app-campaign-creation-nav-bar>
+  <app-world-building-creation-nav-bar></app-world-building-creation-nav-bar>
+</section>
+<section class="locationForm">
+  <form class="locationFormInputs" [formGroup]="locationForm" (ngSubmit)="submit()">
+    <div class="locationFormInput">
+      <label for="locationName">Location Name</label>
+      <input id="locationName" type="text" placeholder="Write the name of the location" formControlName="locationName">
+      <app-form-error [control]="locationForm.get('locationName')"></app-form-error>
+    </div>
+    <div class="locationFormInput">
+      <label for="locationDescription">Location Description</label>
+      <input id="locationDescription" type="text" placeholder="Write the description of your location" formControlName="locationDescription">
+      <app-form-error [control]="locationForm.get('locationDescription')"></app-form-error>
+    </div>
+  </form>
+  <button class="saveBtn" type="submit">Save</button>
+</section>

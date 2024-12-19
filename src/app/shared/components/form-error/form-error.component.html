@@ -1,0 +1,17 @@
+@if (control && errors && !control.untouched) {
+  @if (errors['required']) {
+    <span class="error">Champs requis</span>
+  }
+  @if (errors['minlength']) {
+    <span class="error">Minimum {{ errors['minlength'].requiredLength }} élements</span>
+  }
+  @if (errors['maxlength']) {
+    <span class="error">Minimum {{ errors['maxlength'].requiredLength }} élements</span>
+  }
+  @if (errors['min']) {
+    <span class="error">Minimum {{ errors['min'].min }}</span>
+  }
+  @if (errors['max']) {
+    <span class="error">Minimum {{ errors['max'].max }}</span>
+  }
+}

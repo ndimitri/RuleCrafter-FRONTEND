@@ -1,0 +1,61 @@
+<section class="navBar">
+  <app-campaign-creation-nav-bar></app-campaign-creation-nav-bar>
+  <app-world-building-creation-nav-bar></app-world-building-creation-nav-bar>
+</section>
+<section class="sideQuestForm">
+  <section class="sideQuestLeftForm">
+    <form class="sideQuestLeftFormInputs" [formGroup]="sideQuestForm" (ngSubmit)="submit()">
+      <div class="sideQuestLeftFormInput">
+        <label for="sideQuestName">Name</label>
+        <input id="sideQuestName" type="text" placeholder="Write the name of the main quest" formControlName="sideQuestName">
+        <app-form-error [control]="sideQuestForm"></app-form-error>
+      </div>
+      <div class="sideQuestLeftFormInput">
+        <label for="sideQuestDescription">Description</label>
+        <input id="sideQuestDescription" type="text" placeholder="Write the description of your main quest" formControlName="sideQuestDescription">
+        <app-form-error [control]="sideQuestForm"></app-form-error>
+      </div>
+      <div class="sideQuestLeftFormInput">
+        <label for="sideQuestType">Type</label>
+        <input id="sideQuestType" type="text" placeholder="Write the type of your main quest" formControlName="sideQuestType">
+        <app-form-error [control]="sideQuestForm"></app-form-error>
+      </div>
+      <div class="sideQuestLeftFormInput">
+        <label for="sideQuestGiver">Quest giver</label>
+        <select id="sideQuestGiver">
+          <option>1</option>
+          <option>2</option>
+        </select>
+      </div>
+    </form>
+  </section>
+  <section class="sideQuestRightForm">
+    <form class="sideQuestRightFormInputs">
+      <div class="sideQuestRightFormInput">
+        <label for="objectiveName">Objective name</label>
+        <input id="objectiveName" type="text" placeholder="Write the name of your objective" formControlName="objectiveName">
+        <app-form-error [control]="sideQuestForm"></app-form-error>
+      </div>
+      <div class="sideQuestRightFormInput">
+        <label for="objectiveDescription">Objective description</label>
+        <input id="objectiveDescription" type="text" placeholder="Write your objective description" formControlName="objectiveDescription">
+        <app-form-error [control]="sideQuestForm"></app-form-error>
+      </div>
+      <div class="sideQuestRightFormInput">
+        <label for="sideQuestNpc">Link Npc</label>
+        <select id="sideQuestNpc">
+          <option>1</option>
+          <option>2</option>
+        </select>
+      </div>
+      <div class="sideQuestRightFormInput">
+        <label for="sideQuestLocation">Link location</label>
+        <select id="sideQuestLocation">
+          <option>1</option>
+          <option>2</option>
+        </select>
+      </div>
+    </form>
+    <button class="saveBtn" type="submit">Save</button>
+  </section>
+</section>

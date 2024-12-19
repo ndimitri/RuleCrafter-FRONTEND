@@ -1,0 +1,52 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .navBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .factionForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem;
+
+    .factionFormInputs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 3rem;
+
+      .factionFormInput {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 3rem;
+
+        input {
+          border: black solid 2px;
+          margin: 2rem;
+        }
+
+        #factionName {
+          width: 25rem;
+        }
+
+        #factionDescription {
+          width: 50rem;
+          height: 15rem;
+        }
+      }
+    }
+
+    .saveBtn {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 3rem;
+    }
+  }
+}

@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
   { path: 'bestiary', component: MonstersComponent},
   { path: 'about', component: AboutComponent},
-
+  { path: 'campaign', loadChildren: () => import('./campaign/campaign.module').then(m => m.CampaignModule)},
 ];
 
 @NgModule({
@@ -24,8 +24,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-/*
-Defines routes for the registration and login components.
-Redirects the root path to the registration component.
- */

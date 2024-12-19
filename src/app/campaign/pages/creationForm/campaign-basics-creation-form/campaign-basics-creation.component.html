@@ -1,0 +1,35 @@
+<section class="navBar">
+  <app-campaign-creation-nav-bar></app-campaign-creation-nav-bar>
+</section>
+<section class="basicsForm">
+  <form class="basicsFormInputs" [formGroup]="basicsForm" (ngSubmit)="submit()">
+    <div class="basicsFormInput">
+      <label for="campaignName">Campaign Name</label>
+      <input id="campaignName" type="text" placeholder="Write a name for your campaign" formControlName="campaignName">
+      <app-form-error [control]="basicsForm.get('campaignName')"></app-form-error>
+    </div>
+    <div class="basicsFormInput">
+      <label for="campaignSummary">Campaign Summary</label>
+      <input id="campaignSummary" type="text" placeholder="Write a summary for your campaign" formControlName="campaignSummary">
+      <app-form-error [control]="basicsForm.get('campaignSummary')"></app-form-error>
+    </div>
+    <div class="minMaxInput">
+      <div class="basicsFormInput">
+        <label for="minCapacity">Minimum capacity</label>
+        <input id="minCapacity" type="text" placeholder="Write the minimum number of player for your game" formControlName="minCapacity">
+        <app-form-error [control]="basicsForm.get('minCapacity')"></app-form-error>
+      </div>
+      <div class="basicsFormInput">
+        <label for="maxCapacity">Maximum Capacity</label>
+        <input id="maxCapacity" type="text" placeholder="Write the maximum number of player for your game" formControlName="maxCapacity">
+        <app-form-error [control]="basicsForm.get('maxCapacity')"></app-form-error>
+      </div>
+    </div>
+    <div class="basicsFormInput">
+      <label for="partyRecommendation">Party Recommendation</label>
+      <input id="partyRecommendation" type="text" placeholder="Write you party recommendation" formControlName="partyRecommendation">
+      <app-form-error [control]="basicsForm.get('partyRecommendation')"></app-form-error>
+    </div>
+  </form>
+  <button class="saveBtn" type="submit">Save</button>
+</section>

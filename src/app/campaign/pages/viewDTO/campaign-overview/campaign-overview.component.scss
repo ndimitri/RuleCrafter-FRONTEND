@@ -1,0 +1,105 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1b2e;
+  height: 100vh;
+
+  .campaignOverviewHeader {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 40rem;
+
+    #mainMenu {
+      padding: 12px 24px;
+      background-color: #4f5275;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      min-width: 120px;
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+    }
+
+    #back {
+      padding: 12px 24px;
+      background-color: #4f5275;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      min-width: 120px;
+      position: absolute;
+      left: 2rem;
+      top: 2rem;
+    }
+
+    h2 {
+      display: flex;
+      justify-content: center;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .campaignOverviewBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 3rem;
+
+    .campaignOverviewDetails {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 20rem;
+      height: 35rem;
+      overflow: auto;
+      color: #b9bbd3;
+      background-color: #292C4C;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .campaignOverviewCard {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      width: 15rem;
+      height: 35rem;
+      overflow: hidden;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        //object-position: center;
+      }
+
+      span {
+        position: absolute;
+        font-size: 30px;
+        color: white;
+        height: fit-content;
+        text-align: center;
+        width: 100%;
+        top: 50%;
+        transform: translate(0%,-50%);
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1a1b2e;
+  height: 100vh;
+
+  #campaignHomeHeader {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 40rem;
+
+    h2 {
+      display: flex;
+      justify-content: center;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    #campaignHomeHeadBtn {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      #createCampaign {
+        padding: 12px 24px;
+        background-color: #4f5275;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        min-width: 120px;
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+
+        &:hover:not([disabled]) {
+          background-color: #6f72a4;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active:not([disabled]) {
+          transform: translateY(0);
+        }
+
+        &[disabled] {
+          background-color: #363851; // Muted version of brand color
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
+      }
+
+
+    }
+  }
+
+  .campaignCards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 5rem;
+    margin: 5rem;
+    padding: 2rem;
+
+    .campaignCard {
+      flex: 1 1 calc(33.33% - 5rem);
+      max-width: calc(33.33% - 5rem);
+      flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 20rem;
+      height: 10rem;
+      overflow: auto;
+      padding: 1rem;
+      position: relative;
+      color: #b9bbd3;
+      background-color: #292C4C;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      h3 {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-top: 1rem;
+      }
+
+      .capacity {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<section id="campaignHomeHeader">
+  <div id="campaignHomeHeadBtn">
+    <button id="createCampaign" [routerLink]="'/campaign/createCampaign'">Create Campaign</button>
+  </div>
+  <h2>Campaigns</h2>
+</section>
+<section class="campaignCards">
+  @for (card of campaignHomeCard; track card.id) {
+    <div class="campaignCard" [routerLink]="'/campaign/' + card.id">
+      <h3>{{card.campaignName}}</h3>
+      <span id="summary">Summary</span>
+      <p>{{card.campaignSummary}}</p>
+      <span class="capacity">{{card.minCapacity}} - {{card.maxCapacity}}</span>
+    </div>
+  }
+</section>

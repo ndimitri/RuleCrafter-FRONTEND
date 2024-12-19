@@ -16,7 +16,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import {jwtInterceptor} from './core/interceptors/jwt.interceptor';
 import { MonstersComponent } from './pages/monsters/monsters.component';
 import { AboutComponent } from './pages/about/about.component';
-
+import { CampaignHomeComponent } from './campaign/pages/viewDTO/campaign-home/campaign-home.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { AboutComponent } from './pages/about/about.component';
     HomeComponent,
     ProfileComponent,
     MonstersComponent,
-    AboutComponent
+    AboutComponent,
+    CampaignHomeComponent,
   ],
   imports: [
     RouterModule,
