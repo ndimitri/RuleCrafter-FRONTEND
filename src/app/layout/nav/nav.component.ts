@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {AuthService} from '../../features/auth/service/auth.service';
 
@@ -6,6 +6,7 @@ interface Channel {
   id: number;
   name: string;
   active: boolean;
+  image: string;
 }
 
 @Component({
@@ -13,7 +14,7 @@ interface Channel {
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent {
+export class NavComponent implements OnInit{
   visibleSidebar: boolean = true;
   burgerMenuOpen: boolean = false;
   isLoginPage: boolean = false;
@@ -47,7 +48,8 @@ export class NavComponent {
     const newChannel: Channel = {
       id: this.nextChannelId++,
       name: `channel-${this.nextChannelId}`,
-      active: false
+      active: false,
+      image: 'assets/images/default-channel.jpg'
     };
     this.channels.push(newChannel);
   }

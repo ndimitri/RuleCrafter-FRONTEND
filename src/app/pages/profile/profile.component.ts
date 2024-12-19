@@ -52,7 +52,6 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile(): void {
-    console.log('updateProfile() called');
     if (this.profileForm.valid) {
       console.log('Valid')
       const formData = new FormData();
@@ -72,6 +71,8 @@ export class ProfileComponent implements OnInit {
           console.error('Profile update failed:', err);
         },
       });
+    } else {
+      this.profileForm.markAllAsTouched();
     }
   }
 

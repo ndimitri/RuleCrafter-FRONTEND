@@ -27,11 +27,11 @@ export class AuthService {
   }
 
   register(form: FormData): Observable<UserTokenDtoModel> {
-    return this._http.post<UserTokenDtoModel>(environment.apiUrl + "/auth/register", form);
+    return this._http.post<UserTokenDtoModel>(environment.API_URL + "/auth/register", form);
   }
 
   login(user: LoginFormModel) {
-    return this._http.post<UserTokenDtoModel>(`${environment.apiUrl}/auth/login`, user).pipe(
+    return this._http.post<UserTokenDtoModel>(`${environment.API_URL}/auth/login`, user).pipe(
       tap((user) => {
         this._currentUser$.next(user);
         localStorage.setItem("currentUser", JSON.stringify(user));
@@ -46,7 +46,7 @@ export class AuthService {
   }
 
   updateProfile(form: FormData): Observable<UserTokenDtoModel> {
-    return this._http.put<UserTokenDtoModel>(environment.apiUrl + "/auth/profile", form);
+    return this._http.put<UserTokenDtoModel>(environment.API_URL + "/auth/profile", form);
   }
 
 

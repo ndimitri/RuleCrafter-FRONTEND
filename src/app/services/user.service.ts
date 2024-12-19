@@ -14,10 +14,10 @@ export class UserService {
   ) { }
 
   getUserProfile(): Observable<UserDtoModel> {
-    return this._http.get<UserDtoModel>(`${environment.apiUrl}/auth/profile`);
+    return this._http.get<UserDtoModel>(`${environment.API_URL}/auth/profile`);
   }
 
   updateProfile(form: FormData): Observable<UserDtoModel> {
-    return this._http.put<UserDtoModel>(`${environment.apiUrl}/auth/profile`, form);
+    return this._http.put<UserDtoModel>(`${environment.API_URL}/auth/profile`, form);
   }
 }

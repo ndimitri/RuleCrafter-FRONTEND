@@ -4,54 +4,18 @@
   box-sizing: border-box;
 }
 
-/* Global PrimeNG Overrides */
-/* PrimeNG Sidebar Global Styles */
-.p-sidebar {
-  border-radius: 0; /* Remove rounded corners */
-  background-color: #770FFF; /* Custom sidebar background */
-  position: fixed; /* Ensure it stays fixed */
-  height: 100vh; /* Full height for the sidebar */
-  top: 0;
-  left: 0;
-}
-
-
-.p-button {
-  background-color: #007bff; /* Button color */
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-.p-button-outlined {
-  border: 2px solid #007bff; /* Outlined button */
-}
-
-/* Global Burger Menu Styles (if shared across multiple components) */
-.burger-menu li a {
-  text-decoration: none;
-  color: lavender;
-  font-size: 1em;
-  display: block;
-  padding: 0.5em;
-}
-
-.burger-menu li a:hover {
-  color: floralwhite;
-}
-
-/* Shared Utility Classes */
 .card-footer {
   background: none;
   padding: 1rem;
 }
-
-.btn-link {
-  color: #007bff;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.btn-link:hover {
-  text-decoration: underline;
-}
+//
+//.btn-link {
+//  color: #007bff;
+//  text-decoration: none;
+//  font-size: 0.9rem;
+//}
+//
+//.btn-link:hover {
+//  text-decoration: underline;
+//}
 
