@@ -1,5 +1,6 @@
 <section class="campaignOverviewHeader">
-  <button>Main menu</button>
+  <button id="mainMenu" [routerLink]="'/home'">Main menu</button>
+  <button id="back" [routerLink]="'/campaign'">Back</button>
   <h2>{{campaignOverview.campaignName}}</h2>
 </section>
 <section class="campaignOverviewBody">

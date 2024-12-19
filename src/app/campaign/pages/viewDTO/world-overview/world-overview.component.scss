@@ -1,23 +1,57 @@
 :host{
   display: flex;
   flex-direction: column;
+  background-color: #1a1b2e;
+  height: 100vh;
 
   .worldOverviewHeader {
     display: flex;
     flex-direction: column;
+    align-content: center;
     justify-content: center;
+    height: 8em;
 
     button {
+      padding: 12px 24px;
+      background-color: #4f5275;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      min-width: 120px;
       position: absolute;
-      top: 0;
-      left: 0;
-      margin: 1rem;
+      left: 2rem;
+      top: 2rem;
+
+      &:hover:not([disabled]) {
+        background-color: #6f72a4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active:not([disabled]) {
+        transform: translateY(0);
+      }
+
+      &[disabled] {
+        background-color: #363851; // Muted version of brand color
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
     }
 
     h2 {
       display: flex;
       justify-content: center;
-      margin: 2rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
   }
 
@@ -25,18 +59,33 @@
     display: flex;
     flex-direction: row;
     overflow: auto;
+    justify-content: space-evenly;
+    padding: 0 2rem;
 
     .worldOverviewCardLeft {
-      border: black solid 3px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       width: 40rem;
-      height: 40rem;
-      margin: 3rem;
+      height: 30rem;
       position: relative;
+      color: #b9bbd3;
+      background-color: #292C4C;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      margin: 3rem 0;
+      flex-shrink: 0;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 12px;
       }
 
       span {
@@ -53,19 +102,33 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      flex: 1;
+      justify-content: center;
+      padding-left: 2rem;
 
       .worldOverviewCard {
-        border: black solid 3px;
-        width: 25rem;
-        height: 17rem;
-        margin: 3rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        width: 15rem;
+        height: 12rem;
+        margin: 3rem 1.5rem;
         position: relative;
-        //overflow: hidden;
+        color: #b9bbd3;
+        background-color: #292C4C;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
 
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          border-radius: 12px;
         }
 
         span {

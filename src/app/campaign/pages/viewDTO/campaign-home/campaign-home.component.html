@@ -1,9 +1,8 @@
 <section id="campaignHomeHeader">
   <div id="campaignHomeHeadBtn">
     <button id="createCampaign" [routerLink]="'/campaign/createCampaign'">Create Campaign</button>
-    <button id="goBack" [routerLink]="'/home'">Back</button>
   </div>
-  <h2>Campaign</h2>
+  <h2>Campaigns</h2>
 </section>
 <section class="campaignCards">
   @for (card of campaignHomeCard; track card.id) {
