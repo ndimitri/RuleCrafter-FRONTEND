@@ -68,16 +68,16 @@ export enum MagicSchool{
 }
 
 export enum SpellLevel{
-  LEVEL_1 = "LEVEL_1",
-  LEVEL_2 = "LEVEL_2",
-  LEVEL_3 = "LEVEL_3",
-  LEVEL_4 = "LEVEL_4",
-  LEVEL_5 = "LEVEL_5",
-  LEVEL_6 = "LEVEL_6",
-  LEVEL_7 = "LEVEL_7",
-  LEVEL_8 = "LEVEL_8",
-  LEVEL_9 = "LEVEL_9",
-  LEVEL_10 = "LEVEL_10",
+  LEVEL_1 = "LEVEL 1",
+  LEVEL_2 = "LEVEL 2",
+  LEVEL_3 = "LEVEL 3",
+  LEVEL_4 = "LEVEL 4",
+  LEVEL_5 = "LEVEL 5",
+  LEVEL_6 = "LEVEL 6",
+  LEVEL_7 = "LEVEL 7",
+  LEVEL_8 = "LEVEL 8",
+  LEVEL_9 = "LEVEL 9",
+  LEVEL_10 = "LEVEL 10",
 }
 
 // SavingThrow.ts
@@ -134,7 +134,7 @@ export interface Spell {
   component: string;
   duration: string;
   description: string;
-  rollableProps: RollableProp[];
+  rollableProps?: RollableProp[];
 }
 
 // Item.ts

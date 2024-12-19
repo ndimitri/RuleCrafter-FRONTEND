@@ -1,8 +1,14 @@
 :host{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-family: 'BeaufortLoL-Regular', sans-serif;
+  .page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'BeaufortLoL-Regular', sans-serif;
+    background-color:#1a1b2e;
+    height: 100vh;
+  }
+
+
 
   span{
     font-family: "BeaufortLoL-Bold", sans-serif;
@@ -35,6 +41,7 @@
       overflow: auto;
       padding: 1rem;
       position: relative;
+      background: linear-gradient(0deg, #4b4b4b, #6d6d6d);
 
       .character-card-title{
         display: flex;
