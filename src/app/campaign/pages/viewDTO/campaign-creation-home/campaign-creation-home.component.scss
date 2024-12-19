@@ -1,0 +1,161 @@
+.btnContainer {
+  display: grid; /* Active la grille */
+  grid-template-columns: repeat(2, 1fr); /* Toujours 2 colonnes */
+  gap: 40px; /* Espacement important entre les boutons */
+  padding: 40px; /* Espacement autour du conteneur */
+  background-color: #1a1b2e; /* Couleur de fond */
+  justify-items: center; /* Centre les éléments horizontalement */
+  align-items: center; /* Centre les éléments verticalement */
+  min-height: 100vh; /* Prend toute la hauteur de l'écran */
+}
+
+.btnContainer div {
+  display: flex; /* Permet de centrer le bouton */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+}
+
+.creationChoiceBtn {
+  padding: 40px 60px; /* Espacement interne important */
+  background-color: #292C4C; /* Couleur de fond */
+  color: #b9bbd3; /* Couleur du texte */
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Bordure légèrement plus visible */
+  border-radius: 20px; /* Coins arrondis */
+  font-size: 1.8rem; /* Police très grande */
+  font-weight: 700; /* Texte en gras */
+  cursor: pointer; /* Curseur pointeur */
+  transition: all 0.3s ease; /* Animation des changements */
+  width: 90%; /* Boutons prennent presque toute la largeur de leur colonne */
+  max-width: 1000px; /* Largeur maximale très importante */
+  height: 150px; /* Bouton beaucoup plus haut */
+  text-align: center; /* Texte centré */
+}
+
+.creationChoiceBtn:hover {
+  background-color: #363851; /* Couleur de fond au survol */
+  transform: translateY(-5px); /* Effet de léger déplacement */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Ombre au survol */
+}
+
+.creationChoiceBtn:active {
+  transform: translateY(0); /* Retour au niveau normal */
+  box-shadow: none; /* Supprime l'ombre */
+}
+
+@media (max-width: 768px) {
+  .btnContainer {
+    grid-template-columns: 1fr; /* Passe en 1 colonne sur petits écrans */
+  }
+
+  .creationChoiceBtn {
+    padding: 30px 50px; /* Espacement interne ajusté */
+    font-size: 1.5rem; /* Police légèrement réduite */
+    height: 120px; /* Hauteur ajustée pour les petits écrans */
+    width: 100%; /* Boutons occupent toute la largeur disponible */
+  }
+}
+
+.campaignHomeHeader {
+  dispay: flex;
+  background-color: #1a1b2e;
+
+  #campaignHomeHeadBtn {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    #backHome {
+      padding: 12px 24px;
+      background-color: #4f5275;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      min-width: 120px;
+      position: absolute;
+      left: 2rem;
+      top: 2rem;
+
+      &:hover:not([disabled]) {
+        background-color: #6f72a4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active:not([disabled]) {
+        transform: translateY(0);
+      }
+
+      &[disabled] {
+        background-color: #363851;
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+
+    #createCampaign {
+      padding: 12px 24px;
+      background-color: #4f5275;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      min-width: 120px;
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+
+      &:hover:not([disabled]) {
+        background-color: #6f72a4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active:not([disabled]) {
+        transform: translateY(0);
+      }
+
+      &[disabled] {
+        background-color: #363851;
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+  }
+  .title {
+    font-family: 'BeaufortLoL-Bold', sans-serif;
+    font-size: 4em;
+    color: #ffd700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .title::after {
+    content: '';
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20rem;
+    height: 3px;
+    background: linear-gradient(90deg,
+      rgba(255, 215, 0, 0) 0%,
+      rgba(255, 215, 0, 1) 50%,
+      rgba(255, 215, 0, 0) 100%
+    );
+  }
+}
+
+

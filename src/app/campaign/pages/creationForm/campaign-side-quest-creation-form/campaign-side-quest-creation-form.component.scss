@@ -1,6 +1,10 @@
 :host {
   display: flex;
   flex-direction: column;
+  position: relative;
+  background-color: #1a1b2e;
+  min-height: 100vh;
+  color: white;
 
   .navBar {
     display: flex;
@@ -19,32 +23,57 @@
     .sideQuestLeftForm {
       display: flex;
       flex-direction: column;
-      border: black solid 3px;
       padding: 2rem;
       width: 40rem;
       height: 50rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #b9bbd3;
+      background-color: #292C4C;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 
       .sideQuestLeftFormInputs {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        margin: 2rem;
+        color: #b9bbd3;
+        background-color: #292C4C;
+        border-radius: 12px;
 
         .sideQuestLeftFormInput {
           display: flex;
           flex-direction: column;
           align-items: center;
+          font-family: 'BeaufortLoL-Medium', sans-serif;
+          font-size: 1.5rem;
 
           input {
-            border: black solid 2px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b9bbd3;
+            background-color: rgba(65, 68, 98, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
             margin: 2rem;
           }
 
           #sideQuestName {
             width: 25rem;
+            height: 2rem;
           }
 
           #sideQuestDescription {
             width: 25rem;
             height: 15rem;
+          }
+
+          #sideQuestType {
+            width: 25rem;
+            height: 2rem;
+          }
+
+          #sideQuestGiver {
+            margin: 2rem;
           }
         }
       }
@@ -53,42 +82,90 @@
     .sideQuestRightForm {
       display: flex;
       flex-direction: column;
-      border: black solid 3px;
       padding: 2rem;
       width: 40rem;
       height: 50rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #b9bbd3;
+      background-color: #292C4C;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 
       .sideQuestRightFormInputs {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        margin: 2rem;
+        color: #b9bbd3;
+        background-color: #292C4C;
+        border-radius: 12px;
 
         .sideQuestRightFormInput {
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin: 1rem;
+          font-family: 'BeaufortLoL-Medium', sans-serif;
+          font-size: 1.5rem;
 
           input {
-            border: black solid 2px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b9bbd3;
+            background-color: rgba(65, 68, 98, 0.7);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
             margin: 2rem;
           }
 
           #objectiveName {
             width: 25rem;
+            height: 2rem;
           }
 
           #objectiveDescription {
             width: 25rem;
             height: 15rem;
           }
+
+          #sideQuestNpc {
+            margin: 2rem;
+          }
+
+          #sideQuestLocation {
+            margin: 2rem;
+          }
         }
       }
     }
     .saveBtn {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      margin: 3rem;
-    }
+       padding: 12px 24px;
+       background-color: #4f5275;
+       color: white;
+       border: none;
+       border-radius: 8px;
+       cursor: pointer;
+       transition: all 0.3s ease;
+       font-weight: 600;
+       letter-spacing: 0.5px;
+       min-width: 120px;
+       position: absolute;
+       right: 2rem;
+       bottom: 2rem;
+
+       &:hover:not([disabled]) {
+         background-color: #6f72a4;
+         transform: translateY(-2px);
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+       }
+
+       &:active:not([disabled]) {
+         transform: translateY(0);
+       }
+
+       &[disabled] {
+         background-color: #363851; // Muted version of brand color
+         cursor: not-allowed;
+         opacity: 0.7;
+       }
+     }
   }
 }
