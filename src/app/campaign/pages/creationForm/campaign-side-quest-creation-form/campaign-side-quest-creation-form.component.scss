@@ -1,6 +1,10 @@
 :host {
   display: flex;
   flex-direction: column;
+  position: relative;
+  background-color: #1a1b2e;
+  min-height: 100vh;
+  color: white;
 
   .navBar {
     display: flex;

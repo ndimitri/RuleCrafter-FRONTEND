@@ -3,7 +3,8 @@
   flex-direction: column;
   position: relative;
   background-color: #1a1b2e;
-  height: 100vh;
+  min-height: 100vh;
+  color: white;
 
 
   .navBar {
@@ -21,12 +22,21 @@
   .basicsForm {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 2rem;
+
 
     .basicsFormInputs {
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #b9bbd3;
+      background-color: #292C4C;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      width: 60rem;
 
       .minMaxInput {
         display: flex;
@@ -38,13 +48,22 @@
         flex-direction: column;
         align-items: center;
         margin: 2rem;
+        font-family: 'BeaufortLoL-Medium', sans-serif;
+        font-size: 1.5rem;
+
 
         input {
-          border: black solid 2px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: #b9bbd3;
+          background-color: rgba(65, 68, 98, 0.7);
+          border-radius: 12px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+          margin: 2rem;
         }
 
         #campaignName {
           width: 25rem;
+          height: 2rem;
         }
 
         #campaignSummary {
@@ -54,10 +73,12 @@
 
         #minCapacity {
           width: 5rem;
+          height: 2rem;
         }
 
         #maxCapacity {
           width: 5rem;
+          height: 2rem;
         }
 
         #partyRecommendation {
@@ -68,10 +89,35 @@
     }
 
     .saveBtn {
+      padding: 12px 24px;
+      background-color: #4f5275;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      min-width: 120px;
       position: absolute;
-      right: 0;
-      bottom: 0;
-      margin: 3rem;
+      right: 2rem;
+      bottom: 2rem;
+
+      &:hover:not([disabled]) {
+        background-color: #6f72a4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active:not([disabled]) {
+        transform: translateY(0);
+      }
+
+      &[disabled] {
+        background-color: #363851; // Muted version of brand color
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
     }
   }
 }
