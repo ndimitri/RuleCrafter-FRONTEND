@@ -1,27 +1,61 @@
-:host{
-  .page{
+
+
+:host {
+  .page {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    //justify-content: space-between;
     font-family: 'BeaufortLoL-Regular', sans-serif;
-    background-color:#1a1b2e;
-    height: 100vh;
+    background-color: #1a1b2e;
+    min-height: 100vh;
+    padding-top: 2rem;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 1rem ;
+
+    h1 {
+      font-family: 'BeaufortLoL-Bold', sans-serif;
+      font-size: 4em;
+      color: #ffd700;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 3px;
+      background: linear-gradient(90deg,
+        rgba(255, 215, 0, 0) 0%,
+        rgba(255, 215, 0, 1) 50%,
+        rgba(255, 215, 0, 0) 100%
+      );
+    }
   }
 
 
-
-  span{
+  span {
     font-family: "BeaufortLoL-Bold", sans-serif;
   }
 
   .block-decoration {
     padding-bottom: 0.1rem;
-    img{
+    img {
       width: 100%;
     }
   }
 
-  .characters{
+  .characters {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -30,112 +64,141 @@
     margin: 5rem;
     padding: 2rem;
 
-    .character-card{
-      flex: 1 1 calc(33.33% - 5rem);
-      max-width: calc(33.33% - 5rem);
+    .character-card {
+      width: 400px;
+      height: 250px;
+      display: flex;
       flex-direction: column;
       border: black solid 3px;
-      width: 20rem;
-      min-height: 11rem;
-      max-height: 12rem;
-      overflow: auto;
       padding: 1rem;
-      position: relative;
       background: linear-gradient(0deg, #4b4b4b, #6d6d6d);
+      position: relative;
+      transition: transform 0.2s ease-in-out;
 
-      .character-card-title{
+      .character-card-title {
         display: flex;
         justify-content: center;
-        font-size: 1.5em;
-       font-family: 'BeaufortLoL-Bold', sans-serif;
+        font-size: 2em;
+        font-family: 'BeaufortLoL-Bold', sans-serif;
         cursor: pointer;
+        margin-bottom: 0.5rem;
 
-        span{
+        span {
           display: inline-block;
           transition: transform 0.1s ease-in-out;
         }
 
-        span:hover{
+        span:hover {
           transform: scale(1.1);
         }
-
-        //&:hover{
-        //  font-size: 1.7rem;
-        //}
-
       }
 
-      .character-card-classes{
+      .character-card-classes {
         display: flex;
         flex-direction: row;
         gap: 1rem;
         justify-content: center;
         padding-bottom: 0.5rem;
 
-        .character-card-class{
+        .character-card-class {
           display: flex;
           flex-direction: column;
           text-align: center;
 
-          .character-card-class-name{
+          .character-card-class-name {
             font-family: 'BeaufortLoL-Bold', sans-serif;
-            font-size: 1.1em;
+            font-size: 1.5em;
           }
         }
       }
 
-      .character-card-stats{
+      .character-card-stats {
         display: flex;
         justify-content: space-evenly;
-        margin-top: 0.5rem;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+        margin-top: auto;
+        padding: 0.5rem;
         border: 1px solid black;
+        transition: opacity 0.3s ease-in-out;
 
-        .character-card-stat{
+        .character-card-stat {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          //padding: 0.5rem;
-          //border: 1px solid black;
+          align-items: center;
+          width: 40px;
 
-          .character-card-stat-name{
+          .character-card-stat-name {
             font-family: 'BeaufortLoL-Bold', sans-serif;
             font-size: 0.8em;
           }
 
-          .character-card-stat-value{
+          .character-card-stat-value {
             text-align: center;
           }
         }
       }
 
-      .character-card-backstory{
-        display: flex;
-        flex-direction: column;
-        padding-top: 1rem;
+      .character-card-backstory {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(75, 75, 75, 0.98);
+        padding: 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(10px);
+        border-top: 1px solid black;
+        height: 60%;
 
-        span{
-          padding-bottom: 0.5rem;
+        span {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-size: 1.1em;
+          color: #ffd700;
         }
 
-        .character-card-backstory-text{
-          border: 1px solid black;
-          padding: 0.5rem;
-          max-height: 5rem; /* Limite la hauteur de l'élément */
-          overflow: hidden; /* Cache le texte excédentaire */
-          text-overflow: ellipsis; /* Ajoute les points de suspension (...) */
-          display: -webkit-box; /* Utilise un conteneur de type boîte */
-          -webkit-line-clamp: 3; /* Nombre de lignes maximum avant de couper */
-          -webkit-box-orient: vertical; /* Permet le découpage du texte en lignes */
-          line-height: 1.7; /* Ajuste l'espacement des lignes pour éviter les coupures */
-        }
+        .character-card-backstory-text {
+          height: calc(100% - 2rem);
+          overflow-y: auto;
+          font-size: 0.9em;
+          line-height: 1.4;
+          color: #fff;
+          padding-right: 0.5rem;
 
+          /* Personnalisation de la scrollbar */
+          &::-webkit-scrollbar {
+            width: 4px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #ffd700;
+            border-radius: 2px;
+          }
+        }
       }
 
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 
+        .character-card-stats {
+          opacity: 0;
+          visibility: hidden;
+        }
 
+        .character-card-backstory {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
     }
   }
-
 }
+
