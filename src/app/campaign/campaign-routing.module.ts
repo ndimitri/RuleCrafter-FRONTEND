@@ -20,6 +20,10 @@ import {
 import {
   CampaignScenarioCreationFormComponent
 } from './pages/creationForm/campaign-scenario-creation-form/campaign-scenario-creation-form.component';
+import {
+  CampaignSideQuestCreationFormComponent
+} from './pages/creationForm/campaign-side-quest-creation-form/campaign-side-quest-creation-form.component';
+import {CampaignCreationHomeComponent} from './pages/viewDTO/campaign-creation-home/campaign-creation-home.component';
 
 const routes: Routes = [
   {path: '', component: CampaignHomeComponent},
@@ -32,6 +36,8 @@ const routes: Routes = [
   {path: 'campaignCreation/mainQuest', component: CampaignMainQuestCreationFormComponent},
   {path: 'campaignCreation/npc', component: CampaignNpcCreationFormComponent},
   {path: 'campaignCreation/scenario', component: CampaignScenarioCreationFormComponent},
+  {path: 'campaignCreation/sideQuest', component: CampaignSideQuestCreationFormComponent},
+  {path: 'campaignCreation/home', component: CampaignCreationHomeComponent},
 ];
 
 @NgModule({
