@@ -54,3 +54,12 @@ export class RegisterComponent {
     this.router.navigate(['auth/login']);
   }
 }
+
+
+
+
+
+///////////////////////////
+// reste du code
+///////////////////////////
+
