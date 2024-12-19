@@ -17,6 +17,8 @@ import {jwtInterceptor} from './core/interceptors/jwt.interceptor';
 import { MonstersComponent } from './pages/monsters/monsters.component';
 import { AboutComponent } from './pages/about/about.component';
 import { CampaignHomeComponent } from './campaign/pages/viewDTO/campaign-home/campaign-home.component';
+import { CharacterViewComponent } from './character/pages/character-view/character-view.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { CampaignHomeComponent } from './campaign/pages/viewDTO/campaign-home/ca
   providers: [
     provideHttpClient(
       withInterceptors([jwtInterceptor])
-    )
+    ),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

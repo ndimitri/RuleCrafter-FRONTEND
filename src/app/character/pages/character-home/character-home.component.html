@@ -1,0 +1,39 @@
+
+<section class="characters">
+  @for (character of characters; track character.id){
+    <div class="character-card">
+      <div class="character-card-title" [routerLink]="['/character', character.id]" >
+        <span>{{character.name}}</span>
+      </div>
+      <div class="block-decoration">
+        <img src="/assets/images/decorator-hr-lg.png" alt="">
+      </div>
+      <div class="character-card-classes">
+        @for (classe of character.classes; track classe.name){
+          <div class="character-card-class">
+            <div class="character-card-class-name">{{classe.name | titlecase}}</div>
+            <div class="character-card-class-level">(Lvl.{{classe.level}})</div>
+          </div>
+
+
+        }
+      </div>
+
+      <div class="character-card-stats">
+        @for (stat of character.stats; track stat.name){
+          <div class="character-card-stat">
+            <div class="character-card-stat-name">{{stat.shortName | uppercase}}</div>
+            <div class="character-card-stat-value">{{stat.value}}</div>
+          </div>
+        }
+      </div>
+
+      <div class="character-card-backstory">
+          <span>Backstory :</span>
+          <div class="character-card-backstory-text">{{character.backstory}}</div>
+      </div>
+
+    </div>
+  }
+
+</section>

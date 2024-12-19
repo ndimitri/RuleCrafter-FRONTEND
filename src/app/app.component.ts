@@ -6,7 +6,7 @@ import {AuthService} from './features/auth/service/auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent{
   title = 'RuleCrafter-FRONTEND';
   isSidebarVisible: boolean | undefined;
 

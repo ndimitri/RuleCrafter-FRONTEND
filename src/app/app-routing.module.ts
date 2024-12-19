@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'bestiary', component: MonstersComponent},
   { path: 'about', component: AboutComponent},
   { path: 'campaign', loadChildren: () => import('./campaign/campaign.module').then(m => m.CampaignModule)},
+  { path: "character", loadChildren: () => import('./character/character.module').then(m => m.CharacterModule)},
 ];
 
 @NgModule({

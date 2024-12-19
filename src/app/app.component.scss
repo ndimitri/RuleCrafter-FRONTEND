@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "BeaufortLoL-Medium";
+  src: url("/assets/fonts/BeaufortForLoL/BeaufortForLoL-TTF/BeaufortforLOL-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BeaufortLoL-Bold";
+  src: url("/assets/fonts/BeaufortForLoL/BeaufortForLoL-TTF/BeaufortforLOL-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BeaufortLoL-Regular";
+  src: url("/assets/fonts/BeaufortForLoL/BeaufortForLoL-TTF/BeaufortforLOL-Regular.ttf") format("truetype");
+}
 .layout-with-sidebar {
   display: grid;
   grid-template-columns: 5em 1fr; /* Sidebar fixed at 5em, main content fills the rest */
