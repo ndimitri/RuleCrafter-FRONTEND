@@ -1,79 +1,81 @@
-
-<div class="character-sheet">
-  <header [ngClass]="alignmentClass">
-    <h1>{{character.name}}</h1>
-    <div class="info">
-      <div class="classes">
-        <strong>Classe(s) : </strong>
-        @for (classe of character.classes; track classe.name){
-          <div class="classe">{{classe.name | titlecase}} (Lvl.{{classe.level}})</div>
-        }
+<div class="page">
+  <div class="character-sheet">
+    <header [ngClass]="alignmentClass">
+      <h1>{{character.name}}</h1>
+      <div class="info">
+        <div class="classes">
+          <strong>Classe(s) : </strong>
+          @for (classe of character.classes; track classe.name){
+            <div class="classe">{{classe.name | titlecase}} (Lvl.{{classe.level}})</div>
+          }
+        </div>
+        <div><strong>Race : </strong>{{ character.race | titlecase}}</div>
+        <div><strong>Alignment : </strong>{{ character.alignment.replace("_", " ") | titlecase}}</div>
       </div>
-      <div><strong>Race : </strong>{{ character.race | titlecase}}</div>
-      <div><strong>Alignment : </strong>{{ character.alignment.replace("_", " ") | titlecase}}</div>
-    </div>
-    <div class="header-decoration">
-      <img src="/assets/images/decorator-hr-lg.png" alt="">
-    </div>
-  </header>
-
-  <section class="up-blocks">
-    <div class="stat-block">
-      <div class="stat-block-name block-name">
-        <h2>Stats</h2>
+      <div class="header-decoration">
+        <img src="/assets/images/decorator-hr-lg.png" alt="">
       </div>
-      <div class="stats">
-        @for (stat of character.stats; track stat.name){
-          <div class="stat">
-            <div class="stat-name">{{stat.shortName | uppercase}}</div>
-            <div class="stat-value">{{stat.value}}</div>
+    </header>
+
+    <section class="up-blocks">
+      <div class="stat-block">
+        <div class="stat-block-name block-name">
+          <h2>Stats</h2>
+        </div>
+        <div class="stats">
+          @for (stat of character.stats; track stat.name){
+            <div class="stat">
+              <div class="stat-name">{{stat.shortName | uppercase}}</div>
+              <div class="stat-value">{{stat.value}}</div>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="description-block">
+        <div class="description-block-name block-name">
+          <h2>Description</h2>
+        </div>
+        <div class="block-decoration">
+          <img src="/assets/images/t1HeaderDivider.png" alt="">
+        </div>
+        <div class="description-infos">
+          <div class="description-infos-left">
+            <div class="description-info"><strong>Age :</strong> {{character.description.age}}y</div>
+            <div class="description-info"><strong>Height :</strong> {{character.description.height}}</div>
+            <div class="description-info"><strong>Weight : </strong>{{character.description.weight}}</div>
           </div>
-        }
-      </div>
-    </div>
-    <div class="description-block">
-      <div class="description-block-name block-name">
-        <h2>Description</h2>
-      </div>
-      <div class="block-decoration">
-        <img src="/assets/images/t1HeaderDivider.png" alt="">
-      </div>
-      <div class="description-infos">
-        <div class="description-infos-left">
-          <div class="description-info"><strong>Age :</strong> {{character.description.age}}y</div>
-          <div class="description-info"><strong>Height :</strong> {{character.description.height}}</div>
-          <div class="description-info"><strong>Weight : </strong>{{character.description.weight}}</div>
-        </div>
-        <div class="description-infos-right">
-          <div class="description-info"><strong> Eyes color:</strong> {{character.description.eyes | titlecase}}</div>
-          <div class="description-info"><strong>Skin color :</strong> {{character.description.skin | titlecase}}</div>
-          <div class="description-info"><strong>Hair color : </strong>{{character.description.hair | titlecase}}</div>
-        </div>
+          <div class="description-infos-right">
+            <div class="description-info"><strong> Eyes color:</strong> {{character.description.eyes | titlecase}}</div>
+            <div class="description-info"><strong>Skin color :</strong> {{character.description.skin | titlecase}}</div>
+            <div class="description-info"><strong>Hair color : </strong>{{character.description.hair | titlecase}}</div>
+          </div>
 
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="up-blocks">
-    <div class="spell-block">
-      <div class="spell-block-name block-name">
-        <h2>Spells</h2>
-      </div>
-      <div class="spells-list">
+    <div class="up-blocks">
+      <div class="spell-block">
+        <div class="spell-block-name block-name">
+          <h2>Spells</h2>
+        </div>
+        <div class="spells-list">
           @for(spell of character.spells; track spell.name){
             <div class="spell">
               <div class="spell-name">{{spell.name | titlecase}}</div>
               <div class="spell-level">(Lvl.{{spell.level.at(-1)}})</div>
             </div>
           }
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="up-blocks">
-    @for(savingThrow of character.savingThrows; track savingThrow.abilityName){
-      <div class="savingThrow">{{savingThrow.abilityName}} : {{savingThrow.value}}</div>
-    }
-  </div>
+    <div class="up-blocks">
+      @for(savingThrow of character.savingThrows; track savingThrow.abilityName){
+        <div class="savingThrow">{{savingThrow.abilityName}} : {{savingThrow.value}}</div>
+      }
+    </div>
 
+  </div>
 </div>
+

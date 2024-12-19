@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {
-  Alignment, CharacterClass, Feat,
+  Alignment,
+  CharacterClass,
+  Feat,
   ItemRarity,
   ItemType,
   MagicSchool,
+  Spell,
   SpellLevel
 } from '../../models/character.model';
 import {nonNullPositiveNumber} from '../../validators/non-null-positive-number';
@@ -12,7 +15,7 @@ import {APIClassesResult} from '../../models/APIClassesResult';
 import {ApiService} from '../../services/api.service';
 import {APIRacesResult} from '../../models/APIRacesResult';
 import {APIStatsResult} from '../../models/APIStatsResult';
-import {Observable, toArray} from 'rxjs';
+import {toArray} from 'rxjs';
 import {CharacterForm} from '../../models/form/CharacterForm';
 import {APIMagicSchoolsResult} from '../../models/APIMagicSchoolResult';
 
@@ -29,6 +32,10 @@ export class CharacterFormComponent {
   statsForm : FormGroup;
   featsForm : FormGroup;
   spellsForm: FormGroup;
+  // savingThrowsForm: FormGroup;
+  // proficiencyForm: FormGroup;
+  // itemsForm: FormGroup;
+
 
   fullForm : FormGroup;
   //Enums
@@ -46,6 +53,7 @@ export class CharacterFormComponent {
 
   //Tests
   featsList : Feat[] = [];
+  spellsList: Spell[] = [];
 
 
   constructor(private formBuilder: FormBuilder, private _apiService: ApiService) {
@@ -95,6 +103,7 @@ export class CharacterFormComponent {
       description: [null, [Validators.required]],
       rollableProps: [null, [Validators.required]]
     });
+
 
 
     this.fullForm = this.formBuilder.group({
@@ -241,10 +250,37 @@ export class CharacterFormComponent {
     this.featsList.push(feat);
     this.featsForm.reset();
 
+  }
+
+  addSpell() {
+    this.spellsForm.markAllAsTouched();
+
+    if(this.spellsForm.invalid){
+      console.log("Spell Form invalid");
+      return;
+    }
+
+    let name = this.spellsForm.get('name')?.value;
+    let level = this.spellsForm.get('level')?.value;
+    let description = this.spellsForm.get('description')?.value;
+
+    let spell : Spell = {
+      name: name,
+      level: level,
+      description: description,
+      school: MagicSchool.ABJURATION,
+      castingTime: '',
+      range: '',
+      component: '',
+      duration : '',
+    }
 
 
+    this.spellsList.push(spell);
+    this.spellsForm.reset();
 
   }
+
 
   // Suppression d'une feat
   // removeFeat(index: number) {
