@@ -14,6 +14,7 @@
   url('/assets/images/dnd.jpg') no-repeat center center;
   background-size: cover;
   padding: 20px;
+  font-family: 'BeaufortLoL-Regular', sans-serif;
 }
 
 .login-card, .register-card {
@@ -154,11 +155,11 @@
 .welcome-arch {
   position: absolute;
   text-align: center;
-  font-family: 'Cursive', sans-serif;
   font-size: 2rem;
   color: #ffffff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
   pointer-events: none;
+  font-family: "BeaufortLoL-Bold", sans-serif;
 }
 
 .welcome-arch.top {
