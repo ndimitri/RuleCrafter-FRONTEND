@@ -43,7 +43,7 @@
       }
     }
 
-    h2 {
+    .title {
       font-family: 'BeaufortLoL-Bold', sans-serif;
       font-size: 4em;
       color: #ffd700;
@@ -51,21 +51,21 @@
       text-transform: uppercase;
       letter-spacing: 4px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
 
-      h2::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200px;
-        height: 3px;
-        background: linear-gradient(90deg,
-          rgba(255, 215, 0, 0) 0%,
-          rgba(255, 215, 0, 1) 50%,
-          rgba(255, 215, 0, 0) 100%
-        );
-      }
+    .title::after {
+      content: '';
+      position: absolute;
+      top: 13%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 65rem;
+      height: 3px;
+      background: linear-gradient(90deg,
+        rgba(255, 215, 0, 0) 0%,
+        rgba(255, 215, 0, 1) 50%,
+        rgba(255, 215, 0, 0) 100%
+      );
     }
   }
 

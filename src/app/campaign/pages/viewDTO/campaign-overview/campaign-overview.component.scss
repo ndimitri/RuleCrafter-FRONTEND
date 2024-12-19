@@ -43,7 +43,7 @@
       top: 2rem;
     }
 
-    h2 {
+    .title {
       font-family: 'BeaufortLoL-Bold', sans-serif;
       font-size: 4em;
       color: #ffd700;
@@ -53,13 +53,13 @@
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
 
-    &::after {
+    .title::after {
       content: '';
       position: absolute;
-      bottom: 0;
+      top: 22%;
       left: 50%;
       transform: translateX(-50%);
-      width: 200px;
+      width: 70rem;
       height: 3px;
       background: linear-gradient(90deg,
         rgba(255, 215, 0, 0) 0%,
