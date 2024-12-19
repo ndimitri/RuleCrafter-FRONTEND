@@ -219,7 +219,7 @@
                 <mat-select formControlName="level">
                   @for(level of SpellLevel | keyvalue; track level.key){
                     <mat-option [value]="level.key">
-                      {{level.value | titlecase}}
+                      {{level.value.replace("_", " ") | titlecase}}
                     </mat-option>
                   }
                 </mat-select>
@@ -228,7 +228,7 @@
                 <mat-label>Spell Description</mat-label>
                 <input matInput type="text" placeholder="Abracadbra" formControlName="description">
               </mat-form-field>
-              <button mat-flat-button (click)="addSpell()">Add spell</button>
+              <button mat-flat-button type="button" (click)="addSpell()">Add spell</button>
 
 
 
@@ -252,6 +252,199 @@
 
           </div>
         </mat-step>
+
+        <!-- Saving Throws Step -->
+        <mat-step [stepControl]="savingThrowsForm" formGroupName="savingThrowsForm">
+          <ng-template matStepLabel>Saving Throws</ng-template>
+          <div class="form-content">
+            <h2>Saving Throws</h2>
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Ability Name</mat-label>
+                <mat-select formControlName="abilityName">
+                  <mat-option *ngFor="let stat of stats?.results" [value]="stat.name">
+                    {{ stat.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Value</mat-label>
+                <input matInput type="number" formControlName="value">
+              </mat-form-field>
+              <button mat-flat-button (click)="addSavingThrow()">Add Saving Throw</button>
+            </div>
+
+            <div class="saving-throws-list">
+              <mat-card *ngFor="let savingThrow of savingThrowsList" class="saving-throw-card">
+                <mat-card-header>
+                  <mat-card-title>{{ savingThrow.abilityName }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Value: {{ savingThrow.value }}</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+
+            <div class="navigation-buttons">
+              <button mat-flat-button matStepperPrevious type="button">Previous</button>
+              <button mat-flat-button matStepperNext type="button">Next</button>
+            </div>
+          </div>
+        </mat-step>
+
+
+        <!-- Proficiencies Step -->
+        <mat-step [stepControl]="proficiencyForm" formGroupName="proficiencyForm">
+          <ng-template matStepLabel>Proficiencies</ng-template>
+          <div class="form-content">
+            <h2>Proficiencies</h2>
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Skill Name</mat-label>
+                <input matInput type="text" formControlName="skillName">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Proficiency Level</mat-label>
+                <mat-select formControlName="proficiencyLevel">
+                  <mat-option *ngFor="let level of ProficiencyLevel | keyvalue" [value]="level.key">
+                    {{ level.value }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Governing Skill</mat-label>
+                <mat-select formControlName="governingSkill">
+                  <mat-option *ngFor="let stat of stats?.results" [value]="stat.index">
+                    {{ stat.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button mat-flat-button (click)="addProficiency()">Add Proficiency</button>
+            </div>
+
+            <div class="proficiencies-list">
+              <mat-card *ngFor="let proficiency of proficienciesList" class="proficiency-card">
+                <mat-card-header>
+                  <mat-card-title>{{ proficiency.skillName }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Level: {{ proficiency.proficiencyLevel }}</p>
+                  <p>Governing Skill: {{ proficiency.governingSkill }}</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+
+            <div class="navigation-buttons">
+              <button mat-flat-button matStepperPrevious type="button">Previous</button>
+              <button mat-flat-button matStepperNext type="button">Next</button>
+            </div>
+          </div>
+        </mat-step>
+
+
+        <!-- Items Step -->
+        <mat-step [stepControl]="itemsForm" formGroupName="itemsForm">
+          <ng-template matStepLabel>Items</ng-template>
+          <div class="form-content">
+            <h2>Character Items</h2>
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Item Name</mat-label>
+                <input matInput type="text" formControlName="name">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea
+                  matInput
+                  formControlName="description"
+                  rows="3"
+                  placeholder="Item description"
+                ></textarea>
+              </mat-form-field>
+
+              <div class="item-details-grid">
+                <mat-form-field>
+                  <mat-label>Weight</mat-label>
+                  <input matInput type="number" formControlName="weight">
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Rarity</mat-label>
+                  <mat-select formControlName="rarity">
+                    <mat-option *ngFor="let rarity of ItemRarity | keyvalue" [value]="rarity.value">
+                      {{ rarity.value }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Type</mat-label>
+                  <mat-select formControlName="type">
+                    <mat-option *ngFor="let type of ItemType | keyvalue" [value]="type.value">
+                      {{ type.value }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div formGroupName="price" class="price-group">
+                <mat-form-field>
+                  <mat-label>Price Value</mat-label>
+                  <input matInput type="number" formControlName="value">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Currency</mat-label>
+                  <mat-select formControlName="currency">
+                    <mat-option value="GP">Gold Pieces (GP)</mat-option>
+                    <mat-option value="SP">Silver Pieces (SP)</mat-option>
+                    <mat-option value="CP">Copper Pieces (CP)</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <button
+                mat-flat-button
+                color="primary"
+                (click)="addItem()"
+                [disabled]="itemsForm.invalid"
+              >
+                Add Item
+              </button>
+            </div>
+
+            <div class="items-list">
+              <mat-card *ngFor="let item of itemsList" class="item-card">
+                <mat-card-header>
+                  <mat-card-title>{{ item.name }}</mat-card-title>
+                  <mat-card-subtitle>
+                    {{ item.type }} - {{ item.rarity }}
+                  </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>{{ item.description }}</p>
+                  <div class="item-details">
+                    <span>Weight: {{ item.weight }}</span>
+                    <span>Price: {{ item.price.amount }} {{ item.price.currency }}</span>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+
+            <div class="navigation-buttons">
+              <button mat-flat-button matStepperPrevious type="button">Previous</button>
+              <button
+                mat-flat-button
+                matStepperNext
+                type="submit"
+                routerLink="/character"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </mat-step>
+
 
 
       </mat-stepper>

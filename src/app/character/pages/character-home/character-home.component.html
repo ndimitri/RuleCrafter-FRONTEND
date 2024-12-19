@@ -1,4 +1,8 @@
 <div class="page">
+  <div class="section-title">
+    <h1>Characters</h1>
+  </div>
+
   <section class="characters">
     @for (character of characters; track character.id){
       <div class="character-card">
@@ -28,10 +32,10 @@
           }
         </div>
 
-<!--        <div class="character-card-backstory">-->
-<!--          <span>Backstory :</span>-->
-<!--          <div class="character-card-backstory-text">{{character.backstory}}</div>-->
-<!--        </div>-->
+        <div class="character-card-backstory">
+          <span>Backstory :</span>
+          <div class="character-card-backstory-text">{{character.backstory}}</div>
+        </div>
 
       </div>
     }

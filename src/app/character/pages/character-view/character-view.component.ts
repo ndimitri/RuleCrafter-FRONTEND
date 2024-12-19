@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CharacterService} from '../../services/character.service';
-import {Character} from '../../models/character.model';
+import {Character, Item} from '../../models/character.model';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -10,11 +10,10 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CharacterViewComponent {
 
-  // @Input({required:true})
-  // characterId!: number;
+
 
   character! : Character;
-
+  selectedItem? : Item;
 
   constructor(private _characterService: CharacterService, private _activatedRoute: ActivatedRoute,) {
   }
@@ -41,4 +40,11 @@ export class CharacterViewComponent {
     return this.character.alignment.toLowerCase().replace('_', '-');  // 'LAWFUL_GOOD' devient 'lawful-good'
   }
 
+  showItemDetails(item: Item) {
+    this.selectedItem = item;
+  }
+
+  hideItemDetails() {
+    this.selectedItem = undefined;
+  }
 }

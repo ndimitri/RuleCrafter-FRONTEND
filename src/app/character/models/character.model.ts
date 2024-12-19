@@ -160,3 +160,12 @@ export interface RollableProp {
   magnitude: string;
   magnitudeType: string;
 }
+
+
+export enum ProficiencyLevel {
+  UNTRAINED = 1,
+  HALF_PROFICIENT = 2,
+  PROFICIENT = 3,
+  EXPERT = 4,
+  MASTER = 5
+}
